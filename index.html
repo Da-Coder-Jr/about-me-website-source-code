@@ -1,246 +1,264 @@
-<!-- .... I'm so disappointed in you.Why?...why are you looking at this code? Why?? Don't go using this for bad....why?..alr i'm done do whatever it's public(bcuz to host it on pages)... -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>INFO LEAKED! LOL</title>
+    <title>@Da-Coder-Jr/@CHILL-BEATS :D</title>
     <style>
-        body, html {
-            height: 100%;
-            width: 100%;
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
             margin: 0;
             padding: 0;
-            background-color: #000;
-            overflow: hidden;
-            cursor: url('sparkle-info.gif'), auto; /* Custom Cursor from sparkle-info */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-            transform-origin: top left;
-            transition: transform 0.3s ease-in-out;
         }
-
-        /* Video Background */
-        video#background-video {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: -1;
-        }
-
-        /* Full-Screen White Text */
-        #full-screen-text {
-            display: none;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            color: white;
-            font-size: 2.5vw;
-            font-family: 'Courier New', monospace;
+        .center {
             text-align: center;
-            z-index: 2;
-            white-space: pre-wrap; /* Allows for multi-line text */
         }
-
-        /* Centered Click to Enter Text */
-        #click-to-enter {
-            font-size: 2.5vw;
-            color: #FFFFFF;
-            text-shadow: 0 0 10px #FFFFFF, 0 0 20px #FFFFFF;
-            cursor: pointer;
-            position: absolute;
-            top: 75%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 3;
-            visibility: hidden;
+        .divider {
+            margin: 20px 0;
+            border-bottom: 1px solid #ccc;
         }
-
-        #sparkles {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 1;
-        }
-
-        .sparkle {
-            position: absolute;
-            width: 10px;
-            height: 10px;
-            background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 80%);
-            border-radius: 50%;
-            pointer-events: none;
-            animation: sparkle 0.8s ease-out;
-        }
-
-        @keyframes sparkle {
-            0% {
-                transform: scale(1);
-                opacity: 1;
-            }
-            100% {
-                transform: scale(2);
-                opacity: 0;
-            }
-        }
-
-        /* Animated Title Text */
-        #info-leaked {
-            font-size: 5vw;
-            color: #FF0000;
-            font-family: 'Courier New', monospace;
-            position: absolute;
-            top: 20%;
-            left: 50%;
-            transform: translateX(-50%);
-            animation: flicker 1.5s infinite;
-            z-index: 2;
-            white-space: nowrap;
-        }
-
-        @keyframes flicker {
-            0% { opacity: 1; }
-            50% { opacity: 0.8; }
-            100% { opacity: 1; }
+        img {
+            max-width: 100%;
+            height: auto;
         }
     </style>
 </head>
 <body>
 
-    <!-- Video Background -->
-    <video autoplay muted loop id="background-video">
-        <source src="Comp_1_3.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
+<div class="center">
+  <h2><strong>@Da-Coder-Jr/@CHILL-BEATS :D</strong></h2>
+</div>
 
-    <!-- Animated Title -->
-    <div id="info-leaked">INFO LEAKED! LOL</div>
+<div class="divider"></div>
 
-    <!-- Click to Enter Text -->
-    <div id="click-to-enter">CLICK TO ENTER...</div>
+<div class="center">
+  <img src="https://media.giphy.com/media/jkhtEUhl7OuVpuFJij/giphy.gif" alt="Coding GIF" />
+</div>
 
-    <!-- Full-Screen Text Overlay -->
-    <div id="full-screen-text"></div>
+<div class="divider"></div>
 
-    <div id="sparkles"></div>
+## 👀 Who Am I?
 
-    <!-- Background Music -->
-    <audio id="background-music" loop>
-        <source src="Basement - Covet (with lyrics).mp3" type="audio/mp3">
-        Your browser does not support the audio element.
-    </audio>
+<div class="center">
+  <strong>Hello!👋 I'm Da-Coder-Jr, or the name I also go by CHILL-BEATS :D,</strong><br>
+  <strong>a passionate coder who loves exploring new technologies and collaborating on exciting projects.</strong><br>
+  <strong>I'm always eager to learn, innovate, and share knowledge with the community.</strong><br>
+  <strong>My journey in coding started with an insatiable curiosity, and I’ve been hooked ever since!</strong><br>
+</div>
 
-    <script>
-        // Type out the "CLICK TO ENTER..." text letter by letter
-        function typeOutText(text, elementId, delay) {
-            let i = 0;
-            const element = document.getElementById(elementId);
-            element.style.visibility = 'visible';
-            function type() {
-                if (i < text.length) {
-                    element.innerHTML += text.charAt(i);
-                    i++;
-                    setTimeout(type, delay);
-                }
-            }
-            type();
-        }
+<div class="divider"></div>
 
-        // Initialize the typing effect when the page loads
-        window.onload = function() {
-            typeOutText('CLICK TO ENTER...', 'click-to-enter', 50);
-            adjustZoom();
-        };
+## 💻 My Skills & Tools
 
-        // Glittery Mouse Trail Effect with Sparkles
-        document.addEventListener('mousemove', (e) => {
-            const sparkle = document.createElement('div');
-            sparkle.classList.add('sparkle');
-            sparkle.style.left = `${e.clientX}px`;
-            sparkle.style.top = `${e.clientY}px`;
-            document.getElementById('sparkles').appendChild(sparkle);
-            setTimeout(() => sparkle.remove(), 800); // Remove after 0.8 seconds
-        });
+<div class="center">
+  <img src="https://img.shields.io/badge/Code-Python-blue?style=for-the-badge&logo=python&logoColor=white&style=flat-square&rounded=true" alt="Python Badge" />
+  <img src="https://img.shields.io/badge/Code-JavaScript-yellow?style=for-the-badge&logo=javascript&logoColor=white&style=flat-square&rounded=true" alt="JavaScript Badge" />
+  <img src="https://img.shields.io/badge/Code-HTML-orange?style=for-the-badge&logo=html5&logoColor=white&style=flat-square&rounded=true" alt="HTML Badge" />
+  <img src="https://img.shields.io/badge/Code-CSS-blue?style=for-the-badge&logo=css3&logoColor=white&style=flat-square&rounded=true" alt="CSS Badge" />
+</div>
 
-        // Fetch Visitor Information using IP-based geolocation
-        function fetchVisitorInfo() {
-            fetch('https://ipapi.co/json/')
-                .then(response => response.json())
-                .then(data => {
-                    const infoText = `
-                        IP Address: ${data.ip}
-                        Country: ${data.country_name}
-                        Region: ${data.region}
-                        City: ${data.city}
-                        ZIP Code: ${data.postal}
-                        Full Location: ${data.city}, ${data.region}, ${data.country_name}
-                        Latitude: ${data.latitude}
-                        Longitude: ${data.longitude}
-                        Timezone: ${data.timezone}
-                        Current Time: ${new Date().toLocaleString('en-US', { timeZone: data.timezone })}
-                        ISP: ${data.org}
-                        Autonomous System: ${data.asn}
-                        Browser Name: ${navigator.appName}
-                        Browser Version: ${navigator.appVersion}
-                        Platform Name: ${navigator.platform}
-                        Mobile/Tablet: ${navigator.userAgent.includes('Mobi') ? 'Yes' : 'No'}
-                        Referrer: ${document.referrer || 'None'}
-                        System Languages: ${navigator.language}
-                        Screen Width: ${screen.width}
-                        Screen Height: ${screen.height}
-                        Window Width: ${window.innerWidth}
-                        Window Height: ${window.innerHeight}
-                        Display Pixel Depth: ${screen.pixelDepth}
-                        Screen Orientation: ${screen.orientation.type}
-                        Screen Rotation: ${screen.orientation.angle}
-                        CPU Threads: ${navigator.hardwareConcurrency || 'Unknown'}
-                        Available Browser Memory: ${navigator.deviceMemory || 'Unknown'} GB
-                        GPU Vendor: ${navigator.gpu ? navigator.gpu.vendor : 'Unknown'}
-                        GPU Info: ${navigator.gpu ? navigator.gpu.renderer : 'Unknown'}
-                    `;
-                    document.getElementById('full-screen-text').innerText = infoText;
-                })
-                .catch(error => {
-                    document.getElementById('full-screen-text').innerText = 'Error fetching data';
-                    console.error('Error fetching IP geolocation data:', error);
-                });
-        }
+### Programming Languages:
+- 🌟 **Python**: My go-to language for automation, data analysis, scripting, and more.
+- 🌟 **JavaScript**: Bringing interactivity to the web with both front-end and back-end development.
+- 🌟 **HTML/CSS**: Crafting beautiful and responsive websites.
 
-        // Adjust Zoom Based on Screen Size
-        function adjustZoom() {
-            const body = document.body;
-            const width = window.innerWidth;
-            const height = window.innerHeight;
-            const scaleX = width / body.clientWidth;
-            const scaleY = height / body.clientHeight;
-            const scale = Math.min(scaleX, scaleY);
-            body.style.transform = `scale(${scale})`;
-        }
+### Development Tools:
+- 🔧 **Git & GitHub**: Essential for version control and collaborating with developers worldwide.
+- 🔧 **VSCode**: The Swiss Army knife of code editors with tons of extensions to power productivity.
+- 🔧 **Node.js**: Perfect for building scalable server-side applications and scripts.
 
-        window.addEventListener('resize', adjustZoom);
+### Frameworks:
+- 🚀 **React**: For building fast, dynamic, and responsive web applications.
+- 🚀 **Express**: A lightweight and powerful back-end framework to complement Node.js.
 
-        // Click to Enter and Reveal Information
-        document.getElementById('click-to-enter').addEventListener('click', () => {
-            document.getElementById('click-to-enter').style.display = 'none';
-            document.getElementById('full-screen-text').style.display = 'block';
-            fetchVisitorInfo();
-            document.getElementById('background-music').play();
-        });
-    </script>
+<div class="divider"></div>
+
+## 💡 Tips, Hacks & Tricks
+
+### **VSCode Hacks**
+
+#### **Zen Mode**
+- **What It Does**: Hides all distractions in VSCode, giving you a full-screen, minimalistic environment to focus on coding.
+- **How to Use**: 
+  - Press `Ctrl + K Z` (Windows/Linux) or `Cmd + K Z` (Mac) to enter Zen Mode.
+  - Press the same combination to exit Zen Mode.
+
+#### **Multi-Cursor Magic**
+- **What It Does**: Allows you to place multiple cursors in your text, making simultaneous edits in different places.
+- **How to Use**: 
+  - Hold `Alt` (Windows/Linux) or `Option` (Mac) and click in multiple places where you want to place cursors.
+
+#### **Quick Rename**
+- **What It Does**: Quickly rename all instances of a variable or function.
+- **How to Use**: 
+  - Highlight the variable and press `F2`, then enter the new name and press `Enter`.
+
+#### **Command Palette**
+- **What It Does**: Provides quick access to all VSCode commands.
+- **How to Use**: 
+  - Press `Ctrl + Shift + P` (Windows/Linux) or `Cmd + Shift + P` (Mac) to open the Command Palette.
+
+#### **Integrated Terminal**
+- **What It Does**: Opens a terminal right within VSCode.
+- **How to Use**: 
+  - Press `Ctrl + `` (Windows/Linux) or `Cmd + `` (Mac) to open/close the integrated terminal.
+
+#### **Live Server**
+- **What It Does**: Instantly sees changes in your web projects by running a local server.
+- **How to Set Up**: 
+  1. Install the "Live Server" extension from the VSCode marketplace.
+  2. Open your HTML file and right-click, then select "Open with Live Server."
+
+### **Git & GitHub Hacks**
+
+#### **Speedy Commits**
+- **What It Does**: Combines the staging and commit process into a single step.
+- **How to Use**: 
+  - Run `git commit -am "your message"` to add and commit changes in one go.
+
+#### **Undo Last Commit**
+- **What It Does**: Allows you to undo your last commit while keeping your changes.
+- **How to Use**: 
+  - Run `git reset --soft HEAD~1` to undo the last commit.
+
+#### **Keep Your Fork Up to Date**
+- **What It Does**: Synchronizes your fork with the upstream repository.
+- **How to Use**: 
+  1. Add the upstream repository: `git remote add upstream <upstream-repo-url>`
+  2. Fetch the latest changes: `git fetch upstream`
+  3. Merge changes into your fork: `git merge upstream/master`
+
+#### **Interactive Rebase**
+- **What It Does**: Allows you to edit, combine, or delete commits in your history.
+- **How to Use**: 
+  - Run `git rebase -i HEAD~n` where `n` is the number of commits you want to rebase.
+
+#### **GitHub CLI**
+- **What It Does**: Manage GitHub repositories from your terminal.
+- **How to Set Up**: 
+  1. Install GitHub CLI: `brew install gh` (macOS) or follow the instructions for your OS [here](https://cli.github.com/).
+  2. Authenticate: `gh auth login`
+  3. Use commands like `gh repo create`, `gh issue list`, etc.
+
+<div class="divider"></div>
+
+## 🖼️ Dynamic GitHub Art
+
+<div class="center">
+  <img src="https://octodex.github.com/images/daftpunktocat-guy.gif" alt="GitHub Art" />
+</div>
+
+<div class="divider"></div>
+
+## 🎥 Special Video of the Day
+
+<div class="center">
+  <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">
+    <img src="https://img.youtube.com/vi/dQw4w9WgXcQ/0.jpg" alt="Special Video" width="300" />
+  </a>
+  <p>Click to watch today's special video!</p>
+</div>
+
+<div class="divider"></div>
+
+## 🎮 My Fun Side
+- **Favorite Game:** Portal 2 - Because who doesn't love solving puzzles with portals?
+- **Favorite Anime:** Cute anime characters - Because aesthetics matter! 😊
+- **Coding Music:** Chill beats for coding - Keeps me in the zone!
+- **Favorite Snack:** 🍕 Pizza - The ultimate coding fuel.
+- **Hobbies:** 🎮 Gaming, 🎨 Drawing, 📚 Reading Sci-Fi.
+
+<div class="divider"></div>
+
+## 📈 My GitHub Stats
+
+<div class="center">
+  <img src="https://github-readme-stats.vercel.app/api?username=Da-Coder-Jr&show_icons=true&theme=radical" alt="GitHub Stats" />
+</div>
+
+<div class="divider"></div>
+
+## 🏆 GitHub Trophies
+
+<div class="center">
+  <img src="https://github-profile-trophy.vercel.app/?username=Da-Coder-Jr&theme=radical" alt="GitHub Trophies" />
+</div>
+
+<div class="divider"></div>
+
+## 🌐 GitHub Profile Views
+
+<div class="center">
+  <img src="https://komarev.com/ghpvc/?username=Da-Coder-Jr&color=brightgreen" alt="Profile Views" />
+</div>
+
+<div class="divider"></div>
+
+## 📊 GitHub Streak
+
+<div class="center">
+  <img src="https://github-readme-streak-stats.herokuapp.com/?user=Da-Coder-Jr&theme=radical" alt="GitHub Streak" />
+</div>
+
+<div class="divider"></div>
+
+## 🔭 What I’m Working On
+- 🚀 **Personal Projects:** Constantly developing new features and refining my existing work.
+- 🤝 **Collaboration:** Actively collaborating with others to improve performance and add new features to shared projects.
+- 🎓 **Learning:** Diving deeper into machine learning and AI.
+
+<div class="divider"></div>
+
+## ✨ Random Developer Wisdom
+
+<div class="center">
+  <img src="https://quotes-github-readme.vercel.app/api?type=horizontal&theme=radical" alt="Random Developer Wisdom" />
+</div>
+
+<div class="divider"></div>
+
+## 😺 GitHub Stats Galore
+- **Languages I Use:**
+<div class="center">
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Da-Coder-Jr&layout=compact&theme=radical" alt="Top Languages" />
+</div>
+
+<div class="divider"></div>
+
+## 🎨 Just for Fun - A Little Direction
+- **Which Way Should I Go?**
+  - <img src="https://img.icons8.com/fluent/48/000000/long-arrow-left.png"/> WHICH WAY?
+  - <img src="https://img.icons8.com/fluent/48/000000/long-arrow-right.png"/> THAT WAY!
+
+<div class="divider"></div>
+
+## 🎯 Challenging Myself
+- 🎮 I love participating in coding challenges and hackathons to sharpen my skills and have fun while doing it!
+
+<div class="divider"></div>
+
+## 🎨 My Theme Recommendation
+<div class="center">
+  <img src="https://img.shields.io/badge/Theme-Nord%20Theme-blue?style=for-the-badge&logo=nord&logoColor=white&style=flat-square&rounded=true" alt="Nord Theme" />
+</div>
+
+<div class="divider"></div>
+
+    
+## 📣 Shoutouts to the Community
+- 🏆 A special thanks to all the contributors and maintainers of the amazing open-source projects I use daily. Your hard work makes the coding world a better place!
+
+<div class="divider"></div>
+
+## 💬 Let’s Talk!
+Feel free to reach out if you want to discuss coding, collaborate on projects, or just say hi! I'm always open to new ideas and connections.
+
+<div class="divider"></div>
+
+## 🚀 Want a Free GitHub/About You Page?
+If you liked what you see and want a custom GitHub README or an "About You" page like this, feel free to contact me! I’m happy to help you create something awesome for your profile.
 
 </body>
 </html>
-
-
-
-
-<!--OH F**K! THIS LOOKS BAD...IT WAS CODED WITH CHATGPT4o......-->
