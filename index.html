@@ -66,12 +66,12 @@
             transform: translate(-50%, -50%);
             width: 80%;
             max-width: 600px;
-            background-color: white;
-            color: black;
+            background-color: transparent;
+            color: white;
             border-radius: 8px;
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-            overflow: hidden;
             z-index: 1000;
+            text-align: center; /* Center-align text */
         }
 
         #modal .header {
@@ -94,12 +94,21 @@
 
         #modal .content {
             padding: 20px;
-            background-color: #f4f4f4;
+            background-color: #282c34;
+            border-radius: 8px;
+            max-width: 600px;
+            margin: 0 auto;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
         }
 
         #modal .content h2 {
             font-size: 1.5em;
             margin-top: 0;
+        }
+
+        #modal .content p {
+            font-size: 1em;
+            margin: 10px 0;
         }
 
         @keyframes slide-up {
