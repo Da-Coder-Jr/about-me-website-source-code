@@ -69,16 +69,12 @@
 
         .sparkle {
             position: absolute;
-            width: 8px;
-            height: 8px;
-            background-color: red;
+            width: 10px;
+            height: 10px;
+            background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 80%);
             border-radius: 50%;
             pointer-events: none;
-            animation: sparkle 1s linear infinite;
-        }
-
-        .sparkle.lighter {
-            background-color: #ff6666;
+            animation: sparkle 0.8s ease-out;
         }
 
         @keyframes sparkle {
@@ -93,21 +89,6 @@
         }
 
         /* Animated Title Text */
-        @keyframes flicker {
-            0% { opacity: 1; }
-            50% { opacity: 0.8; }
-            100% { opacity: 1; }
-        }
-
-        @keyframes glitch {
-            0% { clip: rect(0, 9999px, 0, 0); }
-            20% { clip: rect(0, 9999px, 0, 0); }
-            40% { clip: rect(0, 9999px, 0, 0); }
-            60% { clip: rect(0, 9999px, 0, 0); }
-            80% { clip: rect(0, 9999px, 0, 0); }
-            100% { clip: rect(0, 9999px, 0, 0); }
-        }
-
         #info-leaked {
             font-size: 5vw;
             color: #FF0000;
@@ -116,9 +97,15 @@
             top: 20%;
             left: 50%;
             transform: translateX(-50%);
-            animation: flicker 1.5s infinite, glitch 2s infinite;
+            animation: flicker 1.5s infinite;
             z-index: 2;
             white-space: nowrap;
+        }
+
+        @keyframes flicker {
+            0% { opacity: 1; }
+            50% { opacity: 0.8; }
+            100% { opacity: 1; }
         }
     </style>
 </head>
@@ -168,17 +155,14 @@
             typeOutText('CLICK TO ENTER...', 'click-to-enter', 50);
         };
 
-        // Glittery Mouse Trail Effect with Red Sparkles
+        // Glittery Mouse Trail Effect with Sparkles
         document.addEventListener('mousemove', (e) => {
             const sparkle = document.createElement('div');
             sparkle.classList.add('sparkle');
-            if (Math.random() > 0.5) {
-                sparkle.classList.add('lighter');
-            }
             sparkle.style.left = `${e.clientX}px`;
             sparkle.style.top = `${e.clientY}px`;
             document.getElementById('sparkles').appendChild(sparkle);
-            setTimeout(() => sparkle.remove(), 1000);
+            setTimeout(() => sparkle.remove(), 800); // Remove after 0.8 seconds
         });
 
         // Fetch Visitor Information using IP-based geolocation
@@ -237,4 +221,5 @@
 </body>
 </html>
 
-<!--F**K THIS LOOKS BAD...IT WAS CODED WITH CHATGPT4o......-->
+
+<!--F**K! THIS LOOKS BAD...IT WAS CODED WITH CHATGPT4o......-->
