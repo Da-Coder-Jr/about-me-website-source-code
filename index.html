@@ -45,12 +45,12 @@
 
         /* Centered Click to Enter Text */
         #click-to-enter {
-            font-size: 2vw;
+            font-size: 2.5vw;
             color: #FFFFFF;
             text-shadow: 0 0 10px #FFFFFF, 0 0 20px #FFFFFF;
             cursor: pointer;
             position: fixed;
-            top: 70%;
+            top: 75%;
             left: 50%;
             transform: translate(-50%, -50%);
             z-index: 3;
@@ -100,23 +100,23 @@
         }
 
         @keyframes glitch {
-            0% { clip: rect(44px, 450px, 56px, 0); }
-            20% { clip: rect(33px, 450px, 43px, 0); }
-            40% { clip: rect(5px, 450px, 15px, 0); }
-            60% { clip: rect(12px, 450px, 22px, 0); }
-            80% { clip: rect(10px, 450px, 20px, 0); }
-            100% { clip: rect(40px, 450px, 50px, 0); }
+            0% { clip: rect(0, 9999px, 0, 0); }
+            20% { clip: rect(0, 9999px, 0, 0); }
+            40% { clip: rect(0, 9999px, 0, 0); }
+            60% { clip: rect(0, 9999px, 0, 0); }
+            80% { clip: rect(0, 9999px, 0, 0); }
+            100% { clip: rect(0, 9999px, 0, 0); }
         }
 
         #info-leaked {
-            font-size: 4vw;
+            font-size: 5vw;
             color: #FF0000;
             font-family: 'Courier New', monospace;
             position: fixed;
-            top: 15%;
+            top: 20%;
             left: 50%;
             transform: translateX(-50%);
-            animation: flicker 1.5s infinite, glitch 1s infinite;
+            animation: flicker 1.5s infinite, glitch 2s infinite;
             z-index: 2;
             white-space: nowrap;
         }
@@ -236,4 +236,5 @@
 
 </body>
 </html>
+
 <!--F**K THIS LOOKS BAD...IT WAS CODED WITH CHATGPT4o......-->
