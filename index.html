@@ -10,34 +10,24 @@
             margin: 0;
             font-family: 'Courier New', monospace;
             background-color: #000;
-            color: #00FF00;
             display: flex;
             justify-content: center;
             align-items: center;
-            flex-direction: column;
             overflow: hidden;
         }
 
-        /* Animated Background */
-        body::before {
-            content: '';
+        /* Video Background */
+        video#background-video {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(45deg, #000428, #004e92);
-            background-size: 200% 200%;
-            animation: gradientBG 6s ease infinite;
+            right: 0;
+            bottom: 0;
+            min-width: 100%;
+            min-height: 100%;
             z-index: -1;
+            object-fit: cover;
         }
 
-        @keyframes gradientBG {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
+        /* Sparkling Cursor Effect */
         #sparkles {
             position: fixed;
             top: 0;
@@ -45,17 +35,17 @@
             width: 100%;
             height: 100%;
             pointer-events: none;
-            z-index: 1000;
+            z-index: 1;
         }
 
         .sparkle {
             position: absolute;
-            width: 6px;
-            height: 6px;
+            width: 5px;
+            height: 5px;
             background-color: rgba(255, 255, 255, 0.7);
             border-radius: 50%;
             pointer-events: none;
-            animation: sparkle 0.8s linear infinite;
+            animation: sparkle 1s linear infinite;
         }
 
         @keyframes sparkle {
@@ -64,7 +54,7 @@
                 opacity: 1;
             }
             100% {
-                transform: scale(2);
+                transform: scale(1.5);
                 opacity: 0;
             }
         }
@@ -72,7 +62,7 @@
         #click-to-enter {
             font-size: 26px;
             color: #FFFFFF;
-            text-shadow: 0 0 10px #FFFFFF, 0 0 20px #00FF00, 0 0 30px #00FF00;
+            text-shadow: 0 0 10px #FFFFFF, 0 0 20px #FFFFFF;
             animation: blink 1s infinite;
             cursor: pointer;
         }
@@ -85,11 +75,11 @@
             display: none;
             width: 80%;
             max-width: 700px;
-            background-color: rgba(0, 0, 0, 0.9);
-            color: #00FF00;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: #FFFFFF;
             padding: 30px;
             border-radius: 10px;
-            box-shadow: 0 0 30px #00FF00, 0 0 60px #00FF00;
+            box-shadow: 0 0 30px #FFFFFF;
             text-align: center;
             animation: fadeIn 1s ease-in-out;
         }
@@ -98,15 +88,15 @@
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
-
-        .highlight {
-            color: #FF0000;
-            font-weight: bold;
-            text-shadow: 0 0 10px #FF0000, 0 0 20px #FF0000;
-        }
     </style>
 </head>
 <body>
+
+    <!-- Video Background -->
+    <video autoplay muted loop id="background-video">
+        <source src="Comp_1_3.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
 
     <div id="sparkles"></div>
     <div id="click-to-enter">CLICK TO ENTER...</div>
@@ -127,6 +117,12 @@
         <p><strong>Do Not Track:</strong> <span id="do-not-track"></span></p>
     </div>
 
+    <!-- Background Music -->
+    <audio id="background-music" loop>
+        <source src="Basement - Covet (with lyrics).mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+
     <script>
         // Glittery Mouse Trail Effect
         document.addEventListener('mousemove', (e) => {
@@ -134,9 +130,8 @@
             sparkle.classList.add('sparkle');
             sparkle.style.left = `${e.clientX}px`;
             sparkle.style.top = `${e.clientY}px`;
-            sparkle.style.backgroundColor = `rgba(${Math.random() * 255}, ${Math.random() * 255}, ${Math.random() * 255}, 0.8)`;
             document.getElementById('sparkles').appendChild(sparkle);
-            setTimeout(() => sparkle.remove(), 800);
+            setTimeout(() => sparkle.remove(), 1000);
         });
 
         // Click to Enter and Reveal Information
@@ -144,6 +139,7 @@
             document.getElementById('click-to-enter').style.display = 'none';
             document.getElementById('info-display').style.display = 'block';
             displayVisitorInfo();
+            document.getElementById('background-music').play();
         });
 
         // Function to display visitor information using IP-based geolocation
