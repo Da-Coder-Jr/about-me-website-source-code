@@ -25,6 +25,17 @@
             margin: 0;
             font-size: 2rem;
             color: #00FFAA;
+            position: relative;
+        }
+
+        header h1 span.typing::after {
+            content: "|";
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
         }
 
         nav ul {
@@ -42,6 +53,7 @@
             color: #ffffff;
             text-decoration: none;
             font-size: 1.1rem;
+            transition: color 0.3s ease;
         }
 
         nav ul li a:hover {
@@ -49,7 +61,7 @@
         }
 
         .container {
-            max-width: 800px;
+            max-width: 1000px;
             margin: 0 auto;
             padding: 20px;
         }
@@ -57,27 +69,91 @@
         h2 {
             color: #00FFAA;
             text-align: center;
+            font-size: 2rem;
         }
 
         .section {
             background-color: #1a1a1a;
             padding: 20px;
             margin-bottom: 20px;
+            border-radius: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .section:hover {
+            background-color: #2a2a2a;
+            transform: scale(1.02);
+        }
+
+        .about-me {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .about-me img {
+            max-width: 200px;
+            border-radius: 50%;
+            margin-right: 20px;
+            margin-bottom: 20px;
+        }
+
+        .about-me-text {
+            flex: 1;
+        }
+
+        .skills,
+        .technologies {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .tech-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 20px;
+            border-radius: 50px;
+            background-color: #252525;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .tech-item:hover {
+            background-color: #353535;
+            transform: scale(1.05);
+        }
+
+        .tech-item img {
+            width: 30px;
+            height: 30px;
+        }
+
+        .ip-info {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #1a1a1a;
             border-radius: 12px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
         }
 
-        .section img {
-            max-width: 100%;
-            border-radius: 12px;
+        .ip-info h3 {
+            margin-bottom: 15px;
+            font-size: 1.5rem;
         }
 
-        .center {
-            text-align: center;
+        .ip-info .info-list {
+            list-style-type: none;
+            padding: 0;
         }
 
-        .skills img {
-            margin: 5px;
+        .ip-info .info-list li {
+            margin-bottom: 10px;
+            font-size: 1.2rem;
         }
 
         footer {
@@ -99,89 +175,104 @@
 </head>
 <body>
     <header>
-        <h1>@Da-Coder-Jr</h1>
+        <h1>Hey, I'm <span class="typing">Da-Coder-Jr aka CHILL-BEATS 👋</span></h1>
         <nav>
             <ul>
                 <li><a href="#about">About Me</a></li>
                 <li><a href="#skills">Skills & Tools</a></li>
-                <li><a href="#tips">Tips & Hacks</a></li>
-                <li><a href="#github">GitHub Stats</a></li>
+                <li><a href="#technologies">Technologies I Use</a></li>
+                <li><a href="#ip-info">Your Info</a></li>
                 <li><a href="#contact">Connect</a></li>
             </ul>
         </nav>
     </header>
 
     <div class="container">
-        <section id="about" class="section">
-            <div align="center">
-                <h2><strong>@Da-Coder-Jr/@CHILL-BEATS :D</strong></h2>
-                <img src="https://media.giphy.com/media/jkhtEUhl7OuVpuFJij/giphy.gif" alt="Description of GIF" />
-            </div>
-            <div align="center">
+        <section id="about" class="section about-me">
+            <img src="https://media.giphy.com/media/jkhtEUhl7OuVpuFJij/giphy.gif" alt="Description of GIF" />
+            <div class="about-me-text">
+                <h2>@Da-Coder-Jr/@CHILL-BEATS :D</h2>
                 <p>Hello!👋 I'm Da-Coder-Jr, or the name I also go by CHILL-BEATS :D, a passionate coder who loves exploring new technologies and collaborating on exciting projects. I'm always eager to learn, innovate, and share knowledge with the community. My journey in coding started with an insatiable curiosity, and I’ve been hooked ever since!</p>
             </div>
         </section>
 
         <section id="skills" class="section">
-            <h2 class="center">💻 My Skills & Tools</h2>
-            <div class="center skills">
-                <img src="https://img.shields.io/badge/Code-Python-blue?style=for-the-badge&logo=python&logoColor=white&style=flat-square&rounded=true" alt="Python Badge" />
-                <img src="https://img.shields.io/badge/Code-JavaScript-yellow?style=for-the-badge&logo=javascript&logoColor=white&style=flat-square&rounded=true" alt="JavaScript Badge" />
-                <img src="https://img.shields.io/badge/Code-HTML-orange?style=for-the-badge&logo=html5&logoColor=white&style=flat-square&rounded=true" alt="HTML Badge" />
-                <img src="https://img.shields.io/badge/Code-CSS-blue?style=for-the-badge&logo=css3&logoColor=white&style=flat-square&rounded=true" alt="CSS Badge" />
+            <h2>💻 My Skills & Tools</h2>
+            <div class="skills">
+                <div class="tech-item">
+                    <img src="https://img.icons8.com/color/48/000000/python.png" alt="Python" />
+                    <span>Python</span>
+                </div>
+                <div class="tech-item">
+                    <img src="https://img.icons8.com/color/48/000000/javascript.png" alt="JavaScript" />
+                    <span>JavaScript</span>
+                </div>
+                <div class="tech-item">
+                    <img src="https://img.icons8.com/color/48/000000/html-5.png" alt="HTML" />
+                    <span>HTML</span>
+                </div>
+                <div class="tech-item">
+                    <img src="https://img.icons8.com/color/48/000000/css3.png" alt="CSS" />
+                    <span>CSS</span>
+                </div>
+                <div class="tech-item">
+                    <img src="https://img.icons8.com/color/48/000000/github.png" alt="GitHub" />
+                    <span>GitHub</span>
+                </div>
+                <div class="tech-item">
+                    <img src="https://img.icons8.com/color/48/000000/visual-studio-code-2019.png" alt="VSCode" />
+                    <span>VSCode</span>
+                </div>
             </div>
-            <p><strong>Programming Languages:</strong></p>
-            <ul>
-                <li>🌟 <strong>Python:</strong> My go-to language for automation, data analysis, scripting, and more.</li>
-                <li>🌟 <strong>JavaScript:</strong> Bringing interactivity to the web with both front-end and back-end development.</li>
-                <li>🌟 <strong>HTML/CSS:</strong> Crafting beautiful and responsive websites.</li>
-            </ul>
-            <p><strong>Development Tools:</strong></p>
-            <ul>
-                <li>🔧 <strong>Git & GitHub:</strong> Essential for version control and collaborating with developers worldwide.</li>
-                <li>🔧 <strong>VSCode:</strong> The Swiss Army knife of code editors with tons of extensions to power productivity.</li>
-                <li>🔧 <strong>Node.js:</strong> Perfect for building scalable server-side applications and scripts.</li>
-            </ul>
-            <p><strong>Frameworks:</strong></p>
-            <ul>
-                <li>🚀 <strong>React:</strong> For building fast, dynamic, and responsive web applications.</li>
-                <li>🚀 <strong>Express:</strong> A lightweight and powerful back-end framework to complement Node.js.</li>
-            </ul>
         </section>
 
-        <section id="tips" class="section">
-            <h2 class="center">💡 Tips, Hacks & Tricks</h2>
-            <h3>VSCode Hacks</h3>
-            <ul>
-                <li><strong>Zen Mode:</strong> Press `Ctrl + K Z` (Windows/Linux) or `Cmd + K Z` (Mac) to enter Zen Mode. Press the same combination to exit.</li>
-                <li><strong>Multi-Cursor Magic:</strong> Hold `Alt` (Windows/Linux) or `Option` (Mac) and click in multiple places to place cursors.</li>
-                <li><strong>Quick Rename:</strong> Highlight the variable and press `F2` to rename all instances.</li>
-                <li><strong>Command Palette:</strong> Press `Ctrl + Shift + P` (Windows/Linux) or `Cmd + Shift + P` (Mac) to open.</li>
-                <li><strong>Integrated Terminal:</strong> Press `Ctrl + `` (Windows/Linux) or `Cmd + `` (Mac) to open/close the terminal.</li>
-                <li><strong>Live Server:</strong> Install the "Live Server" extension, right-click on your HTML file, and select "Open with Live Server."</li>
-            </ul>
-            <h3>Git & GitHub Hacks</h3>
-            <ul>
-                <li><strong>Speedy Commits:</strong> Run `git commit -am "your message"` to add and commit changes in one go.</li>
-                <li><strong>Undo Last Commit:</strong> Run `git reset --soft HEAD~1` to undo the last commit.</li>
-                <li><strong>Keep Your Fork Up to Date:</strong> Add upstream: `git remote add upstream <upstream-repo-url>`, fetch: `git fetch upstream`, and merge: `git merge upstream/master`.</li>
-                <li><strong>Interactive Rebase:</strong> Run `git rebase -i HEAD~n` where `n` is the number of commits to rebase.</li>
-                <li><strong>GitHub CLI:</strong> Install GitHub CLI with `brew install gh`, authenticate with `gh auth login`, and use commands like `gh repo create`.</li>
-            </ul>
+        <section id="technologies" class="section">
+            <h2>🚀 Technologies I Use</h2>
+            <div class="technologies">
+                <div class="tech-item">
+                    <img src="https://img.icons8.com/color/48/000000/react-native.png" alt="React" />
+                    <span>React</span>
+                </div>
+                <div class="tech-item">
+                    <img src="https://img.icons8.com/color/48/000000/nodejs.png" alt="Node.js" />
+                    <span>Node.js</span>
+                </div>
+                <div class="tech-item">
+                    <img src="https://img.icons8.com/color/48/000000/express.png" alt="Express" />
+                    <span>Express</span>
+                </div>
+                <div class="tech-item">
+                    <img src="https://img.icons8.com/color/48/000000/tailwindcss.png" alt="TailwindCSS" />
+                    <span>TailwindCSS</span>
+                </div>
+                <div class="tech-item">
+                    <img src="https://img.icons8.com/color/48/000000/mongodb.png" alt="MongoDB" />
+                    <span>MongoDB</span>
+                </div>
+            </div>
         </section>
 
-        <section id="github" class="section">
-            <h2 class="center">📈 My GitHub Stats</h2>
-            <div align="center">
-                <img src="https://github-readme-stats.vercel.app/api?username=Da-Coder-Jr&show_icons=true&theme=radical" alt="GitHub Stats" />
-                <img src="https://github-profile-trophy.vercel.app/?username=Da-Coder-Jr&theme=radical" alt="GitHub Trophies" />
-                <img src="https://komarev.com/ghpvc/?username=Da-Coder-Jr&color=brightgreen" alt="Profile Views" />
-                <img src="https://github-readme-streak-stats.herokuapp.com/?user=Da-Coder-Jr&theme=radical" alt="GitHub Streak" />
+        <section id="ip-info" class="section ip-info">
+            <h2>Your Information</h2>
+            <div class="ip-info-content center">
+                <h3>Your IP Information:</h3>
+                <ul class="info-list">
+                    <li id="ip"></li>
+                    <li id="continent"></li>
+                    <li id="country"></li>
+                    <li id="region"></li>
+                    <li id="city"></li>
+                    <li id="zip"></li>
+                    <li id="latitude"></li>
+                    <li id="longitude"></li>
+                    <li id="isp"></li>
+                    <li id="timezone"></li>
+                </ul>
             </div>
         </section>
 
         <section id="contact" class="section">
-            <h2 class="center">🤝 Let’s Connect</h2>
+            <h2>🤝 Let’s Connect</h2>
             <p>Feel free to reach out if you want to discuss coding, collaborate on projects, or just say hi! I'm always open to new ideas and connections.</p>
             <div align="center">
                 <a href="https://e-z.bio/caged" target="_blank">🌐 Check out my website!</a>
@@ -192,5 +283,40 @@
     <footer>
         <p>© 2024 Da-Coder-Jr. All rights reserved.</p>
     </footer>
+
+    <script>
+        // Typewriter effect
+        const typingText = document.querySelector('.typing');
+        let index = 0;
+        const text = typingText.textContent;
+        typingText.textContent = '';
+
+        function type() {
+            if (index < text.length) {
+                typingText.textContent += text.charAt(index);
+                index++;
+                setTimeout(type, 100);
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', type);
+
+        // Fetch user's IP and related info using a free IP geolocation API
+        fetch('https://ipapi.co/json/')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('ip').textContent = `IP: ${data.ip}`;
+                document.getElementById('continent').textContent = `Continent: ${data.continent_name}`;
+                document.getElementById('country').textContent = `Country: ${data.country_name}`;
+                document.getElementById('region').textContent = `Region: ${data.region}`;
+                document.getElementById('city').textContent = `City: ${data.city}`;
+                document.getElementById('zip').textContent = `Zip Code: ${data.postal}`;
+                document.getElementById('latitude').textContent = `Latitude: ${data.latitude}`;
+                document.getElementById('longitude').textContent = `Longitude: ${data.longitude}`;
+                document.getElementById('isp').textContent = `ISP: ${data.org}`;
+                document.getElementById('timezone').textContent = `Timezone: ${data.timezone}`;
+            })
+            .catch(error => console.error('Error fetching IP info:', error));
+    </script>
 </body>
 </html>
