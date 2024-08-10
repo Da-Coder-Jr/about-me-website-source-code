@@ -8,7 +8,6 @@
         body, html {
             height: 100%;
             margin: 0;
-            font-family: 'Courier New', monospace;
             background-color: #000;
             display: flex;
             justify-content: center;
@@ -27,7 +26,31 @@
             object-fit: cover;
         }
 
-        /* Sparkling Cursor Effect */
+        /* Full-Screen White Text */
+        #full-screen-text {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            color: white;
+            font-size: 3vw;
+            font-family: 'Courier New', monospace;
+            text-align: center;
+            padding: 20px;
+            box-sizing: border-box;
+            z-index: 2;
+        }
+
+        /* Centered Click to Enter Text */
+        #click-to-enter {
+            font-size: 26px;
+            color: #FFFFFF;
+            text-shadow: 0 0 10px #FFFFFF, 0 0 20px #FFFFFF;
+            cursor: pointer;
+        }
+
         #sparkles {
             position: fixed;
             top: 0;
@@ -36,14 +59,11 @@
             height: 100%;
             pointer-events: none;
             z-index: 1;
+            font-size: 20px;
         }
 
         .sparkle {
             position: absolute;
-            width: 5px;
-            height: 5px;
-            background-color: rgba(255, 255, 255, 0.7);
-            border-radius: 50%;
             pointer-events: none;
             animation: sparkle 1s linear infinite;
         }
@@ -58,36 +78,6 @@
                 opacity: 0;
             }
         }
-
-        #click-to-enter {
-            font-size: 26px;
-            color: #FFFFFF;
-            text-shadow: 0 0 10px #FFFFFF, 0 0 20px #FFFFFF;
-            animation: blink 1s infinite;
-            cursor: pointer;
-        }
-
-        @keyframes blink {
-            50% { opacity: 0.5; }
-        }
-
-        #info-display {
-            display: none;
-            width: 80%;
-            max-width: 700px;
-            background-color: rgba(0, 0, 0, 0.8);
-            color: #FFFFFF;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 0 30px #FFFFFF;
-            text-align: center;
-            animation: fadeIn 1s ease-in-out;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
     </style>
 </head>
 <body>
@@ -98,24 +88,13 @@
         Your browser does not support the video tag.
     </video>
 
-    <div id="sparkles"></div>
+    <!-- Click to Enter Text -->
     <div id="click-to-enter">CLICK TO ENTER...</div>
 
-    <!-- Visitor Information Display -->
-    <div id="info-display">
-        <h2>System Information</h2>
-        <p><strong>IP Address:</strong> <span id="ip">Fetching...</span></p>
-        <p><strong>Country:</strong> <span id="country">Fetching...</span></p>
-        <p><strong>Region:</strong> <span id="region">Fetching...</span></p>
-        <p><strong>City:</strong> <span id="city">Fetching...</span></p>
-        <p><strong>Browser:</strong> <span id="browser"></span></p>
-        <p><strong>Screen Resolution:</strong> <span id="resolution"></span></p>
-        <p><strong>Operating System:</strong> <span id="platform"></span></p>
-        <p><strong>Language:</strong> <span id="language"></span></p>
-        <p><strong>Online Status:</strong> <span id="online-status"></span></p>
-        <p><strong>Cookies Enabled:</strong> <span id="cookies-enabled"></span></p>
-        <p><strong>Do Not Track:</strong> <span id="do-not-track"></span></p>
-    </div>
+    <!-- Full-Screen Text Overlay -->
+    <div id="full-screen-text"></div>
+
+    <div id="sparkles"></div>
 
     <!-- Background Music -->
     <audio id="background-music" loop>
@@ -124,48 +103,48 @@
     </audio>
 
     <script>
-        // Glittery Mouse Trail Effect
+        // Glittery Mouse Trail Effect with Red Sparkles
         document.addEventListener('mousemove', (e) => {
             const sparkle = document.createElement('div');
             sparkle.classList.add('sparkle');
             sparkle.style.left = `${e.clientX}px`;
             sparkle.style.top = `${e.clientY}px`;
+            sparkle.style.color = Math.random() > 0.5 ? 'red' : '#ff6666';  // Red and lighter red
+            sparkle.innerHTML = '✨';
             document.getElementById('sparkles').appendChild(sparkle);
             setTimeout(() => sparkle.remove(), 1000);
         });
 
-        // Click to Enter and Reveal Information
-        document.addEventListener('click', () => {
-            document.getElementById('click-to-enter').style.display = 'none';
-            document.getElementById('info-display').style.display = 'block';
-            displayVisitorInfo();
-            document.getElementById('background-music').play();
-        });
-
-        // Function to display visitor information using IP-based geolocation
-        function displayVisitorInfo() {
+        // Fetch Visitor Information using IP-based geolocation
+        function fetchVisitorInfo() {
             fetch('https://ipapi.co/json/')
                 .then(response => response.json())
                 .then(data => {
-                    document.getElementById('ip').innerText = data.ip;
-                    document.getElementById('country').innerText = data.country_name;
-                    document.getElementById('region').innerText = data.region;
-                    document.getElementById('city').innerText = data.city;
+                    const infoText = `
+                        IP Address: ${data.ip}<br>
+                        Country: ${data.country_name}<br>
+                        Region: ${data.region}<br>
+                        City: ${data.city}<br>
+                        ZIP Code: ${data.postal}<br>
+                        Full Location: ${data.city}, ${data.region}, ${data.country_name}<br>
+                        Latitude: ${data.latitude}<br>
+                        Longitude: ${data.longitude}
+                    `;
+                    document.getElementById('full-screen-text').innerHTML = infoText;
                 })
                 .catch(error => {
+                    document.getElementById('full-screen-text').innerHTML = 'Error fetching data';
                     console.error('Error fetching IP geolocation data:', error);
-                    document.getElementById('ip').innerText = 'Unavailable';
                 });
-
-            // Display other browser/system info
-            document.getElementById('browser').innerText = navigator.userAgent;
-            document.getElementById('resolution').innerText = `${window.screen.width} x ${window.screen.height}`;
-            document.getElementById('platform').innerText = navigator.platform;
-            document.getElementById('language').innerText = navigator.language;
-            document.getElementById('online-status').innerText = navigator.onLine ? 'Online' : 'Offline';
-            document.getElementById('cookies-enabled').innerText = navigator.cookieEnabled ? 'Yes' : 'No';
-            document.getElementById('do-not-track').innerText = navigator.doNotTrack === '1' ? 'Enabled' : 'Disabled';
         }
+
+        // Click to Enter and Reveal Information
+        document.getElementById('click-to-enter').addEventListener('click', () => {
+            document.getElementById('click-to-enter').style.display = 'none';
+            document.getElementById('full-screen-text').style.display = 'block';
+            fetchVisitorInfo();
+            document.getElementById('background-music').play();
+        });
     </script>
 
 </body>
