@@ -3,140 +3,198 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LEAKED!</title>
+    <title>System Notification</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap'); /* Cool Font */
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
         body, html {
             height: 100%;
             margin: 0;
-            font-family: 'Press Start 2P', cursive; /* Applying the cool font */
-            background-color: black;
+            font-family: 'Roboto', sans-serif;
+            background-color: #282c34;
             color: white;
             display: flex;
-            flex-direction: column;
             justify-content: center;
             align-items: center;
-            text-align: center;
+            overflow: hidden;
         }
 
-        h1 {
-            color: red;
-            font-size: 2em;
+        #notification {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #333;
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            animation: slide-up 1s ease-out;
         }
 
-        p {
-            font-size: 1.2em;
-            line-height: 1.5em;
+        #notification img {
+            width: 40px;
+            height: 40px;
+            margin-right: 15px;
         }
 
-        .info {
-            margin-top: 20px;
-            text-align: left;
-            font-size: 1em;
+        #notification .text {
+            flex-grow: 1;
+        }
+
+        #notification .text h4 {
+            margin: 0;
+            font-weight: 700;
+            font-size: 1.1em;
+        }
+
+        #notification .text p {
+            margin: 0;
+            font-size: 0.9em;
             color: #ccc;
         }
 
-        .info span {
-            color: #ff4d4d;
-        }
-
-        .typewriter p {
-            display: inline-block;
-            border-right: 2px solid rgba(255, 255, 255, 0.75);
-            white-space: nowrap;
+        #modal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80%;
+            max-width: 600px;
+            background-color: white;
+            color: black;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
             overflow: hidden;
-            animation: typing 2s steps(40, end), blink-caret .75s step-end infinite;
+            z-index: 1000;
         }
 
-        @keyframes typing {
-            from { width: 0 }
-            to { width: 100% }
+        #modal .header {
+            background-color: #282c34;
+            color: white;
+            padding: 15px;
+            font-size: 1.1em;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
-        @keyframes blink-caret {
-            from, to { border-color: transparent }
-            50% { border-color: rgba(255, 255, 255, 0.75); }
+        #modal .header .close {
+            background-color: transparent;
+            border: none;
+            color: white;
+            font-size: 1.2em;
+            cursor: pointer;
+        }
+
+        #modal .content {
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+
+        #modal .content h2 {
+            font-size: 1.5em;
+            margin-top: 0;
+        }
+
+        @keyframes slide-up {
+            from {
+                transform: translateY(100%);
+            }
+            to {
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fade-in {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
         }
     </style>
 </head>
 <body>
-    <div>
-        <h1>LEAKED!</h1>
-        <p>Your personal information is now exposed!</p>
 
-        <div class="info typewriter" id="info">
-            <p id="ip"></p>
-            <p id="browser"></p>
-            <p id="resolution"></p>
-            <p id="platform"></p>
-            <p id="language"></p>
-            <p id="online-status"></p>
-            <p id="cookies-enabled"></p>
-            <p id="do-not-track"></p>
-            <p id="coordinates"></p>
+    <!-- System Notification -->
+    <div id="notification">
+        <img src="https://upload.wikimedia.org/wikipedia/en/2/23/System_Preferences_icon.png" alt="System Icon">
+        <div class="text">
+            <h4>System Alert</h4>
+            <p>Your system information is exposed! Click to view details.</p>
+        </div>
+    </div>
+
+    <!-- Browser-in-Browser Modal -->
+    <div id="modal">
+        <div class="header">
+            <span>System Information</span>
+            <button class="close" onclick="closeModal()">×</button>
+        </div>
+        <div class="content">
+            <h2>LEAKED INFORMATION</h2>
+            <p><strong>IP Address:</strong> <span id="ip">Fetching...</span></p>
+            <p><strong>Browser:</strong> <span id="browser"></span></p>
+            <p><strong>Screen Resolution:</strong> <span id="resolution"></span></p>
+            <p><strong>Operating System:</strong> <span id="platform"></span></p>
+            <p><strong>Language:</strong> <span id="language"></span></p>
+            <p><strong>Online Status:</strong> <span id="online-status"></span></p>
+            <p><strong>Cookies Enabled:</strong> <span id="cookies-enabled"></span></p>
+            <p><strong>Do Not Track:</strong> <span id="do-not-track"></span></p>
+            <p><strong>Coordinates:</strong> <span id="coordinates">Fetching...</span></p>
         </div>
     </div>
 
     <script>
-        // Typewriter effect for each information line
-        function typeWriter(element, text, delay) {
-            let i = 0;
-            function typing() {
-                if (i < text.length) {
-                    element.innerHTML += text.charAt(i);
-                    i++;
-                    setTimeout(typing, delay);
-                }
-            }
-            typing();
-        }
-
-        // User information
-        const infoData = [
-            { id: 'ip', text: 'IP Address: Fetching...' },
-            { id: 'browser', text: `Browser: ${navigator.userAgent}` },
-            { id: 'resolution', text: `Screen Resolution: ${window.screen.width} x ${window.screen.height}` },
-            { id: 'platform', text: `Operating System: ${navigator.platform}` },
-            { id: 'language', text: `Language: ${navigator.language}` },
-            { id: 'online-status', text: `Online Status: ${navigator.onLine ? 'Online' : 'Offline'}` },
-            { id: 'cookies-enabled', text: `Cookies Enabled: ${navigator.cookieEnabled ? 'Yes' : 'No'}` },
-            { id: 'do-not-track', text: `Do Not Track: ${navigator.doNotTrack === '1' ? 'Enabled' : 'Disabled'}` },
-            { id: 'coordinates', text: 'Coordinates: Fetching...' },
-        ];
-
-        // Apply the typewriter effect
-        infoData.forEach((info, index) => {
-            const element = document.getElementById(info.id);
-            typeWriter(element, info.text, 50 + (index * 100)); // Adding delay for each line to simulate typing
+        // Show modal when notification is clicked
+        document.getElementById('notification').addEventListener('click', () => {
+            document.getElementById('modal').style.display = 'block';
+            document.getElementById('modal').style.animation = 'fade-in 0.5s ease-out';
         });
 
-        // Fetch IP address using a public API and display it
+        // Close modal function
+        function closeModal() {
+            document.getElementById('modal').style.display = 'none';
+        }
+
+        // Fetch and display user information
+        document.getElementById('browser').innerText = navigator.userAgent;
+        document.getElementById('resolution').innerText = `${window.screen.width} x ${window.screen.height}`;
+        document.getElementById('platform').innerText = navigator.platform;
+        document.getElementById('language').innerText = navigator.language;
+        document.getElementById('online-status').innerText = navigator.onLine ? 'Online' : 'Offline';
+        document.getElementById('cookies-enabled').innerText = navigator.cookieEnabled ? 'Yes' : 'No';
+        document.getElementById('do-not-track').innerText = navigator.doNotTrack === '1' ? 'Enabled' : 'Disabled';
+
+        // Fetch IP address using a public API
         fetch('https://api.ipify.org?format=json')
             .then(response => response.json())
             .then(data => {
-                document.getElementById('ip').innerText = `IP Address: ${data.ip}`;
+                document.getElementById('ip').innerText = data.ip;
             })
             .catch(error => {
-                document.getElementById('ip').innerText = 'IP Address: Unable to fetch';
+                document.getElementById('ip').innerText = 'Unable to fetch';
             });
 
         // Get geolocation data (requires user consent)
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(
                 position => {
-                    document.getElementById('coordinates').innerText = `Coordinates: ${position.coords.latitude}, ${position.coords.longitude}`;
+                    document.getElementById('coordinates').innerText = `${position.coords.latitude}, ${position.coords.longitude}`;
                 },
                 error => {
-                    document.getElementById('coordinates').innerText = 'Coordinates: Unable to fetch location';
+                    document.getElementById('coordinates').innerText = 'Unable to fetch location';
                 }
             );
         } else {
-            document.getElementById('coordinates').innerText = 'Coordinates: Geolocation not supported';
+            document.getElementById('coordinates').innerText = 'Geolocation not supported';
         }
-
-        // Change the page title to "LEAKED!"
-        document.title = 'LEAKED!';
     </script>
+
 </body>
 </html>
