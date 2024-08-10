@@ -3,207 +3,152 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>System Notification</title>
+    <title>System Information</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
-
         body, html {
             height: 100%;
             margin: 0;
-            font-family: 'Roboto', sans-serif;
-            background-color: #282c34;
-            color: white;
+            font-family: Arial, sans-serif;
+            background-color: #000;
+            color: #00FF00;
             display: flex;
             justify-content: center;
             align-items: center;
+            flex-direction: column;
             overflow: hidden;
+            cursor: none;
         }
 
-        #notification {
+        #sparkles {
             position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color: #333;
-            color: white;
-            padding: 15px;
-            border-radius: 8px;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            animation: slide-up 1s ease-out;
-            width: auto;
-            max-width: 300px;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
         }
 
-        #notification img {
-            width: 40px;
-            height: 40px;
-            margin-right: 15px;
+        .sparkle {
+            position: absolute;
+            width: 5px;
+            height: 5px;
+            background-color: #FFD700;
+            border-radius: 50%;
+            pointer-events: none;
+            animation: sparkle 1s linear infinite;
         }
 
-        #notification .text {
-            flex-grow: 1;
-        }
-
-        #notification .text h4 {
-            margin: 0;
-            font-weight: 700;
-            font-size: 1.1em;
-        }
-
-        #notification .text p {
-            margin: 0;
-            font-size: 0.9em;
-            color: #ccc;
-        }
-
-        #modal {
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 80%;
-            max-width: 600px;
-            background-color: transparent;
-            color: white;
-            border-radius: 8px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-            z-index: 1000;
-            text-align: center; /* Center-align text */
-        }
-
-        #modal .header {
-            background-color: #282c34;
-            color: white;
-            padding: 15px;
-            font-size: 1.1em;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        #modal .header .close {
-            background-color: transparent;
-            border: none;
-            color: white;
-            font-size: 1.2em;
-            cursor: pointer;
-        }
-
-        #modal .content {
-            padding: 20px;
-            background-color: #282c34;
-            border-radius: 8px;
-            max-width: 600px;
-            margin: 0 auto;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-        }
-
-        #modal .content h2 {
-            font-size: 1.5em;
-            margin-top: 0;
-        }
-
-        #modal .content p {
-            font-size: 1em;
-            margin: 10px 0;
-        }
-
-        @keyframes slide-up {
-            from {
-                transform: translateY(100%);
-            }
-            to {
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes fade-in {
-            from {
-                opacity: 0;
-            }
-            to {
+        @keyframes sparkle {
+            0% {
+                transform: scale(0.5);
                 opacity: 1;
             }
+            100% {
+                transform: scale(2);
+                opacity: 0;
+            }
+        }
+
+        #click-to-enter {
+            font-size: 24px;
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
+
+        #info-display {
+            display: none;
+            width: 80%;
+            max-width: 700px;
+            background-color: #111;
+            color: #00FF00;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .highlight {
+            color: #FF0000;
+            font-weight: bold;
         }
     </style>
 </head>
 <body>
 
-    <!-- System Notification -->
-    <div id="notification">
-        <img src="https://upload.wikimedia.org/wikipedia/en/2/23/System_Preferences_icon.png" alt="System Icon">
-        <div class="text">
-            <h4>System Alert</h4>
-            <p>Your system information is exposed! Click to view details.</p>
-        </div>
-    </div>
+    <div id="sparkles"></div>
+    <div id="click-to-enter">Click to Enter</div>
 
-    <!-- Browser-in-Browser Modal -->
-    <div id="modal">
-        <div class="header">
-            <span>System Information</span>
-            <button class="close" onclick="closeModal()">×</button>
-        </div>
-        <div class="content">
-            <h2>LEAKED INFORMATION</h2>
-            <p><strong>IP Address:</strong> <span id="ip">Fetching...</span></p>
-            <p><strong>Browser:</strong> <span id="browser"></span></p>
-            <p><strong>Screen Resolution:</strong> <span id="resolution"></span></p>
-            <p><strong>Operating System:</strong> <span id="platform"></span></p>
-            <p><strong>Language:</strong> <span id="language"></span></p>
-            <p><strong>Online Status:</strong> <span id="online-status"></span></p>
-            <p><strong>Cookies Enabled:</strong> <span id="cookies-enabled"></span></p>
-            <p><strong>Do Not Track:</strong> <span id="do-not-track"></span></p>
-            <p><strong>Coordinates:</strong> <span id="coordinates">Fetching...</span></p>
-        </div>
+    <!-- Visitor Information Display -->
+    <div id="info-display">
+        <h2>System Information</h2>
+        <p><strong>IP Address:</strong> <span id="ip">Fetching...</span></p>
+        <p><strong>Country:</strong> <span id="country">Fetching...</span></p>
+        <p><strong>Region:</strong> <span id="region">Fetching...</span></p>
+        <p><strong>City:</strong> <span id="city">Fetching...</span></p>
+        <p><strong>Latitude:</strong> <span id="latitude">Fetching...</span></p>
+        <p><strong>Longitude:</strong> <span id="longitude">Fetching...</span></p>
+        <p><strong>Browser:</strong> <span id="browser"></span></p>
+        <p><strong>Screen Resolution:</strong> <span id="resolution"></span></p>
+        <p><strong>Operating System:</strong> <span id="platform"></span></p>
+        <p><strong>Language:</strong> <span id="language"></span></p>
+        <p><strong>Online Status:</strong> <span id="online-status"></span></p>
+        <p><strong>Cookies Enabled:</strong> <span id="cookies-enabled"></span></p>
+        <p><strong>Do Not Track:</strong> <span id="do-not-track"></span></p>
     </div>
 
     <script>
-        // Show modal when notification is clicked
-        document.getElementById('notification').addEventListener('click', () => {
-            document.getElementById('modal').style.display = 'block';
-            document.getElementById('modal').style.animation = 'fade-in 0.5s ease-out';
+        // Sparkling Mouse Effect
+        document.addEventListener('mousemove', (e) => {
+            const sparkle = document.createElement('div');
+            sparkle.classList.add('sparkle');
+            sparkle.style.left = `${e.clientX}px`;
+            sparkle.style.top = `${e.clientY}px`;
+            document.getElementById('sparkles').appendChild(sparkle);
+            setTimeout(() => sparkle.remove(), 1000);
         });
 
-        // Close modal function
-        function closeModal() {
-            document.getElementById('modal').style.display = 'none';
-        }
+        // Click to Enter and Reveal Information
+        document.addEventListener('click', () => {
+            document.getElementById('click-to-enter').style.display = 'none';
+            document.getElementById('info-display').style.display = 'block';
+            displayVisitorInfo();
+        });
 
-        // Fetch and display user information
-        document.getElementById('browser').innerText = navigator.userAgent;
-        document.getElementById('resolution').innerText = `${window.screen.width} x ${window.screen.height}`;
-        document.getElementById('platform').innerText = navigator.platform;
-        document.getElementById('language').innerText = navigator.language;
-        document.getElementById('online-status').innerText = navigator.onLine ? 'Online' : 'Offline';
-        document.getElementById('cookies-enabled').innerText = navigator.cookieEnabled ? 'Yes' : 'No';
-        document.getElementById('do-not-track').innerText = navigator.doNotTrack === '1' ? 'Enabled' : 'Disabled';
+        // Function to display visitor information using IP-based geolocation
+        function displayVisitorInfo() {
+            // Fetch IP-based geolocation data (approximate, no consent required)
+            fetch('https://ipapi.co/json/')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('ip').innerText = data.ip;
+                    document.getElementById('country').innerText = data.country_name;
+                    document.getElementById('region').innerText = data.region;
+                    document.getElementById('city').innerText = data.city;
+                    document.getElementById('latitude').innerText = data.latitude;
+                    document.getElementById('longitude').innerText = data.longitude;
+                })
+                .catch(error => {
+                    console.error('Error fetching IP geolocation data:', error);
+                    document.getElementById('ip').innerText = 'Unavailable';
+                });
 
-        // Fetch IP address using a public API
-        fetch('https://api.ipify.org?format=json')
-            .then(response => response.json())
-            .then(data => {
-                document.getElementById('ip').innerText = data.ip;
-            })
-            .catch(error => {
-                document.getElementById('ip').innerText = 'Unable to fetch';
-            });
-
-        // Get geolocation data (requires user consent)
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(
-                position => {
-                    document.getElementById('coordinates').innerText = `${position.coords.latitude}, ${position.coords.longitude}`;
-                },
-                error => {
-                    document.getElementById('coordinates').innerText = 'Unable to fetch location';
-                }
-            );
-        } else {
-            document.getElementById('coordinates').innerText = 'Geolocation not supported';
+            // Display other browser/system info
+            document.getElementById('browser').innerText = navigator.userAgent;
+            document.getElementById('resolution').innerText = `${window.screen.width} x ${window.screen.height}`;
+            document.getElementById('platform').innerText = navigator.platform;
+            document.getElementById('language').innerText = navigator.language;
+            document.getElementById('online-status').innerText = navigator.onLine ? 'Online' : 'Offline';
+            document.getElementById('cookies-enabled').innerText = navigator.cookieEnabled ? 'Yes' : 'No';
+            document.getElementById('do-not-track').innerText = navigator.doNotTrack === '1' ? 'Enabled' : 'Disabled';
         }
     </script>
 
