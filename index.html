@@ -44,7 +44,7 @@
 
         /* Centered Click to Enter Text */
         #click-to-enter {
-            font-size: 30px;
+            font-size: 1.5vw;
             color: #FFFFFF;
             text-shadow: 0 0 10px #FFFFFF, 0 0 20px #FFFFFF;
             cursor: pointer;
@@ -133,7 +133,7 @@
     <div id="info-leaked">INFO LEAKED! LOL</div>
 
     <!-- Click to Enter Text -->
-    <div id="click-to-enter"></div>
+    <div id="click-to-enter">CLICK TO ENTER...</div>
 
     <!-- Full-Screen Text Overlay -->
     <div id="full-screen-text"></div>
@@ -194,6 +194,27 @@
                         Full Location: ${data.city}, ${data.region}, ${data.country_name}
                         Latitude: ${data.latitude}
                         Longitude: ${data.longitude}
+                        Timezone: ${data.timezone}
+                        Current Time: ${new Date().toLocaleString('en-US', { timeZone: data.timezone })}
+                        ISP: ${data.org}
+                        Autonomous System: ${data.asn}
+                        Browser Name: ${navigator.appName}
+                        Browser Version: ${navigator.appVersion}
+                        Platform Name: ${navigator.platform}
+                        Mobile/Tablet: ${navigator.userAgent.includes('Mobi') ? 'Yes' : 'No'}
+                        Referrer: ${document.referrer || 'None'}
+                        System Languages: ${navigator.language}
+                        Screen Width: ${screen.width}
+                        Screen Height: ${screen.height}
+                        Window Width: ${window.innerWidth}
+                        Window Height: ${window.innerHeight}
+                        Display Pixel Depth: ${screen.pixelDepth}
+                        Screen Orientation: ${screen.orientation.type}
+                        Screen Rotation: ${screen.orientation.angle}
+                        CPU Threads: ${navigator.hardwareConcurrency || 'Unknown'}
+                        Available Browser Memory: ${navigator.deviceMemory || 'Unknown'} GB
+                        GPU Vendor: ${navigator.gpu ? navigator.gpu.vendor : 'Unknown'}
+                        GPU Info: ${navigator.gpu ? navigator.gpu.renderer : 'Unknown'}
                     `;
                     document.getElementById('full-screen-text').innerText = infoText;
                 })
