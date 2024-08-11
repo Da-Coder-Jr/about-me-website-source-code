@@ -37,13 +37,56 @@
         .skills-grid img {
             margin: 10px;
         }
-        .tips-list, .fun-facts-list, .projects-list {
+        .tips-list, .fun-facts-list {
             text-align: left;
             margin: 0 auto;
             max-width: 700px;
         }
-        .tips-list li, .fun-facts-list li, .projects-list li {
+        .tips-list li, .fun-facts-list li {
             margin-bottom: 10px;
+        }
+        .info-section {
+            margin-bottom: 40px;
+            background-color: #333;
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+        }
+        .info-section h3 {
+            margin-bottom: 20px;
+            font-size: 24px;
+            text-shadow: 0 0 10px #ff0000;
+        }
+        .info-content {
+            text-align: left;
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 18px;
+            line-height: 1.6;
+        }
+        .info-content p {
+            margin: 5px 0;
+        }
+        .highlight {
+            color: #ff4c4c;
+            font-weight: bold;
+            font-size: 20px;
+        }
+        .art-section {
+            margin-bottom: 40px;
+            background-color: #1f1f1f;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+        }
+        .art-section h3 {
+            margin-bottom: 20px;
+            font-size: 24px;
+            text-shadow: 0 0 10px #00ff00;
+        }
+        .art-section img {
+            margin: 10px;
+            max-width: 100%;
         }
     </style>
 </head>
@@ -100,13 +143,13 @@
             </ul>
         </div>
 
-        <div class="section">
-            <h3>🚀 Projects I've Worked On</h3>
-            <ul class="projects-list">
-                <li><strong>E-Z.Host:</strong> A media-sharing platform that allows users to easily upload and share files with advanced customization options.</li>
-                <li><strong>E-Z.Bio:</strong> A feature-rich bio link platform offering custom link options, a simple UI, and full-page setups within minutes.</li>
-                <li><strong>GitHub Stats Viewer:</strong> A tool to visualize GitHub stats such as contributions, streaks, and repository activity.</li>
-            </ul>
+        <div class="section art-section">
+            <h3>🖼️ Dynamic GitHub Art</h3>
+            <div>
+                <img src="https://octodex.github.com/images/daftpunktocat-guy.gif" alt="Daft Punk GitHub Art" />
+                <img src="https://octodex.github.com/images/Robotocat.png" alt="Robotocat GitHub Art" />
+                <img src="https://octodex.github.com/images/heisencat.png" alt="Heisencat GitHub Art" />
+            </div>
         </div>
 
         <div class="section">
@@ -137,27 +180,34 @@
             </div>
         </div>
 
-        <div class="section">
-            <h3>✨ Random Developer Wisdom</h3>
-            <div align="center">
-                <img src="https://quotes-github-readme.vercel.app/api?type=horizontal&theme=radical" alt="Random Developer Wisdom" />
+        <div class="info-section">
+            <h3>Your Info</h3>
+            <div class="info-content">
+                <p><span class="highlight">IP Address:</span> <span id="ip-address"></span></p>
+                <p><span class="highlight">City:</span> <span id="city"></span></p>
+                <p><span class="highlight">Region:</span> <span id="region"></span></p>
+                <p><span class="highlight">Country:</span> <span id="country"></span></p>
+                <p><span class="highlight">Latitude:</span> <span id="latitude"></span></p>
+                <p><span class="highlight">Longitude:</span> <span id="longitude"></span></p>
+                <p><span class="highlight">ISP:</span> <span id="isp"></span></p>
+                <p><span class="highlight">Timezone:</span> <span id="timezone"></span></p>
             </div>
         </div>
-        
-        <div class="section">
-            <h3>🤝 Let's Connect!</h3>
-            <p>If you want to discuss coding, collaborate on projects, or just say hi, feel free to reach out! I'm always open to new ideas and connections.</p>
-        </div>
-
-        <div class="section">
-            <h3>📣 Shoutouts to the Community</h3>
-            <p>Special thanks to all the contributors and maintainers of the amazing open-source projects I use daily. Your hard work makes the coding world a better place!</p>
-        </div>
-
-        <div class="section">
-            <h3>🚀 Want a Custom GitHub/About Me Page?</h3>
-            <p>If you liked what you see and want a custom GitHub README or an "About You" page like this, feel free to contact me! I’m happy to help you create something awesome for your profile.</p>
-        </div>
     </div>
+
+    <script>
+        fetch('https://ipapi.co/json/')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('ip-address').textContent = data.ip;
+                document.getElementById('city').textContent = data.city;
+                document.getElementById('region').textContent = data.region;
+                document.getElementById('country').textContent = data.country_name;
+                document.getElementById('latitude').textContent = data.latitude;
+                document.getElementById('longitude').textContent = data.longitude;
+                document.getElementById('isp').textContent = data.org;
+                document.getElementById('timezone').textContent = data.timezone;
+            });
+    </script>
 </body>
 </html>
