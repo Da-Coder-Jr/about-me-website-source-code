@@ -3,283 +3,374 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Da-Coder-Jr's Portfolio</title>
+    <title>@Da-Coder-Jr/@CHILL-BEATS :D</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #1e1e1e;
-            color: #ffffff;
+            background-color: #121212;
+            color: #f5f5f5;
             margin: 0;
             padding: 0;
-            text-align: center;
+            overflow-x: hidden;
         }
 
         .container {
             max-width: 1200px;
-            margin: 0 auto;
+            margin: auto;
             padding: 20px;
-        }
-
-        .intro {
-            margin-top: 50px;
-        }
-
-        .tech-carousel {
-            display: flex;
-            overflow: hidden;
-            width: 100%;
-            margin: 20px auto;
-            border-radius: 15px;
-        }
-
-        .carousel-item {
-            min-width: 100px;
-            margin: 0 10px;
             text-align: center;
-            border-radius: 15px;
-            background-color: #333;
-            padding: 10px;
-            transition: transform 0.3s ease;
         }
 
-        .carousel-item img {
+        .header {
+            padding: 50px 0;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            color: #ffcc00;
+            animation: typing 3s steps(30) 1s forwards, blink 1s infinite;
+            overflow: hidden;
+            white-space: nowrap;
+            border-right: 3px solid;
+        }
+
+        .header img {
+            border-radius: 25px;
+            max-width: 100%;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .header img:hover {
+            transform: scale(1.1);
+        }
+
+        h2 {
+            margin-top: 30px;
+            color: #ffa500;
+            font-size: 2.5rem;
+        }
+
+        .technologies {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 50px;
+            padding-bottom: 50px;
+            background-color: #202020;
+            border-radius: 10px;
+        }
+
+        .technology {
+            background-color: #333;
+            border-radius: 10px;
+            margin: 10px;
+            padding: 20px;
+            transition: transform 0.3s ease;
+            color: #fff;
+            text-align: center;
+            cursor: pointer;
+            display: inline-block;
+        }
+
+        .technology img {
             width: 50px;
             height: 50px;
-            margin-bottom: 10px;
-            border-radius: 50%;
+            display: block;
+            margin: 0 auto 10px;
         }
 
-        .carousel-item:hover {
+        .technology:hover {
             transform: scale(1.1);
+        }
+
+        .content {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .content.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .footer {
+            margin-top: 50px;
+            padding: 20px 0;
+            background-color: #101010;
+            color: #ccc;
+            position: relative;
+            z-index: 10;
+        }
+
+        .footer p {
+            margin: 0;
+        }
+
+        .dark-mode-toggle {
+            position: fixed;
+            top: 10px;
+            right: 20px;
+            padding: 10px;
             background-color: #444;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
         }
 
-        @keyframes carousel {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(calc(-100% - 20px)); }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 100;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.9);
+            justify-content: center;
+            align-items: center;
+            text-align: center;
         }
 
-        .tech-carousel {
-            display: flex;
-            animation: carousel 30s infinite linear;
-        }
-
-        .info-section {
-            margin-top: 30px;
-            padding: 20px;
-            background-color: #222;
-            border-radius: 15px;
-            max-width: 600px;
-            margin: 0 auto;
-            text-align: left;
-        }
-
-        .info-section h3 {
-            color: #f39c12;
-        }
-
-        .info-content p {
-            margin: 10px 0;
-        }
-
-        .highlight {
-            color: #f39c12;
-        }
-
-        .github-art {
-            margin: 50px 0;
-        }
-
-        h2, h3 {
-            color: #f39c12;
-        }
-
-        .section {
-            margin: 40px 0;
-        }
-
-        .skills-tools img {
-            margin: 10px;
-            width: 100px;
-            height: auto;
-            border-radius: 15px;
-        }
-
-        .tips-list, .github-list, .fun-list {
-            text-align: left;
-            max-width: 800px;
-            margin: 0 auto;
+        .modal-content {
             background-color: #333;
             padding: 20px;
+            border-radius: 10px;
+            color: #fff;
+        }
+
+        .modal img {
+            max-width: 100%;
             border-radius: 15px;
         }
 
-        .tips-list li, .github-list li, .fun-list li {
-            margin: 10px 0;
+        .modal .close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: #fff;
+            font-size: 30px;
+            cursor: pointer;
+        }
+
+        .progress-container {
+            width: 100%;
+            background: #555;
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .progress-bar {
+            height: 4px;
+            background: #ffcc00;
+            width: 0%;
+        }
+
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+
+        @keyframes blink {
+            50% { border-color: transparent; }
+        }
+
+        .hidden {
+            display: none;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="intro">
-            <h1>@Da-Coder-Jr/@CHILL-BEATS :D</h1>
-            <img src="https://media.giphy.com/media/ylG1RO6n12kSnydyPG/giphy.gif" alt="Animated GIF" style="border-radius: 50px; max-width: 80%; height: auto;">
-        </div>
 
-        <h2>Technologies I Use</h2>
-        <div class="tech-carousel">
-            <div class="carousel-item"> 
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" />
-                <p>React</p>
-            </div>
-            <div class="carousel-item">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" alt="NextJS" />
-                <p>NextJS</p>
-            </div>
-            <div class="carousel-item">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/framer/framer-motion-original.svg" alt="Framer Motion" />
-                <p>Framer Motion</p>
-            </div>
-            <div class="carousel-item">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sass/sass-original.svg" alt="Sass" />
-                <p>Sass</p>
-            </div>
-            <div class="carousel-item">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" alt="MongoDB" />
-                <p>MongoDB</p>
-            </div>
-            <div class="carousel-item">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/discordjs/discordjs-original.svg" alt="DiscordJS" />
-                <p>DiscordJS</p>
-            </div>
-            <div class="carousel-item">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastify/fastify-original.svg" alt="Fastify" />
-                <p>Fastify</p>
-            </div>
-            <div class="carousel-item">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="Github" />
-                <p>Github</p>
-            </div>
-            <div class="carousel-item">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/npm/npm-original-wordmark.svg" alt="NPM" />
-                <p>NPM</p>
-            </div>
-            <div class="carousel-item">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" alt="Visual Studio Code" />
-                <p>Visual Studio Code</p>
-            </div>
-            <div class="carousel-item">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/insomnia/insomnia-original.svg" alt="Insomnia" />
-                <p>Insomnia</p>
-            </div>
-            <div class="carousel-item">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cloudflare/cloudflare-original.svg" alt="Cloudflare" />
-                <p>Cloudflare</p>
-            </div>
-            <div class="carousel-item">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/hetzner/hetzner-original.svg" alt="Hetzner" />
-                <p>Hetzner</p>
-            </div>
-            <div class="carousel-item">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/porkbun/porkbun-original.svg" alt="Porkbun" />
-                <p>Porkbun</p>
-            </div>
-        </div>
+<div class="progress-container">
+    <div class="progress-bar" id="progressBar"></div>
+</div>
 
-        <div class="section">
-            <h2>Who Am I?</h2>
-            <p>Hello!👋 I'm Da-Coder-Jr, or the name I also go by CHILL-BEATS :D, a passionate coder who loves exploring new technologies and collaborating on exciting projects. I'm always eager to learn, innovate, and share knowledge with the community. My journey in coding started with an insatiable curiosity, and I’ve been hooked ever since!</p>
-        </div>
+<button class="dark-mode-toggle">Toggle Dark Mode</button>
 
-        <div class="section">
-            <h2>My Skills & Tools</h2>
-            <div class="skills-tools">
-                <img src="https://img.shields.io/badge/Code-Python-blue?style=for-the-badge&logo=python&logoColor=white" alt="Python" />
-                <img src="https://img.shields.io/badge/Code-JavaScript-yellow?style=for-the-badge&logo=javascript&logoColor=white" alt="JavaScript" />
-                <img src="https://img.shields.io/badge/Code-HTML-orange?style=for-the-badge&logo=html5&logoColor=white" alt="HTML" />
-                <img src="https://img.shields.io/badge/Code-CSS-blue?style=for-the-badge&logo=css3&logoColor=white" alt="CSS" />
-            </div>
-        </div>
-
-        <div class="section">
-            <h2>Tips, Hacks & Tricks</h2>
-            <div class="tips-list">
-                <h3>VSCode Hacks</h3>
-                <ul>
-                    <li><strong>Zen Mode:</strong> Hides all distractions in VSCode. Press `Ctrl + K Z` (Windows/Linux) or `Cmd + K Z` (Mac) to enter Zen Mode.</li>
-                    <li><strong>Multi-Cursor Magic:</strong> Allows you to place multiple cursors in your text. Hold `Alt` (Windows/Linux) or `Option` (Mac) and click in multiple places where you want to place cursors.</li>
-                    <li><strong>Quick Rename:</strong> Quickly rename all instances of a variable or function. Highlight the variable and press `F2`, then enter the new name and press `Enter`.</li>
-                    <li><strong>Command Palette:</strong> Provides quick access to all VSCode commands. Press `Ctrl + Shift + P` (Windows/Linux) or `Cmd + Shift + P` (Mac) to open the Command Palette.</li>
-                    <li><strong>Integrated Terminal:</strong> Opens a terminal right within VSCode. Press `Ctrl + `` (Windows/Linux) or `Cmd + `` (Mac) to open/close the integrated terminal.</li>
-                    <li><strong>Live Server:</strong> Instantly see changes in your web projects by running a local server. Install the "Live Server" extension from the VSCode marketplace.</li>
-                </ul>
-                <h3>Git & GitHub Hacks</h3>
-                <ul>
-                    <li><strong>Speedy Commits:</strong> Combines the staging and commit process into a single step. Run `git commit -am "your message"` to add and commit changes in one go.</li>
-                    <li><strong>Undo Last Commit:</strong> Allows you to undo your last commit while keeping your changes. Run `git reset --soft HEAD~1` to undo the last commit.</li>
-                    <li><strong>Keep Your Fork Up to Date:</strong> Synchronizes your fork with the upstream repository.</li>
-                    <li><strong>Interactive Rebase:</strong> Allows you to edit, combine, or delete commits in your history. Run `git rebase -i HEAD~n` where `n` is the number of commits you want to rebase.</li>
-                    <li><strong>GitHub CLI:</strong> Manage GitHub repositories from your terminal. Install GitHub CLI and authenticate.</li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="section">
-            <h2>GitHub Stats</h2>
-            <div class="github-list">
-                <img src="https://github-readme-stats.vercel.app/api?username=Da-Coder-Jr&show_icons=true&theme=radical" alt="GitHub Stats" />
-                <img src="https://github-profile-trophy.vercel.app/?username=Da-Coder-Jr&theme=radical" alt="GitHub Trophies" />
-                <img src="https://komarev.com/ghpvc/?username=Da-Coder-Jr&color=brightgreen" alt="Profile Views" />
-                <img src="https://github-readme-streak-stats.herokuapp.com/?user=Da-Coder-Jr&theme=radical" alt="GitHub Streak" />
-            </div>
-        </div>
-
-        <div class="github-art">
-            <img src="https://octodex.github.com/images/daftpunktocat-guy.gif" alt="GitHub Art" />
-        </div>
-
-        <div class="section">
-            <h2>Fun Facts</h2>
-            <ul class="fun-list">
-                <li><strong>Favorite Game:</strong> Portal 2 - Because who doesn't love solving puzzles with portals?</li>
-                <li><strong>Favorite Anime:</strong> Cute anime characters - Because aesthetics matter! 😊</li>
-                <li><strong>Coding Music:</strong> Chill beats for coding - Keeps me in the zone!</li>
-                <li><strong>Favorite Snack:</strong> 🍕 Pizza - The ultimate coding fuel.</li>
-                <li><strong>Hobbies:</strong> 🎮 Gaming, 🎨 Drawing, 📚 Reading Sci-Fi.</li>
-            </ul>
-        </div>
-
-        <div class="section">
-            <h2>Your Info</h2>
-            <div class="info-section">
-                <h3>Your Info</h3>
-                <div class="info-content">
-                    <p><span class="highlight">IP Address:</span> <span id="ip-address"></span></p>
-                    <p><span class="highlight">City:</span> <span id="city"></span></p>
-                    <p><span class="highlight">Region:</span> <span id="region"></span></p>
-                    <p><span class="highlight">Country:</span> <span id="country"></span></p>
-                    <p><span class="highlight">Latitude:</span> <span id="latitude"></span></p>
-                    <p><span class="highlight">Longitude:</span> <span id="longitude"></span></p>
-                    <p><span class="highlight">ISP:</span> <span id="isp"></span></p>
-                    <p><span class="highlight">Timezone:</span> <span id="timezone"></span></p>
-                </div>
-            </div>
-        </div>
-
-        <script>
-            fetch('https://ipapi.co/json/')
-                .then(response => response.json())
-                .then(data => {
-                    document.getElementById('ip-address').textContent = data.ip;
-                    document.getElementById('city').textContent = data.city;
-                    document.getElementById('region').textContent = data.region;
-                    document.getElementById('country').textContent = data.country_name;
-                    document.getElementById('latitude').textContent = data.latitude;
-                    document.getElementById('longitude').textContent = data.longitude;
-                    document.getElementById('isp').textContent = data.org;
-                    document.getElementById('timezone').textContent = data.timezone;
-                });
-        </script>
+<div class="container">
+    <div class="header">
+        <h1>@Da-Coder-Jr/@CHILL-BEATS :D</h1>
+        <img src="https://media.giphy.com/media/ylG1RO6n12kSnydyPG/giphy.gif" alt="Coding GIF" id="myImage"/>
     </div>
+
+    <h2>Technologies I Use</h2>
+    <div class="technologies" id="technologyContainer">
+        <!-- Technologies will be populated dynamically by JavaScript -->
+    </div>
+
+    <div class="content">
+        <h2>Who Am I?</h2>
+        <p>Hello!👋 I'm Da-Coder-Jr, or the name I also go by CHILL-BEATS :D, a passionate coder who loves exploring new technologies and collaborating on exciting projects.</p>
+        <p>I'm always eager to learn, innovate, and share knowledge with the community. My journey in coding started with an insatiable curiosity, and I’ve been hooked ever since!</p>
+
+        <h2>💻 My Skills & Tools</h2>
+        <div class="technologies">
+            <div class="technology"><img src="https://img.icons8.com/color/50/000000/python.png" alt="Python"/><div>Python</div></div>
+            <div class="technology"><img src="https://img.icons8.com/color/50/000000/javascript.png" alt="JavaScript"/><div>JavaScript</div></div>
+            <div class="technology"><img src="https://img.icons8.com/color/50/000000/html-5.png" alt="HTML"/><div>HTML</div></div>
+            <div class="technology"><img src="https://img.icons8.com/color/50/000000/css3.png" alt="CSS"/><div>CSS</div></div>
+            <div class="technology"><img src="https://img.icons8.com/color/50/000000/git.png" alt="Git"/><div>Git</div></div>
+            <div class="technology"><img src="https://img.icons8.com/color/50/000000/github.png" alt="GitHub"/><div>GitHub</div></div>
+            <div class="technology"><img src="https://img.icons8.com/color/50/000000/nodejs.png" alt="Node.js"/><div>Node.js</div></div>
+            <div class="technology"><img src="https://img.icons8.com/color/50/000000/react-native.png" alt="React"/><div>React</div></div>
+        </div>
+
+        <h2>Tips, Hacks & Tricks</h2>
+        <h3>VSCode Hacks</h3>
+        <ul>
+            <li><strong>Zen Mode:</strong> Press `Ctrl + K Z` (Windows/Linux) or `Cmd + K Z` (Mac) to enter Zen Mode.</li>
+            <li><strong>Multi-Cursor Magic:</strong> Hold `Alt` (Windows/Linux) or `Option` (Mac) and click in multiple places where you want to place cursors.</li>
+            <li><strong>Quick Rename:</strong> Highlight the variable and press `F2`, then enter the new name and press `Enter`.</li>
+            <li><strong>Command Palette:</strong> Press `Ctrl + Shift + P` (Windows/Linux) or `Cmd + Shift + P` (Mac) to open the Command Palette.</li>
+            <li><strong>Integrated Terminal:</strong> Press `Ctrl + `` (Windows/Linux) or `Cmd + `` (Mac) to open/close the integrated terminal.</li>
+            <li><strong>Live Server:</strong> Install the "Live Server" extension from the VSCode marketplace. Right-click on your HTML file and select "Open with Live Server."</li>
+        </ul>
+
+        <h3>Git & GitHub Hacks</h3>
+        <ul>
+            <li><strong>Speedy Commits:</strong> Run `git commit -am "your message"` to add and commit changes in one go.</li>
+            <li><strong>Undo Last Commit:</strong> Run `git reset --soft HEAD~1` to undo the last commit.</li>
+            <li><strong>Keep Your Fork Up to Date:</strong> Synchronize your fork with the upstream repository using `git fetch upstream` and `git merge upstream/master`.</li>
+            <li><strong>GitHub CLI:</strong> Manage GitHub repositories from your terminal with commands like `gh repo create`, `gh issue list`, etc.</li>
+        </ul>
+
+        <h2>Random Developer Wisdom</h2>
+        <p id="random-quote">“Loading a quote... please wait!”</p>
+    </div>
+</div>
+
+<div class="footer">
+    <p>&copy; <span id="year"></span> @Da-Coder-Jr/@CHILL-BEATS :D. All rights reserved.</p>
+</div>
+
+<!-- Modal -->
+<div id="myModal" class="modal">
+    <span class="close">&times;</span>
+    <div class="modal-content">
+        <img src="https://media.giphy.com/media/ylG1RO6n12kSnydyPG/giphy.gif" alt="Coding GIF"/>
+    </div>
+</div>
+
+<script>
+    // Dark Mode Toggle
+    const toggle = document.querySelector('.dark-mode-toggle');
+    toggle.addEventListener('click', () => {
+        document.body.classList.toggle('dark-mode');
+        toggle.textContent = document.body.classList.contains('dark-mode') ? 'Light Mode' : 'Dark Mode';
+    });
+
+    // Modal
+    const modal = document.getElementById("myModal");
+    const img = document.getElementById("myImage");
+    const modalImg = modal.querySelector("img");
+    const closeBtn = modal.querySelector(".close");
+
+    img.onclick = function() {
+        modal.style.display = "flex";
+        modalImg.src = this.src;
+    }
+
+    closeBtn.onclick = function() {
+        modal.style.display = "none";
+    }
+
+    // Smooth Scroll for Anchors
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+
+    // Reveal on Scroll
+    window.addEventListener('scroll', revealContent);
+
+    function revealContent() {
+        const contents = document.querySelectorAll('.content');
+        contents.forEach(content => {
+            const top = content.getBoundingClientRect().top;
+            if (top < window.innerHeight) {
+                content.classList.add('visible');
+            }
+        });
+    }
+
+    // Auto-update Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Progress Bar
+    window.onscroll = function() {
+        var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+        var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        var scrolled = (winScroll / height) * 100;
+        document.getElementById("progressBar").style.width = scrolled + "%";
+    };
+
+    // Technologies Cycle
+    const technologies = [
+        { name: 'HTML', icon: 'https://img.icons8.com/color/50/000000/html-5.png' },
+        { name: 'CSS', icon: 'https://img.icons8.com/color/50/000000/css3.png' },
+        { name: 'JavaScript', icon: 'https://img.icons8.com/color/50/000000/javascript.png' },
+        { name: 'React', icon: 'https://img.icons8.com/color/50/000000/react-native.png' },
+        { name: 'Node.js', icon: 'https://img.icons8.com/color/50/000000/nodejs.png' },
+        { name: 'MongoDB', icon: 'https://img.icons8.com/color/50/000000/mongodb.png' },
+        { name: 'Git', icon: 'https://img.icons8.com/color/50/000000/git.png' },
+        { name: 'GitHub', icon: 'https://img.icons8.com/color/50/000000/github.png' },
+        { name: 'Python', icon: 'https://img.icons8.com/color/50/000000/python.png' },
+        { name: 'Java', icon: 'https://img.icons8.com/color/50/000000/java-coffee-cup-logo.png' },
+        { name: 'C++', icon: 'https://img.icons8.com/color/50/000000/c-plus-plus-logo.png' },
+        { name: 'PHP', icon: 'https://img.icons8.com/color/50/000000/php.png' },
+        { name: 'SQL', icon: 'https://img.icons8.com/color/50/000000/sql.png' },
+        { name: 'Sass', icon: 'https://img.icons8.com/color/50/000000/sass.png' },
+        { name: 'Docker', icon: 'https://img.icons8.com/color/50/000000/docker.png' },
+        { name: 'Kubernetes', icon: 'https://img.icons8.com/color/50/000000/kubernetes.png' },
+        { name: 'AWS', icon: 'https://img.icons8.com/color/50/000000/amazon-web-services.png' },
+        { name: 'Azure', icon: 'https://img.icons8.com/color/50/000000/azure.png' },
+        { name: 'Bootstrap', icon: 'https://img.icons8.com/color/50/000000/bootstrap.png' },
+        { name: 'TypeScript', icon: 'https://img.icons8.com/color/50/000000/typescript.png' },
+        { name: 'Django', icon: 'https://img.icons8.com/color/50/000000/django.png' },
+        { name: 'Laravel', icon: 'https://img.icons8.com/color/50/000000/laravel.png' },
+        { name: 'Vue.js', icon: 'https://img.icons8.com/color/50/000000/vue-js.png' },
+        { name: 'Angular', icon: 'https://img.icons8.com/color/50/000000/angularjs.png' },
+        { name: 'Express.js', icon: 'https://img.icons8.com/color/50/000000/express-js.png' },
+        { name: 'Redux', icon: 'https://img.icons8.com/color/50/000000/redux.png' }
+    ];
+
+    let currentIndex = 0;
+
+    function displayTechnology() {
+        const technologyContainer = document.getElementById('technologyContainer');
+        technologyContainer.innerHTML = `
+            <div class="technology">
+                <img src="${technologies[currentIndex].icon}" alt="${technologies[currentIndex].name}"/>
+                <div>${technologies[currentIndex].name}</div>
+            </div>
+        `;
+        currentIndex = (currentIndex + 1) % technologies.length;
+    }
+
+    displayTechnology();
+    setInterval(displayTechnology, 3000); // Cycle every 3 seconds
+
+    // Fetch Random Developer Wisdom
+    async function fetchRandomQuote() {
+        try {
+            const response = await fetch('https://api.quotable.io/random?tags=technology,famous-quotes');
+            const data = await response.json();
+            document.getElementById('random-quote').textContent = data.content;
+        } catch (error) {
+            document.getElementById('random-quote').textContent = "An error occurred. Please try again later.";
+        }
+    }
+
+    fetchRandomQuote();
+</script>
+
 </body>
 </html>
