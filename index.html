@@ -7,370 +7,262 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #121212;
-            color: #f5f5f5;
+            background-color: #f0f0f0;
+            color: #333;
             margin: 0;
             padding: 0;
-            overflow-x: hidden;
         }
-
-        .container {
-            max-width: 1200px;
-            margin: auto;
-            padding: 20px;
+        .center {
             text-align: center;
         }
-
-        .header {
-            padding: 50px 0;
+        .divider {
+            margin: 20px 0;
+            border-bottom: 1px solid #ccc;
         }
-
-        .header h1 {
-            font-size: 3rem;
-            color: #ffcc00;
-            animation: typing 3s steps(30) 1s forwards, blink 1s infinite;
-            overflow: hidden;
-            white-space: nowrap;
-            border-right: 3px solid;
-        }
-
-        .header img {
-            border-radius: 25px;
+        img {
             max-width: 100%;
-            transition: transform 0.3s ease-in-out;
-        }
-
-        .header img:hover {
-            transform: scale(1.1);
-        }
-
-        h2 {
-            margin-top: 30px;
-            color: #ffa500;
-            font-size: 2.5rem;
-        }
-
-        .technologies {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            margin-top: 50px;
-            padding-bottom: 50px;
-            background-color: #202020;
-            border-radius: 10px;
-        }
-
-        .technology {
-            background-color: #333;
-            border-radius: 10px;
-            margin: 10px;
-            padding: 20px;
-            transition: transform 0.3s ease;
-            color: #fff;
-            text-align: center;
-            cursor: pointer;
-            display: inline-block;
-        }
-
-        .technology img {
-            width: 50px;
-            height: 50px;
-            display: block;
-            margin: 0 auto 10px;
-        }
-
-        .technology:hover {
-            transform: scale(1.1);
-        }
-
-        .content {
-            opacity: 0;
-            transform: translateY(50px);
-            transition: opacity 0.5s ease, transform 0.5s ease;
-        }
-
-        .content.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .footer {
-            margin-top: 50px;
-            padding: 20px 0;
-            background-color: #101010;
-            color: #ccc;
-            position: relative;
-            z-index: 10;
-        }
-
-        .footer p {
-            margin: 0;
-        }
-
-        .dark-mode-toggle {
-            position: fixed;
-            top: 10px;
-            right: 20px;
-            padding: 10px;
-            background-color: #444;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 100;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0,0,0,0.9);
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-        }
-
-        .modal-content {
-            background-color: #333;
-            padding: 20px;
-            border-radius: 10px;
-            color: #fff;
-        }
-
-        .modal img {
-            max-width: 100%;
-            border-radius: 15px;
-        }
-
-        .modal .close {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            color: #fff;
-            font-size: 30px;
-            cursor: pointer;
-        }
-
-        .progress-container {
-            width: 100%;
-            background: #555;
-            position: fixed;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .progress-bar {
-            height: 4px;
-            background: #ffcc00;
-            width: 0%;
-        }
-
-        @keyframes typing {
-            from { width: 0; }
-            to { width: 100%; }
-        }
-
-        @keyframes blink {
-            50% { border-color: transparent; }
-        }
-
-        .hidden {
-            display: none;
+            height: auto;
         }
     </style>
 </head>
 <body>
 
-<div class="progress-container">
-    <div class="progress-bar" id="progressBar"></div>
+<div class="center">
+  <h2><strong>@Da-Coder-Jr/@CHILL-BEATS :D</strong></h2>
 </div>
 
-<button class="dark-mode-toggle">Toggle Dark Mode</button>
+<div class="divider"></div>
 
-<div class="container">
-    <div class="header">
-        <h1>@Da-Coder-Jr/@CHILL-BEATS :D</h1>
-        <img src="https://media.giphy.com/media/ylG1RO6n12kSnydyPG/giphy.gif" alt="Coding GIF" id="myImage"/>
-    </div>
-
-    <h2>Technologies I Use</h2>
-    <div class="technologies" id="technologyContainer">
-        <!-- Technologies will be populated dynamically by JavaScript -->
-    </div>
-
-    <div class="content">
-        <h2>Who Am I?</h2>
-        <p>Hello!👋 I'm Da-Coder-Jr, or the name I also go by CHILL-BEATS :D, a passionate coder who loves exploring new technologies and collaborating on exciting projects.</p>
-        <p>I'm always eager to learn, innovate, and share knowledge with the community. My journey in coding started with an insatiable curiosity, and I’ve been hooked ever since!</p>
-
-        <h2>💻 My Skills & Tools</h2>
-        <div class="technologies">
-            <div class="technology"><img src="https://img.icons8.com/color/50/000000/python.png" alt="Python"/><div>Python</div></div>
-            <div class="technology"><img src="https://img.icons8.com/color/50/000000/javascript.png" alt="JavaScript"/><div>JavaScript</div></div>
-            <div class="technology"><img src="https://img.icons8.com/color/50/000000/html-5.png" alt="HTML"/><div>HTML</div></div>
-            <div class="technology"><img src="https://img.icons8.com/color/50/000000/css3.png" alt="CSS"/><div>CSS</div></div>
-            <div class="technology"><img src="https://img.icons8.com/color/50/000000/git.png" alt="Git"/><div>Git</div></div>
-            <div class="technology"><img src="https://img.icons8.com/color/50/000000/github.png" alt="GitHub"/><div>GitHub</div></div>
-            <div class="technology"><img src="https://img.icons8.com/color/50/000000/nodejs.png" alt="Node.js"/><div>Node.js</div></div>
-            <div class="technology"><img src="https://img.icons8.com/color/50/000000/react-native.png" alt="React"/><div>React</div></div>
-        </div>
-
-        <h2>Tips, Hacks & Tricks</h2>
-        <h3>VSCode Hacks</h3>
-        <ul>
-            <li><strong>Zen Mode:</strong> Press `Ctrl + K Z` (Windows/Linux) or `Cmd + K Z` (Mac) to enter Zen Mode.</li>
-            <li><strong>Multi-Cursor Magic:</strong> Hold `Alt` (Windows/Linux) or `Option` (Mac) and click in multiple places where you want to place cursors.</li>
-            <li><strong>Quick Rename:</strong> Highlight the variable and press `F2`, then enter the new name and press `Enter`.</li>
-            <li><strong>Command Palette:</strong> Press `Ctrl + Shift + P` (Windows/Linux) or `Cmd + Shift + P` (Mac) to open the Command Palette.</li>
-            <li><strong>Integrated Terminal:</strong> Press `Ctrl + `` (Windows/Linux) or `Cmd + `` (Mac) to open/close the integrated terminal.</li>
-            <li><strong>Live Server:</strong> Install the "Live Server" extension from the VSCode marketplace. Right-click on your HTML file and select "Open with Live Server."</li>
-        </ul>
-
-        <h3>Git & GitHub Hacks</h3>
-        <ul>
-            <li><strong>Speedy Commits:</strong> Run `git commit -am "your message"` to add and commit changes in one go.</li>
-            <li><strong>Undo Last Commit:</strong> Run `git reset --soft HEAD~1` to undo the last commit.</li>
-            <li><strong>Keep Your Fork Up to Date:</strong> Synchronize your fork with the upstream repository using `git fetch upstream` and `git merge upstream/master`.</li>
-            <li><strong>GitHub CLI:</strong> Manage GitHub repositories from your terminal with commands like `gh repo create`, `gh issue list`, etc.</li>
-        </ul>
-
-        <h2>Random Developer Wisdom</h2>
-        <p id="random-quote">“Loading a quote... please wait!”</p>
-    </div>
+<div class="center">
+  <img src="https://media.giphy.com/media/jkhtEUhl7OuVpuFJij/giphy.gif" alt="Coding GIF" />
 </div>
 
-<div class="footer">
-    <p>&copy; <span id="year"></span> @Da-Coder-Jr/@CHILL-BEATS :D. All rights reserved.</p>
+<div class="divider"></div>
+
+## 👀 Who Am I?
+
+<div class="center">
+  <strong>Hello!👋 I'm Da-Coder-Jr, or the name I also go by CHILL-BEATS :D,</strong><br>
+  <strong>a passionate coder who loves exploring new technologies and collaborating on exciting projects.</strong><br>
+  <strong>I'm always eager to learn, innovate, and share knowledge with the community.</strong><br>
+  <strong>My journey in coding started with an insatiable curiosity, and I’ve been hooked ever since!</strong><br>
 </div>
 
-<!-- Modal -->
-<div id="myModal" class="modal">
-    <span class="close">&times;</span>
-    <div class="modal-content">
-        <img src="https://media.giphy.com/media/ylG1RO6n12kSnydyPG/giphy.gif" alt="Coding GIF"/>
-    </div>
+<div class="divider"></div>
+
+## 💻 My Skills & Tools
+
+<div class="center">
+  <img src="https://img.shields.io/badge/Code-Python-blue?style=for-the-badge&logo=python&logoColor=white&style=flat-square&rounded=true" alt="Python Badge" />
+  <img src="https://img.shields.io/badge/Code-JavaScript-yellow?style=for-the-badge&logo=javascript&logoColor=white&style=flat-square&rounded=true" alt="JavaScript Badge" />
+  <img src="https://img.shields.io/badge/Code-HTML-orange?style=for-the-badge&logo=html5&logoColor=white&style=flat-square&rounded=true" alt="HTML Badge" />
+  <img src="https://img.shields.io/badge/Code-CSS-blue?style=for-the-badge&logo=css3&logoColor=white&style=flat-square&rounded=true" alt="CSS Badge" />
 </div>
 
-<script>
-    // Dark Mode Toggle
-    const toggle = document.querySelector('.dark-mode-toggle');
-    toggle.addEventListener('click', () => {
-        document.body.classList.toggle('dark-mode');
-        toggle.textContent = document.body.classList.contains('dark-mode') ? 'Light Mode' : 'Dark Mode';
-    });
+### Programming Languages:
+- 🌟 **Python**: My go-to language for automation, data analysis, scripting, and more.
+- 🌟 **JavaScript**: Bringing interactivity to the web with both front-end and back-end development.
+- 🌟 **HTML/CSS**: Crafting beautiful and responsive websites.
 
-    // Modal
-    const modal = document.getElementById("myModal");
-    const img = document.getElementById("myImage");
-    const modalImg = modal.querySelector("img");
-    const closeBtn = modal.querySelector(".close");
+### Development Tools:
+- 🔧 **Git & GitHub**: Essential for version control and collaborating with developers worldwide.
+- 🔧 **VSCode**: The Swiss Army knife of code editors with tons of extensions to power productivity.
+- 🔧 **Node.js**: Perfect for building scalable server-side applications and scripts.
 
-    img.onclick = function() {
-        modal.style.display = "flex";
-        modalImg.src = this.src;
-    }
+### Frameworks:
+- 🚀 **React**: For building fast, dynamic, and responsive web applications.
+- 🚀 **Express**: A lightweight and powerful back-end framework to complement Node.js.
 
-    closeBtn.onclick = function() {
-        modal.style.display = "none";
-    }
+<div class="divider"></div>
 
-    // Smooth Scroll for Anchors
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
-            });
-        });
-    });
+## 💡 Tips, Hacks & Tricks
 
-    // Reveal on Scroll
-    window.addEventListener('scroll', revealContent);
+### **VSCode Hacks**
 
-    function revealContent() {
-        const contents = document.querySelectorAll('.content');
-        contents.forEach(content => {
-            const top = content.getBoundingClientRect().top;
-            if (top < window.innerHeight) {
-                content.classList.add('visible');
-            }
-        });
-    }
+#### **Zen Mode**
+- **What It Does**: Hides all distractions in VSCode, giving you a full-screen, minimalistic environment to focus on coding.
+- **How to Use**: 
+  - Press `Ctrl + K Z` (Windows/Linux) or `Cmd + K Z` (Mac) to enter Zen Mode.
+  - Press the same combination to exit Zen Mode.
 
-    // Auto-update Year
-    document.getElementById('year').textContent = new Date().getFullYear();
+#### **Multi-Cursor Magic**
+- **What It Does**: Allows you to place multiple cursors in your text, making simultaneous edits in different places.
+- **How to Use**: 
+  - Hold `Alt` (Windows/Linux) or `Option` (Mac) and click in multiple places where you want to place cursors.
 
-    // Progress Bar
-    window.onscroll = function() {
-        var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-        var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-        var scrolled = (winScroll / height) * 100;
-        document.getElementById("progressBar").style.width = scrolled + "%";
-    };
+#### **Quick Rename**
+- **What It Does**: Quickly rename all instances of a variable or function.
+- **How to Use**: 
+  - Highlight the variable and press `F2`, then enter the new name and press `Enter`.
 
-    // Technologies Cycle
-    const technologies = [
-        { name: 'HTML', icon: 'https://img.icons8.com/color/50/000000/html-5.png' },
-        { name: 'CSS', icon: 'https://img.icons8.com/color/50/000000/css3.png' },
-        { name: 'JavaScript', icon: 'https://img.icons8.com/color/50/000000/javascript.png' },
-        { name: 'React', icon: 'https://img.icons8.com/color/50/000000/react-native.png' },
-        { name: 'Node.js', icon: 'https://img.icons8.com/color/50/000000/nodejs.png' },
-        { name: 'MongoDB', icon: 'https://img.icons8.com/color/50/000000/mongodb.png' },
-        { name: 'Git', icon: 'https://img.icons8.com/color/50/000000/git.png' },
-        { name: 'GitHub', icon: 'https://img.icons8.com/color/50/000000/github.png' },
-        { name: 'Python', icon: 'https://img.icons8.com/color/50/000000/python.png' },
-        { name: 'Java', icon: 'https://img.icons8.com/color/50/000000/java-coffee-cup-logo.png' },
-        { name: 'C++', icon: 'https://img.icons8.com/color/50/000000/c-plus-plus-logo.png' },
-        { name: 'PHP', icon: 'https://img.icons8.com/color/50/000000/php.png' },
-        { name: 'SQL', icon: 'https://img.icons8.com/color/50/000000/sql.png' },
-        { name: 'Sass', icon: 'https://img.icons8.com/color/50/000000/sass.png' },
-        { name: 'Docker', icon: 'https://img.icons8.com/color/50/000000/docker.png' },
-        { name: 'Kubernetes', icon: 'https://img.icons8.com/color/50/000000/kubernetes.png' },
-        { name: 'AWS', icon: 'https://img.icons8.com/color/50/000000/amazon-web-services.png' },
-        { name: 'Azure', icon: 'https://img.icons8.com/color/50/000000/azure.png' },
-        { name: 'Bootstrap', icon: 'https://img.icons8.com/color/50/000000/bootstrap.png' },
-        { name: 'TypeScript', icon: 'https://img.icons8.com/color/50/000000/typescript.png' },
-        { name: 'Django', icon: 'https://img.icons8.com/color/50/000000/django.png' },
-        { name: 'Laravel', icon: 'https://img.icons8.com/color/50/000000/laravel.png' },
-        { name: 'Vue.js', icon: 'https://img.icons8.com/color/50/000000/vue-js.png' },
-        { name: 'Angular', icon: 'https://img.icons8.com/color/50/000000/angularjs.png' },
-        { name: 'Express.js', icon: 'https://img.icons8.com/color/50/000000/express-js.png' },
-        { name: 'Redux', icon: 'https://img.icons8.com/color/50/000000/redux.png' }
-    ];
+#### **Command Palette**
+- **What It Does**: Provides quick access to all VSCode commands.
+- **How to Use**: 
+  - Press `Ctrl + Shift + P` (Windows/Linux) or `Cmd + Shift + P` (Mac) to open the Command Palette.
 
-    let currentIndex = 0;
+#### **Integrated Terminal**
+- **What It Does**: Opens a terminal right within VSCode.
+- **How to Use**: 
+  - Press `Ctrl + `` (Windows/Linux) or `Cmd + `` (Mac) to open/close the integrated terminal.
 
-    function displayTechnology() {
-        const technologyContainer = document.getElementById('technologyContainer');
-        technologyContainer.innerHTML = `
-            <div class="technology">
-                <img src="${technologies[currentIndex].icon}" alt="${technologies[currentIndex].name}"/>
-                <div>${technologies[currentIndex].name}</div>
-            </div>
-        `;
-        currentIndex = (currentIndex + 1) % technologies.length;
-    }
+#### **Live Server**
+- **What It Does**: Instantly sees changes in your web projects by running a local server.
+- **How to Set Up**: 
+  1. Install the "Live Server" extension from the VSCode marketplace.
+  2. Open your HTML file and right-click, then select "Open with Live Server."
 
-    displayTechnology();
-    setInterval(displayTechnology, 3000); // Cycle every 3 seconds
+### **Git & GitHub Hacks**
 
-    // Fetch Random Developer Wisdom
-    async function fetchRandomQuote() {
-        try {
-            const response = await fetch('https://api.quotable.io/random?tags=technology,famous-quotes');
-            const data = await response.json();
-            document.getElementById('random-quote').textContent = data.content;
-        } catch (error) {
-            document.getElementById('random-quote').textContent = "An error occurred. Please try again later.";
-        }
-    }
+#### **Speedy Commits**
+- **What It Does**: Combines the staging and commit process into a single step.
+- **How to Use**: 
+  - Run `git commit -am "your message"` to add and commit changes in one go.
 
-    fetchRandomQuote();
-</script>
+#### **Undo Last Commit**
+- **What It Does**: Allows you to undo your last commit while keeping your changes.
+- **How to Use**: 
+  - Run `git reset --soft HEAD~1` to undo the last commit.
+
+#### **Keep Your Fork Up to Date**
+- **What It Does**: Synchronizes your fork with the upstream repository.
+- **How to Use**: 
+  1. Add the upstream repository: `git remote add upstream <upstream-repo-url>`
+  2. Fetch the latest changes: `git fetch upstream`
+  3. Merge changes into your fork: `git merge upstream/master`
+
+#### **Interactive Rebase**
+- **What It Does**: Allows you to edit, combine, or delete commits in your history.
+- **How to Use**: 
+  - Run `git rebase -i HEAD~n` where `n` is the number of commits you want to rebase.
+
+#### **GitHub CLI**
+- **What It Does**: Manage GitHub repositories from your terminal.
+- **How to Set Up**: 
+  1. Install GitHub CLI: `brew install gh` (macOS) or follow the instructions for your OS [here](https://cli.github.com/).
+  2. Authenticate: `gh auth login`
+  3. Use commands like `gh repo create`, `gh issue list`, etc.
+
+<div class="divider"></div>
+
+## 🖼️ Dynamic GitHub Art
+
+<div class="center">
+  <img src="https://octodex.github.com/images/daftpunktocat-guy.gif" alt="GitHub Art" />
+</div>
+
+<div class="divider"></div>
+
+## 🎥 Special Video of the Day
+
+<div class="center">
+  <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">
+    <img src="https://img.youtube.com/vi/dQw4w9WgXcQ/0.jpg" alt="Special Video" width="300" />
+  </a>
+  <p>Click to watch today's special video!</p>
+</div>
+
+<div class="divider"></div>
+
+## 🎮 My Fun Side
+- **Favorite Game:** Portal 2 - Because who doesn't love solving puzzles with portals?
+- **Favorite Anime:** Cute anime characters - Because aesthetics matter! 😊
+- **Coding Music:** Chill beats for coding - Keeps me in the zone!
+- **Favorite Snack:** 🍕 Pizza - The ultimate coding fuel.
+- **Hobbies:** 🎮 Gaming, 🎨 Drawing, 📚 Reading Sci-Fi.
+
+<div class="divider"></div>
+
+## 📈 My GitHub Stats
+
+<div class="center">
+  <img src="https://github-readme-stats.vercel.app/api?username=Da-Coder-Jr&show_icons=true&theme=radical" alt="GitHub Stats" />
+</div>
+
+<div class="divider"></div>
+
+## 🏆 GitHub Trophies
+
+<div class="center">
+  <img src="https://github-profile-trophy.vercel.app/?username=Da-Coder-Jr&theme=radical" alt="GitHub Trophies" />
+</div>
+
+<div class="divider"></div>
+
+## 🌐 GitHub Profile Views
+
+<div class="center">
+  <img src="https://komarev.com/ghpvc/?username=Da-Coder-Jr&color=brightgreen" alt="Profile Views" />
+</div>
+
+<div class="divider"></div>
+
+## 📊 GitHub Streak
+
+<div class="center">
+  <img src="https://github-readme-streak-stats.herokuapp.com/?user=Da-Coder-Jr&theme=radical" alt="GitHub Streak" />
+</div>
+
+<div class="divider"></div>
+
+## 🔭 What I’m Working On
+- 🚀 **Personal Projects:** Constantly developing new features and refining my existing work.
+- 🤝 **Collaboration:** Actively collaborating with others to improve performance and add new features to shared projects.
+- 🎓 **Learning:** Diving deeper into machine learning and AI.
+
+<div class="divider"></div>
+
+## ✨ Random Developer Wisdom
+
+<div class="center">
+  <img src="https://quotes-github-readme.vercel.app/api?type=horizontal&theme=radical" alt="Random Developer Wisdom" />
+</div>
+
+<div class="divider"></div>
+
+## 😺 GitHub Stats Galore
+- **Languages I Use:**
+<div class="center">
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Da-Coder-Jr&layout=compact&theme=radical" alt="Top Languages" />
+</div>
+
+<div class="divider"></div>
+
+## 🎨 Just for Fun - A Little Direction
+- **Which Way Should I Go?**
+  - <img src="https://img.icons8.com/fluent/48/000000/long-arrow-left.png"/> WHICH WAY?
+  - <img src="https://img.icons8.com/fluent/48/000000/long-arrow-right.png"/> THAT WAY!
+
+<div class="divider"></div>
+
+## 🎯 Challenging Myself
+- 🎮 I love participating in coding challenges and hackathons to sharpen my skills and have fun while doing it!
+
+<div class="divider"></div>
+
+## 🎨 My Theme Recommendation
+<div class="center">
+  <img src="https://img.shields.io/badge/Theme-Nord%20Theme-blue?style=for-the-badge&logo=nord&logoColor=white&style=flat-square&rounded=true" alt="Nord Theme" />
+</div>
+
+<div class="divider"></div>
+
+## 🤝 Let’s Connect
+- 🌐 **[My Website](https://example.com)** - Check out my website!
+
+<div class="divider"></div>
+
+## 📣 Shoutouts to the Community
+- 🏆 A special thanks to all the contributors and maintainers of the amazing open-source projects I use daily. Your hard work makes the coding world a better place!
+
+<div class="divider"></div>
+
+## 💬 Let’s Talk!
+Feel free to reach out if you want to discuss coding, collaborate on projects, or just say hi! I'm always open to new ideas and connections.
+
+<div class="divider"></div>
+
+## 🚀 Want a Free GitHub/About You Page?
+If you liked what you see and want a custom GitHub README or an "About You" page like this, feel free to contact me! I’m happy to help you create something awesome for your profile.
 
 </body>
 </html>
