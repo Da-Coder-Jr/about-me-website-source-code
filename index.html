@@ -3,266 +3,225 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@Da-Coder-Jr/@CHILL-BEATS :D</title>
+    <title>Da-Coder-Jr's Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
-            color: #333;
+            font-family: 'Montserrat', sans-serif;
+            background-color: #121212;
+            color: #e0e0e0;
             margin: 0;
             padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
         }
-        .center {
+
+        h1, h2, h3 {
+            margin: 0;
+            color: #1db954;
+        }
+
+        .container {
+            max-width: 1200px;
+            padding: 20px;
             text-align: center;
         }
-        .divider {
-            margin: 20px 0;
-            border-bottom: 1px solid #ccc;
+
+        .intro {
+            margin-top: 50px;
         }
-        img {
-            max-width: 100%;
-            height: auto;
+
+        .intro img {
+            border-radius: 50px;
+            max-width: 150px;
+            margin-top: 20px;
+        }
+
+        .section {
+            margin: 40px 0;
+            text-align: left;
+        }
+
+        .section h2 {
+            margin-bottom: 20px;
+        }
+
+        .tech-carousel {
+            display: flex;
+            overflow: hidden;
+            margin: 20px 0;
+            animation: carousel 30s linear infinite;
+            border-radius: 15px;
+        }
+
+        .carousel-item {
+            flex: 0 0 auto;
+            margin: 0 10px;
+            background-color: #333;
+            padding: 20px;
+            border-radius: 15px;
+            transition: transform 0.3s ease;
+        }
+
+        .carousel-item img {
+            max-width: 50px;
+            margin-bottom: 10px;
+        }
+
+        .carousel-item:hover {
+            transform: scale(1.1);
+            background-color: #444;
+        }
+
+        @keyframes carousel {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(calc(-100% - 20px)); }
+        }
+
+        .github-art {
+            margin: 50px 0;
+        }
+
+        .tips-list, .github-list, .fun-list {
+            background-color: #333;
+            padding: 20px;
+            border-radius: 15px;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .info-section {
+            background-color: #222;
+            border-radius: 15px;
+            padding: 20px;
+            margin-top: 30px;
+            text-align: left;
+        }
+
+        .info-section h3 {
+            color: #1db954;
+        }
+
+        .info-section p {
+            margin: 10px 0;
+        }
+
+        .highlight {
+            color: #1db954;
+        }
+
+        a {
+            color: #1db954;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #1ed760;
+        }
+
+        .dark-mode-toggle {
+            margin-top: 20px;
+            cursor: pointer;
+            color: #e0e0e0;
+            background-color: #1db954;
+            padding: 10px 20px;
+            border-radius: 20px;
+            border: none;
+            font-size: 16px;
         }
     </style>
 </head>
 <body>
-
-<div class="center">
-  <h2><strong>@Da-Coder-Jr/@CHILL-BEATS :D</strong></h2>
-</div>
-
-<div class="divider"></div>
-
-<div class="center">
-  <img src="https://media.giphy.com/media/jkhtEUhl7OuVpuFJij/giphy.gif" alt="Coding GIF" />
-</div>
-
-<div class="divider"></div>
-
-## 👀 Who Am I?
-
-<div class="center">
-  <strong>Hello!👋 I'm Da-Coder-Jr, or the name I also go by CHILL-BEATS :D,</strong><br>
-  <strong>a passionate coder who loves exploring new technologies and collaborating on exciting projects.</strong><br>
-  <strong>I'm always eager to learn, innovate, and share knowledge with the community.</strong><br>
-  <strong>My journey in coding started with an insatiable curiosity, and I’ve been hooked ever since!</strong><br>
-</div>
-
-<div class="divider"></div>
-
-## 💻 My Skills & Tools
-
-<div class="center">
-  <img src="https://img.shields.io/badge/Code-Python-blue?style=for-the-badge&logo=python&logoColor=white&style=flat-square&rounded=true" alt="Python Badge" />
-  <img src="https://img.shields.io/badge/Code-JavaScript-yellow?style=for-the-badge&logo=javascript&logoColor=white&style=flat-square&rounded=true" alt="JavaScript Badge" />
-  <img src="https://img.shields.io/badge/Code-HTML-orange?style=for-the-badge&logo=html5&logoColor=white&style=flat-square&rounded=true" alt="HTML Badge" />
-  <img src="https://img.shields.io/badge/Code-CSS-blue?style=for-the-badge&logo=css3&logoColor=white&style=flat-square&rounded=true" alt="CSS Badge" />
-</div>
-
-### Programming Languages:
-- 🌟 **Python**: My go-to language for automation, data analysis, scripting, and more.
-- 🌟 **JavaScript**: Bringing interactivity to the web with both front-end and back-end development.
-- 🌟 **HTML/CSS**: Crafting beautiful and responsive websites.
-
-### Development Tools:
-- 🔧 **Git & GitHub**: Essential for version control and collaborating with developers worldwide.
-- 🔧 **VSCode**: The Swiss Army knife of code editors with tons of extensions to power productivity.
-- 🔧 **Node.js**: Perfect for building scalable server-side applications and scripts.
-
-### Frameworks:
-- 🚀 **React**: For building fast, dynamic, and responsive web applications.
-- 🚀 **Express**: A lightweight and powerful back-end framework to complement Node.js.
-
-<div class="divider"></div>
-
-## 💡 Tips, Hacks & Tricks
-
-### **VSCode Hacks**
-
-#### **Zen Mode**
-- **What It Does**: Hides all distractions in VSCode, giving you a full-screen, minimalistic environment to focus on coding.
-- **How to Use**: 
-  - Press `Ctrl + K Z` (Windows/Linux) or `Cmd + K Z` (Mac) to enter Zen Mode.
-  - Press the same combination to exit Zen Mode.
-
-#### **Multi-Cursor Magic**
-- **What It Does**: Allows you to place multiple cursors in your text, making simultaneous edits in different places.
-- **How to Use**: 
-  - Hold `Alt` (Windows/Linux) or `Option` (Mac) and click in multiple places where you want to place cursors.
-
-#### **Quick Rename**
-- **What It Does**: Quickly rename all instances of a variable or function.
-- **How to Use**: 
-  - Highlight the variable and press `F2`, then enter the new name and press `Enter`.
-
-#### **Command Palette**
-- **What It Does**: Provides quick access to all VSCode commands.
-- **How to Use**: 
-  - Press `Ctrl + Shift + P` (Windows/Linux) or `Cmd + Shift + P` (Mac) to open the Command Palette.
-
-#### **Integrated Terminal**
-- **What It Does**: Opens a terminal right within VSCode.
-- **How to Use**: 
-  - Press `Ctrl + `` (Windows/Linux) or `Cmd + `` (Mac) to open/close the integrated terminal.
-
-#### **Live Server**
-- **What It Does**: Instantly sees changes in your web projects by running a local server.
-- **How to Set Up**: 
-  1. Install the "Live Server" extension from the VSCode marketplace.
-  2. Open your HTML file and right-click, then select "Open with Live Server."
-
-### **Git & GitHub Hacks**
-
-#### **Speedy Commits**
-- **What It Does**: Combines the staging and commit process into a single step.
-- **How to Use**: 
-  - Run `git commit -am "your message"` to add and commit changes in one go.
-
-#### **Undo Last Commit**
-- **What It Does**: Allows you to undo your last commit while keeping your changes.
-- **How to Use**: 
-  - Run `git reset --soft HEAD~1` to undo the last commit.
-
-#### **Keep Your Fork Up to Date**
-- **What It Does**: Synchronizes your fork with the upstream repository.
-- **How to Use**: 
-  1. Add the upstream repository: `git remote add upstream <upstream-repo-url>`
-  2. Fetch the latest changes: `git fetch upstream`
-  3. Merge changes into your fork: `git merge upstream/master`
-
-#### **Interactive Rebase**
-- **What It Does**: Allows you to edit, combine, or delete commits in your history.
-- **How to Use**: 
-  - Run `git rebase -i HEAD~n` where `n` is the number of commits you want to rebase.
-
-#### **GitHub CLI**
-- **What It Does**: Manage GitHub repositories from your terminal.
-- **How to Set Up**: 
-  1. Install GitHub CLI: `brew install gh` (macOS) or follow the instructions for your OS [here](https://cli.github.com/).
-  2. Authenticate: `gh auth login`
-  3. Use commands like `gh repo create`, `gh issue list`, etc.
-
-<div class="divider"></div>
-
-## 🖼️ Dynamic GitHub Art
-
-<div class="center">
-  <img src="https://octodex.github.com/images/daftpunktocat-guy.gif" alt="GitHub Art" />
-</div>
-
-<div class="divider"></div>
-
-## 🎥 Special Video of the Day
-
-<div class="center">
-  <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">
-    <img src="https://img.youtube.com/vi/dQw4w9WgXcQ/0.jpg" alt="Special Video" width="300" />
-  </a>
-  <p>Click to watch today's special video!</p>
-</div>
-
-<div class="divider"></div>
-
-## 🎮 My Fun Side
-- **Favorite Game:** Portal 2 - Because who doesn't love solving puzzles with portals?
-- **Favorite Anime:** Cute anime characters - Because aesthetics matter! 😊
-- **Coding Music:** Chill beats for coding - Keeps me in the zone!
-- **Favorite Snack:** 🍕 Pizza - The ultimate coding fuel.
-- **Hobbies:** 🎮 Gaming, 🎨 Drawing, 📚 Reading Sci-Fi.
-
-<div class="divider"></div>
-
-## 📈 My GitHub Stats
-
-<div class="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=Da-Coder-Jr&show_icons=true&theme=radical" alt="GitHub Stats" />
-</div>
-
-<div class="divider"></div>
-
-## 🏆 GitHub Trophies
-
-<div class="center">
-  <img src="https://github-profile-trophy.vercel.app/?username=Da-Coder-Jr&theme=radical" alt="GitHub Trophies" />
-</div>
-
-<div class="divider"></div>
-
-## 🌐 GitHub Profile Views
-
-<div class="center">
-  <img src="https://komarev.com/ghpvc/?username=Da-Coder-Jr&color=brightgreen" alt="Profile Views" />
-</div>
-
-<div class="divider"></div>
-
-## 📊 GitHub Streak
-
-<div class="center">
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=Da-Coder-Jr&theme=radical" alt="GitHub Streak" />
-</div>
-
-<div class="divider"></div>
-
-## 🔭 What I’m Working On
-- 🚀 **Personal Projects:** Constantly developing new features and refining my existing work.
-- 🤝 **Collaboration:** Actively collaborating with others to improve performance and add new features to shared projects.
-- 🎓 **Learning:** Diving deeper into machine learning and AI.
-
-<div class="divider"></div>
-
-## ✨ Random Developer Wisdom
-
-<div class="center">
-  <img src="https://quotes-github-readme.vercel.app/api?type=horizontal&theme=radical" alt="Random Developer Wisdom" />
-</div>
-
-<div class="divider"></div>
-
-## 😺 GitHub Stats Galore
-- **Languages I Use:**
-<div class="center">
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Da-Coder-Jr&layout=compact&theme=radical" alt="Top Languages" />
-</div>
-
-<div class="divider"></div>
-
-## 🎨 Just for Fun - A Little Direction
-- **Which Way Should I Go?**
-  - <img src="https://img.icons8.com/fluent/48/000000/long-arrow-left.png"/> WHICH WAY?
-  - <img src="https://img.icons8.com/fluent/48/000000/long-arrow-right.png"/> THAT WAY!
-
-<div class="divider"></div>
-
-## 🎯 Challenging Myself
-- 🎮 I love participating in coding challenges and hackathons to sharpen my skills and have fun while doing it!
-
-<div class="divider"></div>
-
-## 🎨 My Theme Recommendation
-<div class="center">
-  <img src="https://img.shields.io/badge/Theme-Nord%20Theme-blue?style=for-the-badge&logo=nord&logoColor=white&style=flat-square&rounded=true" alt="Nord Theme" />
-</div>
-
-<div class="divider"></div>
-
-## 🤝 Let’s Connect
-- 🌐 **[My Website](https://example.com)** - Check out my website!
-
-<div class="divider"></div>
-
-## 📣 Shoutouts to the Community
-- 🏆 A special thanks to all the contributors and maintainers of the amazing open-source projects I use daily. Your hard work makes the coding world a better place!
-
-<div class="divider"></div>
-
-## 💬 Let’s Talk!
-Feel free to reach out if you want to discuss coding, collaborate on projects, or just say hi! I'm always open to new ideas and connections.
-
-<div class="divider"></div>
-
-## 🚀 Want a Free GitHub/About You Page?
-If you liked what you see and want a custom GitHub README or an "About You" page like this, feel free to contact me! I’m happy to help you create something awesome for your profile.
-
+    <div class="container">
+        <div class="intro">
+            <h1>Hey, I'm Da-Coder-Jr aka CHILL-BEATS 👋</h1>
+            <img src="https://media.giphy.com/media/ylG1RO6n12kSnydyPG/giphy.gif" alt="Coding GIF">
+        </div>
+
+        <div class="section">
+            <h2>Technologies I Use</h2>
+            <div class="tech-carousel">
+                <div class="carousel-item"> 
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" />
+                    <p>React</p>
+                </div>
+                <div class="carousel-item">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" alt="NextJS" />
+                    <p>NextJS</p>
+                </div>
+                <div class="carousel-item">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/framer/framer-motion-original.svg" alt="Framer Motion" />
+                    <p>Framer Motion</p>
+                </div>
+                <div class="carousel-item">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sass/sass-original.svg" alt="Sass" />
+                    <p>Sass</p>
+                </div>
+                <!-- Add more carousel items here -->
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Who Am I?</h2>
+            <p>Hello!👋 I'm Da-Coder-Jr, or the name I also go by CHILL-BEATS :D, a passionate coder who loves exploring new technologies and collaborating on exciting projects. I'm always eager to learn, innovate, and share knowledge with the community. My journey in coding started with an insatiable curiosity, and I’ve been hooked ever since!</p>
+        </div>
+
+        <div class="section">
+            <h2>Your Info</h2>
+            <div class="info-section">
+                <h3>Your Info</h3>
+                <div class="info-content">
+                    <p><span class="highlight">IP Address:</span> <span id="ip-address"></span></p>
+                    <p><span class="highlight">City:</span> <span id="city"></span></p>
+                    <p><span class="highlight">Region:</span> <span id="region"></span></p>
+                    <p><span class="highlight">Country:</span> <span id="country"></span></p>
+                    <p><span class="highlight">Latitude:</span> <span id="latitude"></span></p>
+                    <p><span class="highlight">Longitude:</span> <span id="longitude"></span></p>
+                    <p><span class="highlight">ISP:</span> <span id="isp"></span></p>
+                    <p><span class="highlight">Timezone:</span> <span id="timezone"></span></p>
+                    <p><span class="highlight">Browser:</span> <span id="browser"></span></p>
+                    <p><span class="highlight">Operating System:</span> <span id="os"></span></p>
+                    <p><span class="highlight">Screen Resolution:</span> <span id="resolution"></span></p>
+                </div>
+            </div>
+        </div>
+
+        <button class="dark-mode-toggle" onclick="toggleDarkMode()">Toggle Dark Mode</button>
+
+        <script>
+            fetch('https://ipapi.co/json/')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('ip-address').textContent = data.ip;
+                    document.getElementById('city').textContent = data.city;
+                    document.getElementById('region').textContent = data.region;
+                    document.getElementById('country').textContent = data.country_name;
+                    document.getElementById('latitude').textContent = data.latitude;
+                    document.getElementById('longitude').textContent = data.longitude;
+                    document.getElementById('isp').textContent = data.org;
+                    document.getElementById('timezone').textContent = data.timezone;
+                });
+
+            document.getElementById('browser').textContent = navigator.userAgent;
+            document.getElementById('os').textContent = navigator.platform;
+            document.getElementById('resolution').textContent = `${window.screen.width} x ${window.screen.height}`;
+
+            function toggleDarkMode() {
+                document.body.classList.toggle('dark-mode');
+                if (document.body.classList.contains('dark-mode')) {
+                    document.body.style.backgroundColor = '#1e1e1e';
+                    document.body.style.color = '#ffffff';
+                } else {
+                    document.body.style.backgroundColor = '#ffffff';
+                    document.body.style.color = '#000000';
+                }
+            }
+        </script>
+    </div>
 </body>
 </html>
