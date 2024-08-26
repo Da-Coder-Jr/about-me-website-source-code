@@ -20,15 +20,8 @@
             padding: 20px;
         }
 
-        .section {
-            margin: 40px 0;
-            padding: 20px;
-            border-radius: 25px;
-            background-color: #2c2c2c;
-        }
-
-        .intro h1, .section h2 {
-            color: #f39c12;
+        .intro {
+            margin-top: 50px;
         }
 
         .tech-carousel {
@@ -36,7 +29,7 @@
             overflow: hidden;
             width: 100%;
             margin: 20px auto;
-            border-radius: 25px;
+            border-radius: 15px;
         }
 
         .carousel-item {
@@ -71,254 +64,171 @@
             animation: carousel 30s infinite linear;
         }
 
-        .typewriter h1 {
-            overflow: hidden;
-            border-right: .15em solid orange;
-            white-space: nowrap;
+        .info-section {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #222;
+            border-radius: 15px;
+            max-width: 600px;
             margin: 0 auto;
-            letter-spacing: .15em;
-            animation: typing 3.5s steps(30, end), blink-caret .75s step-end infinite;
+            text-align: left;
         }
 
-        @keyframes typing {
-            from { width: 0 }
-            to { width: 100% }
+        .info-section h3 {
+            color: #f39c12;
         }
 
-        @keyframes blink-caret {
-            from, to { border-color: transparent }
-            50% { border-color: orange; }
+        .info-content p {
+            margin: 10px 0;
         }
 
-        .github-art img {
-            border-radius: 25px;
+        .highlight {
+            color: #f39c12;
         }
 
-        .fun-list, .github-list, .tips-list {
+        .github-art {
+            margin: 50px 0;
+        }
+
+        h2, h3 {
+            color: #f39c12;
+        }
+
+        .section {
+            margin: 40px 0;
+        }
+
+        .skills-tools img {
+            margin: 10px;
+            width: 100px;
+            height: auto;
+            border-radius: 15px;
+        }
+
+        .tips-list, .github-list, .fun-list {
             text-align: left;
             max-width: 800px;
             margin: 0 auto;
             background-color: #333;
             padding: 20px;
-            border-radius: 25px;
+            border-radius: 15px;
         }
 
-        .enter-button {
-            margin: 100px 0;
-            padding: 20px 40px;
-            background-color: #f39c12;
-            color: #fff;
-            border: none;
-            border-radius: 25px;
-            font-size: 24px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        .enter-button:hover {
-            background-color: #e67e22;
-        }
-
-        #createPageForm {
-            display: none;
-            margin-top: 50px;
-            padding: 20px;
-            background-color: #333;
-            border-radius: 25px;
-        }
-
-        #createPageForm input, #createPageForm textarea {
-            width: 100%;
+        .tips-list li, .github-list li, .fun-list li {
             margin: 10px 0;
-            padding: 10px;
-            border-radius: 10px;
-            border: none;
-            outline: none;
         }
-
-        #createPageForm button {
-            background-color: #f39c12;
-            color: #fff;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 25px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        #createPageForm button:hover {
-            background-color: #e67e22;
-        }
-
-        /* Custom cursor styling */
-        body.custom-cursor * {
-            cursor: url('https://example.com/sparkle-cursor.png'), auto;
-        }
-
-        body.cursor-trail *::after {
-            content: '';
-            position: absolute;
-            top: -2px;
-            left: -2px;
-            width: 20px;
-            height: 20px;
-            background: url('https://example.com/trail.png') no-repeat;
-            pointer-events: none;
-            animation: follow-cursor 1s infinite;
-        }
-
-        @keyframes follow-cursor {
-            0% {
-                transform: translate(0, 0);
-            }
-            100% {
-                transform: translate(100%, 100%);
-            }
-        }
-
     </style>
 </head>
 <body>
-    <!-- Click to Enter -->
-    <div id="enter-page">
-        <button class="enter-button" onclick="enterSite()">Click to Enter</button>
-    </div>
+    <div class="container">
+        <div class="intro">
+            <h1>@Da-Coder-Jr/@CHILL-BEATS :D</h1>
+            <img src="https://media.giphy.com/media/ylG1RO6n12kSnydyPG/giphy.gif" alt="Animated GIF" style="border-radius: 50px; max-width: 80%; height: auto;">
+        </div>
 
-    <!-- Main Content -->
-    <div id="main-content" style="display: none;">
-        <div class="container">
-            <div class="intro typewriter">
-                <h1>@Da-Coder-Jr/@CHILL-BEATS :D</h1>
+        <h2>Technologies I Use</h2>
+        <div class="tech-carousel">
+            <div class="carousel-item"> 
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" />
+                <p>React</p>
             </div>
+            <!-- Add more carousel items here -->
+        </div>
 
-            <div class="section">
-                <h2>Technologies I Use</h2>
-                <div class="tech-carousel">
-                    <!-- Add your tech carousel items here -->
-                    <div class="carousel-item"> 
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" />
-                        <p>React</p>
-                    </div>
-                    <!-- Additional items... -->
-                </div>
-            </div>
+        <div class="section">
+            <h2>Who Am I?</h2>
+            <p>Hello!👋 I'm Da-Coder-Jr, or the name I also go by CHILL-BEATS :D, a passionate coder who loves exploring new technologies and collaborating on exciting projects. I'm always eager to learn, innovate, and share knowledge with the community. My journey in coding started with an insatiable curiosity, and I’ve been hooked ever since!</p>
+        </div>
 
-            <div class="section">
-                <h2>Who Am I?</h2>
-                <p>Hello!👋 I'm Da-Coder-Jr, or the name I also go by CHILL-BEATS :D, a passionate coder who loves exploring new technologies and collaborating on exciting projects. I'm always eager to learn, innovate, and share knowledge with the community. My journey in coding started with an insatiable curiosity, and I’ve been hooked ever since!</p>
-            </div>
-
-            <div class="section">
-                <h2>My Skills & Tools</h2>
-                <div class="skills-tools">
-                    <!-- Add skills tools images here -->
-                    <img src="https://img.shields.io/badge/Code-Python-blue?style=for-the-badge&logo=python&logoColor=white" alt="Python" />
-                    <!-- Additional items... -->
-                </div>
-            </div>
-
-            <div class="section">
-                <h2>Tips, Hacks & Tricks</h2>
-                <div class="tips-list">
-                    <h3>VSCode Hacks</h3>
-                    <ul>
-                        <!-- Add tips here -->
-                        <li><strong>Zen Mode:</strong> Hides all distractions in VSCode...</li>
-                        <!-- Additional items... -->
-                    </ul>
-                    <h3>Git & GitHub Hacks</h3>
-                    <ul>
-                        <!-- Add GitHub hacks here -->
-                        <li><strong>Speedy Commits:</strong> Combines the staging and commit process...</li>
-                        <!-- Additional items... -->
-                    </ul>
-                </div>
-            </div>
-
-            <div class="section">
-                <h2>GitHub Stats</h2>
-                <div class="github-list">
-                    <!-- Add GitHub stats images here -->
-                    <img src="https://github-readme-stats.vercel.app/api?username=Da-Coder-Jr&show_icons=true&theme=radical" alt="GitHub Stats" />
-                    <!-- Additional items... -->
-                </div>
-            </div>
-
-            <div class="github-art">
-                <img src="https://octodex.github.com/images/daftpunktocat-guy.gif" alt="GitHub Art" />
-            </div>
-
-            <div class="section">
-                <h2>Fun Facts</h2>
-                <ul class="fun-list">
-                    <!-- Add fun facts here -->
-                    <li><strong>Favorite Game:</strong> Portal 2...</li>
-                    <!-- Additional items... -->
-                </ul>
-            </div>
-
-            <div class="section">
-                <h2>Your Info</h2>
-                <div class="info-section">
-                    <h3>Your Info</h3>
-                    <div class="info-content">
-                        <p><span class="highlight">IP Address:</span> <span id="ip-address"></span></p>
-                        <p><span class="highlight">City:</span> <span id="city"></span></p>
-                        <p><span class="highlight">Region:</span> <span id="region"></span></p>
-                        <p><span class="highlight">Country:</span> <span id="country"></span></p>
-                        <p><span class="highlight">Latitude:</span> <span id="latitude"></span></p>
-                        <p><span class="highlight">Longitude:</span> <span id="longitude"></span></p>
-                        <p><span class="highlight">ISP:</span> <span id="isp"></span></p>
-                        <p><span class="highlight">Timezone:</span> <span id="timezone"></span></p>
-                        <p><span class="highlight">Browser:</span> <span id="browser"></span></p>
-                        <p><span class="highlight">OS:</span> <span id="os"></span></p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="section">
-                <h2>Create a Custom Page Like This!</h2>
-                <button class="enter-button" onclick="showForm()">Create Your Page</button>
-                <form id="createPageForm">
-                    <input type="text" placeholder="Your Name" />
-                    <textarea placeholder="Your Bio"></textarea>
-                    <button>Create My Page</button>
-                </form>
+        <div class="section">
+            <h2>My Skills & Tools</h2>
+            <div class="skills-tools">
+                <img src="https://img.shields.io/badge/Code-Python-blue?style=for-the-badge&logo=python&logoColor=white" alt="Python" />
+                <img src="https://img.shields.io/badge/Code-JavaScript-yellow?style=for-the-badge&logo=javascript&logoColor=white" alt="JavaScript" />
+                <img src="https://img.shields.io/badge/Code-HTML-orange?style=for-the-badge&logo=html5&logoColor=white" alt="HTML" />
+                <img src="https://img.shields.io/badge/Code-CSS-blue?style=for-the-badge&logo=css3&logoColor=white" alt="CSS" />
             </div>
         </div>
+
+        <div class="section">
+            <h2>Tips, Hacks & Tricks</h2>
+            <div class="tips-list">
+                <h3>VSCode Hacks</h3>
+                <ul>
+                    <li><strong>Zen Mode:</strong> Hides all distractions in VSCode. Press `Ctrl + K Z` (Windows/Linux) or `Cmd + K Z` (Mac) to enter Zen Mode.</li>
+                    <li><strong>Multi-Cursor Magic:</strong> Allows you to place multiple cursors in your text. Hold `Alt` (Windows/Linux) or `Option` (Mac) and click in multiple places where you want to place cursors.</li>
+                    <li><strong>Quick Rename:</strong> Quickly rename all instances of a variable or function. Highlight the variable and press `F2`, then enter the new name and press `Enter`.</li>
+                    <li><strong>Command Palette:</strong> Provides quick access to all VSCode commands. Press `Ctrl + Shift + P` (Windows/Linux) or `Cmd + Shift + P` (Mac) to open the Command Palette.</li>
+                    <li><strong>Integrated Terminal:</strong> Opens a terminal right within VSCode. Press `Ctrl + `` (Windows/Linux) or `Cmd + `` (Mac) to open/close the integrated terminal.</li>
+                    <li><strong>Live Server:</strong> Instantly see changes in your web projects by running a local server. Install the "Live Server" extension from the VSCode marketplace.</li>
+                </ul>
+                <h3>Git & GitHub Hacks</h3>
+                <ul>
+                    <li><strong>Speedy Commits:</strong> Combines the staging and commit process into a single step. Run `git commit -am "your message"` to add and commit changes in one go.</li>
+                    <li><strong>Undo Last Commit:</strong> Allows you to undo your last commit while keeping your changes. Run `git reset --soft HEAD~1` to undo the last commit.</li>
+                    <li><strong>Keep Your Fork Up to Date:</strong> Synchronizes your fork with the upstream repository.</li>
+                    <li><strong>Interactive Rebase:</strong> Allows you to edit, combine, or delete commits in your history. Run `git rebase -i HEAD~n` where `n` is the number of commits you want to rebase.</li>
+                    <li><strong>GitHub CLI:</strong> Manage GitHub repositories from your terminal. Install GitHub CLI and authenticate.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>GitHub Stats</h2>
+            <div class="github-list">
+                <img src="https://github-readme-stats.vercel.app/api?username=Da-Coder-Jr&show_icons=true&theme=radical" alt="GitHub Stats" />
+                <img src="https://github-profile-trophy.vercel.app/?username=Da-Coder-Jr&theme=radical" alt="GitHub Trophies" />
+                <img src="https://komarev.com/ghpvc/?username=Da-Coder-Jr&color=brightgreen" alt="Profile Views" />
+                <img src="https://github-readme-streak-stats.herokuapp.com/?user=Da-Coder-Jr&theme=radical" alt="GitHub Streak" />
+            </div>
+        </div>
+
+        <div class="github-art">
+            <img src="https://octodex.github.com/images/daftpunktocat-guy.gif" alt="GitHub Art" />
+        </div>
+
+        <div class="section">
+            <h2>Fun Facts</h2>
+            <ul class="fun-list">
+                <li><strong>Favorite Game:</strong> Portal 2 - Because who doesn't love solving puzzles with portals?</li>
+                <li><strong>Favorite Anime:</strong> Cute anime characters - Because aesthetics matter! 😊</li>
+                <li><strong>Coding Music:</strong> Chill beats for coding - Keeps me in the zone!</li>
+                <li><strong>Favorite Snack:</strong> 🍕 Pizza - The ultimate coding fuel.</li>
+                <li><strong>Hobbies:</strong> 🎮 Gaming, 🎨 Drawing, 📚 Reading Sci-Fi.</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Your Info</h2>
+            <div class="info-section">
+                <h3>Your Info</h3>
+                <div class="info-content">
+                    <p><span class="highlight">IP Address:</span> <span id="ip-address"></span></p>
+                    <p><span class="highlight">City:</span> <span id="city"></span></p>
+                    <p><span class="highlight">Region:</span> <span id="region"></span></p>
+                    <p><span class="highlight">Country:</span> <span id="country"></span></p>
+                    <p><span class="highlight">Latitude:</span> <span id="latitude"></span></p>
+                    <p><span class="highlight">Longitude:</span> <span id="longitude"></span></p>
+                    <p><span class="highlight">ISP:</span> <span id="isp"></span></p>
+                    <p><span class="highlight">Timezone:</span> <span id="timezone"></span></p>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            fetch('https://ipapi.co/json/')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('ip-address').textContent = data.ip;
+                    document.getElementById('city').textContent = data.city;
+                    document.getElementById('region').textContent = data.region;
+                    document.getElementById('country').textContent = data.country_name;
+                    document.getElementById('latitude').textContent = data.latitude;
+                    document.getElementById('longitude').textContent = data.longitude;
+                    document.getElementById('isp').textContent = data.org;
+                    document.getElementById('timezone').textContent = data.timezone;
+                });
+        </script>
     </div>
-
-    <script>
-        // Enter Site
-        function enterSite() {
-            document.getElementById('enter-page').style.display = 'none';
-            document.getElementById('main-content').style.display = 'block';
-        }
-
-        // Show the form to create a custom page
-        function showForm() {
-            document.getElementById('createPageForm').style.display = 'block';
-        }
-
-        // Fetch IP information
-        fetch('https://ipapi.co/json/')
-            .then(response => response.json())
-            .then(data => {
-                document.getElementById('ip-address').textContent = data.ip;
-                document.getElementById('city').textContent = data.city;
-                document.getElementById('region').textContent = data.region;
-                document.getElementById('country').textContent = data.country_name;
-                document.getElementById('latitude').textContent = data.latitude;
-                document.getElementById('longitude').textContent = data.longitude;
-                document.getElementById('isp').textContent = data.org;
-                document.getElementById('timezone').textContent = data.timezone;
-                document.getElementById('browser').textContent = navigator.userAgent;
-                document.getElementById('os').textContent = navigator.platform;
-            });
-
-        // Custom Cursor Effects
-        document.body.classList.add('custom-cursor');
-        document.body.classList.add('cursor-trail');
-    </script>
 </body>
 </html>
