@@ -70,10 +70,11 @@
 </p>
 
 ---
-  🔗 <span style="font-family:'Courier New', Courier, monospace;">𝓛𝓲𝓷𝓴𝓼:</span>
+  <p align="center">
+🔗 <span style="font-family:'Courier New', Courier, monospace;">𝓛𝓲𝓷𝓴𝓼:</span>
 </h3>
 
-<p align="center">
+
   <a href="https://da-coder-jr.github.io/about-me-website-source-code/">🌐 <b>𝓟𝓮𝓻𝓼𝓸𝓷𝓪𝓵 𝓦𝓮𝓫𝓼𝓲𝓽𝓮 (𝓣𝓗𝓘𝓢 𝓦𝓔𝓑𝓢𝓘𝓣𝓔!)</b></a><br>
   <a href="https://e-z.bio/caged">📄 <b>𝓔-𝔃 𝓑𝓲𝓸</b></a><br>
   <a href="https://github.com/Da-Coder-Jr/">💻 <b>𝓖𝓲𝓽𝓗𝓾𝓫</b></a>
