@@ -70,11 +70,6 @@
 </p>
 
 ---
-<p align="center">
-  <b><span style="color:orange;">𝓝𝓸𝓽𝓮:</span></b> AI will be used in the making of this website!
-</p>
-<h3 align="center">
-  ---
   🔗 <span style="font-family:'Courier New', Courier, monospace;">𝓛𝓲𝓷𝓴𝓼:</span>
 </h3>
 
