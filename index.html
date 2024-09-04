@@ -45,24 +45,44 @@
         }
 
         /* Cool Animated Cursor */
-        .cursor {
+        .cursor, .cursor-trail {
             width: 40px;
             height: 40px;
-            border: 2px solid #61dafb;
             border-radius: 50%;
             position: absolute;
             pointer-events: none;
             transform: translate(-50%, -50%);
-            transition: width 0.2s ease, height 0.2s ease;
-            animation: cursorGlow 2s infinite alternate;
+        }
+
+        .cursor {
+            background-color: #61dafb;
+            border: 2px solid #ff6b6b;
+            z-index: 9999;
+            animation: cursorGlow 1.5s infinite alternate;
+        }
+
+        .cursor-trail {
+            background-color: rgba(97, 218, 251, 0.3);
+            animation: trailFade 0.2s ease-out;
         }
 
         @keyframes cursorGlow {
             from {
-                box-shadow: 0 0 20px #61dafb;
+                box-shadow: 0 0 20px #61dafb, 0 0 40px #ff6b6b;
             }
             to {
-                box-shadow: 0 0 40px #ff6b6b;
+                box-shadow: 0 0 40px #ff6b6b, 0 0 80px #61dafb;
+            }
+        }
+
+        @keyframes trailFade {
+            0% {
+                opacity: 1;
+                transform: scale(1);
+            }
+            100% {
+                opacity: 0;
+                transform: scale(1.5);
             }
         }
 
@@ -184,6 +204,24 @@
             }
         }
 
+        /* Contact Button */
+        .contact-button {
+            background-color: #ff6b6b;
+            padding: 15px 30px;
+            color: #fff;
+            font-size: 16px;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: background-color 0.3s, transform 0.3s;
+            box-shadow: 0 0 20px #ff6b6b, 0 0 40px #ff6b6b;
+        }
+
+        .contact-button:hover {
+            background-color: #61dafb;
+            transform: scale(1.1);
+            box-shadow: 0 0 30px #61dafb;
+        }
+
         /* Smooth Scrolling */
         html {
             scroll-behavior: smooth;
@@ -195,6 +233,7 @@
 
     <!-- Custom Cursor -->
     <div class="cursor" id="cursor"></div>
+    <div class="cursor-trail" id="cursor-trail"></div>
 
     <!-- Navbar -->
     <div class="navbar">
@@ -260,6 +299,17 @@
             </ul>
         </div>
 
+        <!-- GitHub Stats Section -->
+        <div id="stats" class="section">
+            <h2>🖼️ GitHub Art & Stats</h2>
+            <div align="center">
+                <img src="https://octodex.github.com/images/daftpunktocat-guy.gif" alt="GitHub Art" width="200" height="200" style="border-radius: 25px;" />
+                <img src="https://github-readme-stats.vercel.app/api?username=Da-Coder-Jr&show_icons=true&theme=radical" alt="GitHub Stats" />
+                <img src="https://github-profile-trophy.vercel.app/?username=Da-Coder-Jr&theme=radical" alt="GitHub Trophies" />
+                <img src="https://github-readme-streak-stats.herokuapp.com/?user=Da-Coder-Jr&theme=radical" alt="GitHub Streak" />
+            </div>
+        </div>
+
         <!-- Fun Facts Section -->
         <div id="facts" class="section">
             <h2>🔥 Fun Facts & Favorites</h2>
@@ -275,6 +325,7 @@
         <!-- Connect Section -->
         <div id="connect" class="section">
             <h2>📣 Connect with Me</h2>
+            <a href="mailto:calderlovelace@gmail.com" class="contact-button">Contact Me</a>
             <p>🌐 <a href="https://e-z.bio/caged">Customized Website</a></p>
             <p>🌐💻 <a href="https://da-coder-jr.github.io/about-me-website-source-code/">Personal Website</a></p>
         </div>
@@ -284,9 +335,19 @@
     <!-- Custom Cursor Script -->
     <script>
         const cursor = document.getElementById('cursor');
+        const cursorTrail = document.getElementById('cursor-trail');
+        
         document.addEventListener('mousemove', (e) => {
             cursor.style.left = `${e.pageX}px`;
             cursor.style.top = `${e.pageY}px`;
+            cursorTrail.style.left = `${e.pageX}px`;
+            cursorTrail.style.top = `${e.pageY}px`;
+
+            // Reapply animation to keep it trailing
+            cursorTrail.style.animation = 'none';
+            setTimeout(() => {
+                cursorTrail.style.animation = '';
+            }, 0);
         });
     </script>
 </body>
