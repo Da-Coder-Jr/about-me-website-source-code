@@ -4,56 +4,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interactive Skills Badges with Hidden Email</title>
+    <title>Da-Coder-Jr / CHILL-BEATS :D</title>
+    
+    <!-- Custom Favicon -->
+    <link rel="icon" type="image/png" href="path-to-your-custom-favicon.png" sizes="32x32">
+
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@400;600&display=swap');
+        
+        /* General Page Styling */
         body {
             font-family: 'Poppins', sans-serif;
             background-color: #1a202c;
             color: #e2e8f0;
             margin: 0;
             padding: 0;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            align-items: center;
-            height: 100vh;
             overflow-x: hidden;
             cursor: none;
         }
 
-        .navbar {
-            display: flex;
-            justify-content: center;
-            background: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(15px);
-            padding: 20px 0;
-            width: 100%;
-            position: fixed;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
-        }
-
-        .navbar a {
-            color: #61dafb;
-            text-decoration: none;
-            margin: 0 15px;
-            font-size: 18px;
-            transition: 0.3s;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .navbar a:hover {
-            color: #ff6b6b;
-            transform: scale(1.1);
+        h1, h2 {
+            font-family: 'Orbitron', sans-serif;
+            text-align: center;
         }
 
         h1 {
-            font-family: 'Orbitron', sans-serif;
             font-size: 4rem;
-            text-align: center;
             margin-top: 100px;
             letter-spacing: 2px;
             background: linear-gradient(135deg, #ff6b6b, #61dafb);
@@ -68,6 +44,56 @@
             padding-top: 120px;
         }
 
+        /* Cool Animated Cursor */
+        .cursor {
+            width: 40px;
+            height: 40px;
+            border: 2px solid #61dafb;
+            border-radius: 50%;
+            position: absolute;
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            transition: width 0.2s ease, height 0.2s ease;
+            animation: cursorGlow 2s infinite alternate;
+        }
+
+        @keyframes cursorGlow {
+            from {
+                box-shadow: 0 0 20px #61dafb;
+            }
+            to {
+                box-shadow: 0 0 40px #ff6b6b;
+            }
+        }
+
+        /* Navbar with Hover Effects */
+        .navbar {
+            display: flex;
+            justify-content: center;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 20px 0;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+        }
+
+        .navbar a {
+            color: #61dafb;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 18px;
+            transition: color 0.3s, transform 0.3s;
+            letter-spacing: 1px;
+        }
+
+        .navbar a:hover {
+            color: #ff6b6b;
+            transform: scale(1.1);
+        }
+
+        /* Sections Styling */
         .section {
             background: rgba(255, 255, 255, 0.1);
             border-radius: 15px;
@@ -82,18 +108,7 @@
             transform: translateY(-10px);
         }
 
-        h2 {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 2.5rem;
-            color: #ff6b6b;
-            margin-bottom: 20px;
-        }
-
-        p,
-        ul {
-            font-size: 1.2rem;
-        }
-
+        /* Skills & Tools Section - Enhancing JavaScript */
         .skills-container {
             display: flex;
             justify-content: center;
@@ -111,6 +126,18 @@
             align-items: center;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: badgePulse 2s infinite alternate;
+        }
+
+        @keyframes badgePulse {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+            }
+            100% {
+                transform: scale(1.05);
+                box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+            }
         }
 
         .badge:hover {
@@ -129,23 +156,7 @@
             font-weight: 600;
         }
 
-        .cursor {
-            width: 40px;
-            height: 40px;
-            border: 2px solid #61dafb;
-            border-radius: 50%;
-            position: absolute;
-            pointer-events: none;
-            transform: translate(-50%, -50%);
-            transition: width 0.2s ease, height 0.2s ease;
-        }
-
-        .badge:hover~.cursor {
-            width: 80px;
-            height: 80px;
-            border-color: #ff6b6b;
-        }
-
+        /* Glow Button */
         .glow-button {
             text-align: center;
             margin-top: 40px;
@@ -164,59 +175,26 @@
             animation: glow 2s infinite alternate;
         }
 
-        .hidden-section {
-            display: none;
-        }
-
-        .contact-button {
-            display: block;
-            text-align: center;
-            margin-top: 40px;
-        }
-
-        .contact-button button {
-            padding: 15px 30px;
-            background-color: #ff6b6b;
-            color: #fff;
-            border: none;
-            border-radius: 50px;
-            font-size: 16px;
-            letter-spacing: 1px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        .contact-button button:hover {
-            background-color: #61dafb;
-        }
-
-        @keyframes pulse {
-            0% {
-                transform: scale(1);
-            }
-
-            50% {
-                transform: scale(1.1);
-            }
-
-            100% {
-                transform: scale(1);
-            }
-        }
-
         @keyframes glow {
             from {
                 box-shadow: 0 0 20px #61dafb, 0 0 40px #61dafb, 0 0 60px #61dafb;
             }
-
             to {
                 box-shadow: 0 0 30px #ff6b6b, 0 0 50px #ff6b6b, 0 0 80px #ff6b6b;
             }
+        }
+
+        /* Smooth Scrolling */
+        html {
+            scroll-behavior: smooth;
         }
     </style>
 </head>
 
 <body>
+
+    <!-- Custom Cursor -->
+    <div class="cursor" id="cursor"></div>
 
     <!-- Navbar -->
     <div class="navbar">
@@ -228,49 +206,88 @@
         <a href="#connect">Connect</a>
     </div>
 
-    <h1>@Da-Coder-Jr / @CHILL-BEATS :D</h1>
+    <h1>@Da-Coder-Jr / CHILL-BEATS :D</h1>
 
     <div class="container">
-
-        <!-- About Me -->
+        <!-- About Me Section -->
         <div id="about" class="section">
             <h2>👋 About Me</h2>
             <p>Hello! I'm Da-Coder-Jr, also known as CHILL-BEATS :D.</p>
             <p>I am a passionate coder with a love for exploring new technologies and collaborating on exciting projects. My journey in coding began with an insatiable curiosity, and it has driven me to continuously learn, innovate, and share knowledge with the community.</p>
         </div>
 
-        <!-- Hidden Email Form -->
-        <div id="connect" class="section hidden-section">
-            <h2>📣 Connect with Me</h2>
-            <form action="mailto:calderlovelace@gmail.com" method="post" enctype="text/plain">
-                <input type="hidden" name="subject" value="Let's Connect!">
-                <input type="hidden" name="body" value="Hi! I'd love to connect with you.">
-            </form>
+        <!-- Skills & Tools Section -->
+        <div id="skills" class="section">
+            <h2>💻 Skills & Tools</h2>
+            <div class="skills-container">
+                <!-- Enhanced JavaScript Badge -->
+                <div class="badge">
+                    <img src="https://img.icons8.com/color/50/F7DF1E/javascript.png" alt="JavaScript" />
+                    <span>JAVASCRIPT</span>
+                </div>
+
+                <div class="badge">
+                    <img src="https://img.icons8.com/ios-filled/50/3776AB/python.png" alt="Python" />
+                    <span>PYTHON</span>
+                </div>
+
+                <div class="badge">
+                    <img src="https://img.icons8.com/color/50/E34F26/html-5.png" alt="HTML" />
+                    <span>HTML</span>
+                </div>
+
+                <div class="badge">
+                    <img src="https://img.icons8.com/color/50/1572B6/css3.png" alt="CSS" />
+                    <span>CSS</span>
+                </div>
+            </div>
+
+            <ul>
+                <li><strong>Python</strong>: Automation, data analysis, scripting, and more.</li>
+                <li><strong>JavaScript</strong>: Front-end and back-end development.</li>
+                <li><strong>HTML/CSS</strong>: Crafting responsive and beautiful websites.</li>
+                <li><strong>React</strong>: Dynamic, responsive web applications.</li>
+                <li><strong>Express</strong>: Scalable back-end applications with Node.js.</li>
+            </ul>
         </div>
 
-        <!-- Contact Button -->
-        <div class="contact-button">
-            <button onclick="triggerEmail()">Contact Me</button>
+        <!-- Projects Section -->
+        <div id="projects" class="section">
+            <h2>🎨 Featured Projects</h2>
+            <ul>
+                <li><a href="https://github.com/Da-Coder-Jr/ASCCI-CAMERA">ASCCI camera</a>: Converts live video into real-time ASCII art.</li>
+                <li><a href="https://da-coder-jr.github.io/about-me-website-source-code/">My Website</a>: A showcase of personal information, skills, and projects.</li>
+            </ul>
+        </div>
+
+        <!-- Fun Facts Section -->
+        <div id="facts" class="section">
+            <h2>🔥 Fun Facts & Favorites</h2>
+            <ul>
+                <li><strong>Favorite Game:</strong> Portal 2 - Mastering physics with portals!</li>
+                <li><strong>Favorite Anime:</strong> Exploring aesthetics and captivating stories.</li>
+                <li><strong>Coding Music:</strong> Chill beats to keep the creativity flowing.</li>
+                <li><strong>Favorite Snack:</strong> 🍕 Pizza - The ultimate coder's fuel.</li>
+                <li><strong>Hobbies:</strong> 🎮 Gaming, 🎨 Drawing, 📚 Sci-Fi adventures.</li>
+            </ul>
+        </div>
+
+        <!-- Connect Section -->
+        <div id="connect" class="section">
+            <h2>📣 Connect with Me</h2>
+            <p>🌐 <a href="https://e-z.bio/caged">Customized Website</a></p>
+            <p>🌐💻 <a href="https://da-coder-jr.github.io/about-me-website-source-code/">Personal Website</a></p>
         </div>
 
     </div>
 
-    <!-- Custom Cursor -->
-    <div class="cursor" id="cursor"></div>
-
+    <!-- Custom Cursor Script -->
     <script>
-        // Custom Cursor
         const cursor = document.getElementById('cursor');
         document.addEventListener('mousemove', (e) => {
             cursor.style.left = `${e.pageX}px`;
             cursor.style.top = `${e.pageY}px`;
         });
-
-        // Trigger Email
-        function triggerEmail() {
-            const form = document.querySelector('#connect form');
-            form.submit();
-        }
     </script>
 </body>
 
