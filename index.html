@@ -1,48 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Da-Coder-Jr / CHILL-BEATS :D</title>
+    <title>Interactive Skills Badges with Hidden Email</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@400;600&display=swap');
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
         body {
             font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            background-color: #1a202c;
             color: #e2e8f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            height: 100vh;
             overflow-x: hidden;
+            cursor: none;
         }
-        h1 {
-            font-family: 'Orbitron', sans-serif;
-            color: #61dafb;
-            font-size: 5rem;
-            text-align: center;
-            margin: 50px 0 20px;
-            letter-spacing: 2px;
-            animation: pulse 2s infinite;
-        }
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-            100% { transform: scale(1); }
-        }
+
         .navbar {
             display: flex;
             justify-content: center;
             background: rgba(0, 0, 0, 0.8);
             backdrop-filter: blur(15px);
             padding: 20px 0;
+            width: 100%;
             position: fixed;
             top: 0;
-            width: 100%;
             z-index: 1000;
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
         }
+
         .navbar a {
             color: #61dafb;
             text-decoration: none;
@@ -52,15 +44,30 @@
             text-transform: uppercase;
             letter-spacing: 1px;
         }
+
         .navbar a:hover {
             color: #ff6b6b;
             transform: scale(1.1);
         }
+
+        h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 4rem;
+            text-align: center;
+            margin-top: 100px;
+            letter-spacing: 2px;
+            background: linear-gradient(135deg, #ff6b6b, #61dafb);
+            -webkit-background-clip: text;
+            color: transparent;
+            animation: pulse 2s infinite;
+        }
+
         .container {
             width: 80%;
             margin: 0 auto;
             padding-top: 120px;
         }
+
         .section {
             background: rgba(255, 255, 255, 0.1);
             border-radius: 15px;
@@ -70,51 +77,80 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
             transition: transform 0.3s ease-in-out;
         }
+
         .section:hover {
             transform: translateY(-10px);
         }
-        .section h2 {
-            font-size: 3rem;
-            color: #ff6b6b;
-            text-align: center;
-            margin-bottom: 20px;
+
+        h2 {
             font-family: 'Orbitron', sans-serif;
+            font-size: 2.5rem;
+            color: #ff6b6b;
+            margin-bottom: 20px;
         }
-        .header img {
-            width: 100%;
-            border-radius: 20px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
-            margin-bottom: 30px;
+
+        p,
+        ul {
+            font-size: 1.2rem;
         }
-        .skills img {
-            margin: 10px;
+
+        .skills-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .badge {
             width: 150px;
-            transition: 0.3s;
-            border-radius: 10px;
+            height: 50px;
+            background-color: #fff;
+            border-radius: 25px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-        .skills img:hover {
-            transform: scale(1.2) rotate(10deg);
+
+        .badge:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 15px 50px rgba(0, 255, 255, 0.5);
         }
-        .project-links a {
-            display: inline-block;
-            margin: 10px;
-            padding: 10px 20px;
-            color: #fff;
-            background: linear-gradient(135deg, #ff6b6b, #61dafb);
-            border-radius: 50px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-size: 16px;
-            transition: 0.3s;
+
+        .badge img {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
         }
-        .project-links a:hover {
-            transform: scale(1.1);
-            background: linear-gradient(135deg, #61dafb, #ff6b6b);
+
+        .badge span {
+            font-size: 18px;
+            font-weight: 600;
         }
+
+        .cursor {
+            width: 40px;
+            height: 40px;
+            border: 2px solid #61dafb;
+            border-radius: 50%;
+            position: absolute;
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            transition: width 0.2s ease, height 0.2s ease;
+        }
+
+        .badge:hover~.cursor {
+            width: 80px;
+            height: 80px;
+            border-color: #ff6b6b;
+        }
+
         .glow-button {
             text-align: center;
             margin-top: 40px;
         }
+
         .glow-button a {
             text-decoration: none;
             color: #fff;
@@ -127,33 +163,59 @@
             box-shadow: 0 0 20px #61dafb, 0 0 40px #61dafb, 0 0 60px #61dafb;
             animation: glow 2s infinite alternate;
         }
+
+        .hidden-section {
+            display: none;
+        }
+
+        .contact-button {
+            display: block;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .contact-button button {
+            padding: 15px 30px;
+            background-color: #ff6b6b;
+            color: #fff;
+            border: none;
+            border-radius: 50px;
+            font-size: 16px;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .contact-button button:hover {
+            background-color: #61dafb;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.1);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
         @keyframes glow {
             from {
                 box-shadow: 0 0 20px #61dafb, 0 0 40px #61dafb, 0 0 60px #61dafb;
             }
+
             to {
                 box-shadow: 0 0 30px #ff6b6b, 0 0 50px #ff6b6b, 0 0 80px #ff6b6b;
             }
         }
-        .footer {
-            text-align: center;
-            padding: 50px 0;
-            background-color: #203a43;
-            color: #fff;
-        }
-        .footer h2 {
-            font-size: 2rem;
-            margin-bottom: 20px;
-        }
-        .footer p {
-            font-size: 1.2rem;
-        }
-        .footer p a {
-            color: #61dafb;
-            text-decoration: none;
-        }
     </style>
 </head>
+
 <body>
 
     <!-- Navbar -->
@@ -166,88 +228,50 @@
         <a href="#connect">Connect</a>
     </div>
 
-    <!-- Header Section -->
     <h1>@Da-Coder-Jr / @CHILL-BEATS :D</h1>
 
     <div class="container">
+
         <!-- About Me -->
-        <div id="about" class="section header">
-            <img src="https://media.giphy.com/media/ylG1RO6n12kSnydyPG/giphy.gif" alt="Coding GIF" />
+        <div id="about" class="section">
             <h2>👋 About Me</h2>
-            <p><strong>Hello! I'm Da-Coder-Jr, also known as CHILL-BEATS :D.</strong> I am a passionate coder with a love for exploring new technologies and collaborating on exciting projects. My journey in coding began with an insatiable curiosity, and it has driven me to continuously learn, innovate, and share knowledge with the community.</p>
+            <p>Hello! I'm Da-Coder-Jr, also known as CHILL-BEATS :D.</p>
+            <p>I am a passionate coder with a love for exploring new technologies and collaborating on exciting projects. My journey in coding began with an insatiable curiosity, and it has driven me to continuously learn, innovate, and share knowledge with the community.</p>
         </div>
 
-        <!-- Skills & Tools -->
-        <div id="skills" class="section skills">
-            <h2>💻 Skills & Tools</h2>
-            <div class="skills">
-                <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python" />
-                <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript" />
-                <img src="https://img.shields.io/badge/HTML-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="HTML" />
-                <img src="https://img.shields.io/badge/CSS-1572B6?style=for-the-badge&logo=css3&logoColor=white" alt="CSS" />
-            </div>
-            <ul>
-                <li><strong>Python</strong>: Automation, data analysis, scripting, and more.</li>
-                <li><strong>JavaScript</strong>: Front-end and back-end development.</li>
-                <li><strong>HTML/CSS</strong>: Crafting responsive and beautiful websites.</li>
-                <li><strong>React</strong>: Dynamic, responsive web applications.</li>
-                <li><strong>Express</strong>: Scalable back-end applications with Node.js.</li>
-            </ul>
-        </div>
-
-        <!-- Featured Projects -->
-        <div id="projects" class="section">
-            <h2>🎨 Featured Projects</h2>
-            <div class="project-links">
-                <a href="https://github.com/Da-Coder-Jr/ASCCI-CAMERA">ASCCI camera</a>
-                <a href="https://da-coder-jr.github.io/about-me-website-source-code/">My Website</a>
-            </div>
-        </div>
-
-        <!-- GitHub Art & Stats -->
-        <div id="stats" class="section">
-            <h2>🖼️ GitHub Art & Stats</h2>
-            <div align="center">
-                <img src="https://octodex.github.com/images/daftpunktocat-guy.gif" alt="GitHub Art" width="200" height="200" style="border-radius: 25px;"/>
-                <img src="https://github-readme-stats.vercel.app/api?username=Da-Coder-Jr&show_icons=true&theme=radical" alt="GitHub Stats" />
-                <img src="https://github-profile-trophy.vercel.app/?username=Da-Coder-Jr&theme=radical" alt="GitHub Trophies" />
-                <img src="https://github-readme-streak-stats.herokuapp.com/?user=Da-Coder-Jr&theme=radical" alt="GitHub Streak" />
-            </div>
-        </div>
-
-        <!-- Fun Facts & Favorites -->
-        <div id="facts" class="section">
-            <h2>🔥 Fun Facts & Favorites</h2>
-            <ul>
-                <li><strong>Favorite Game</strong>: Portal 2 - Mastering physics with portals!</li>
-                <li><strong>Favorite Anime</strong>: Exploring aesthetics and captivating stories.</li>
-                <li><strong>Coding Music</strong>: Chill beats to keep the creativity flowing.</li>
-                <li><strong>Favorite Snack</strong>: 🍕 Pizza - The ultimate coder's fuel.</li>
-                <li><strong>Hobbies</strong>: 🎮 Gaming, 🎨 Drawing, 📚 Sci-Fi adventures.</li>
-            </ul>
-        </div>
-
-        <!-- Connect Section -->
-        <div id="connect" class="section">
+        <!-- Hidden Email Form -->
+        <div id="connect" class="section hidden-section">
             <h2>📣 Connect with Me</h2>
-            <ul>
-                <li>🌐 <a href="https://e-z.bio/caged">Customized Website</a> - See a site I customized to my style!</li>
-                <li>🌐💻 <a href="https://da-coder-jr.github.io/about-me-website-source-code/">Personal Website</a> - A custom website I created! <a href="https://github.com/Da-Coder-Jr/about-me-website-source-code">Source Code</a></li>
-            </ul>
+            <form action="mailto:calderlovelace@gmail.com" method="post" enctype="text/plain">
+                <input type="hidden" name="subject" value="Let's Connect!">
+                <input type="hidden" name="body" value="Hi! I'd love to connect with you.">
+            </form>
         </div>
 
-        <!-- Glow Button -->
-        <div class="glow-button">
-            <a href="mailto:example@email.com">Want a Website Like This?</a>
+        <!-- Contact Button -->
+        <div class="contact-button">
+            <button onclick="triggerEmail()">Contact Me</button>
         </div>
 
     </div>
 
-    <!-- Footer -->
-    <div class="footer">
-        <h2>🌈 Peaceful Vibes</h2>
-        <p>"Live life to its fullest, embrace the journey, and keep coding with a smile!" 😊</p>
-    </div>
+    <!-- Custom Cursor -->
+    <div class="cursor" id="cursor"></div>
 
+    <script>
+        // Custom Cursor
+        const cursor = document.getElementById('cursor');
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = `${e.pageX}px`;
+            cursor.style.top = `${e.pageY}px`;
+        });
+
+        // Trigger Email
+        function triggerEmail() {
+            const form = document.querySelector('#connect form');
+            form.submit();
+        }
+    </script>
 </body>
+
 </html>
