@@ -4,283 +4,147 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Da-Coder-Jr / CHILL-BEATS :D</title>
-    
-    <!-- Custom Favicon -->
-    <link rel="icon" type="image/png" href="path-to-your-custom-favicon.png" sizes="32x32">
-
+    <title>Edit About Me | Da-Coder-Jr / CHILL-BEATS :D</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@400;600&display=swap');
-        
-        /* General Page Styling */
         body {
             font-family: 'Poppins', sans-serif;
             background-color: #1a202c;
             color: #e2e8f0;
             margin: 0;
             padding: 0;
-            overflow-x: hidden;
-            cursor: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
         }
 
         h1, h2 {
-            font-family: 'Orbitron', sans-serif;
             text-align: center;
         }
 
         h1 {
-            font-size: 4rem;
-            margin-top: 100px;
-            letter-spacing: 2px;
-            background: linear-gradient(135deg, #ff6b6b, #61dafb);
-            -webkit-background-clip: text;
-            color: transparent;
-            animation: pulse 2s infinite;
+            font-size: 2.5rem;
+            margin-bottom: 30px;
         }
 
-        .container {
-            width: 80%;
-            margin: 0 auto;
-            padding-top: 120px;
-        }
-
-        /* Cool Animated Cursor */
-        .cursor, .cursor-trail {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            position: absolute;
-            pointer-events: none;
-            transform: translate(-50%, -50%);
-        }
-
-        .cursor {
-            background-color: #61dafb;
-            border: 2px solid #ff6b6b;
-            z-index: 9999;
-            animation: cursorGlow 1.5s infinite alternate;
-        }
-
-        .cursor-trail {
-            background-color: rgba(97, 218, 251, 0.3);
-            animation: trailFade 0.2s ease-out;
-        }
-
-        @keyframes cursorGlow {
-            from {
-                box-shadow: 0 0 20px #61dafb, 0 0 40px #ff6b6b;
-            }
-            to {
-                box-shadow: 0 0 40px #ff6b6b, 0 0 80px #61dafb;
-            }
-        }
-
-        @keyframes trailFade {
-            0% {
-                opacity: 1;
-                transform: scale(1);
-            }
-            100% {
-                opacity: 0;
-                transform: scale(1.5);
-            }
-        }
-
-        /* Navbar with Hover Effects */
-        .navbar {
-            display: flex;
+        .password-section,
+        .edit-section {
+            display: none;
+            flex-direction: column;
+            align-items: center;
             justify-content: center;
-            background: rgba(0, 0, 0, 0.8);
-            padding: 20px 0;
-            width: 100%;
-            position: fixed;
-            top: 0;
-            z-index: 1000;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
         }
 
+        .password-section input {
+            padding: 10px;
+            font-size: 1.1rem;
+            border-radius: 5px;
+            border: none;
+            margin-bottom: 15px;
+        }
+
+        .password-section button,
+        .edit-section button {
+            padding: 10px 20px;
+            font-size: 1rem;
+            background-color: #61dafb;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            color: white;
+        }
+
+        .edit-section {
+            width: 80%;
+        }
+
+        #aboutMeContent {
+            background-color: #2d3748;
+            color: #e2e8f0;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            width: 100%;
+            min-height: 300px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            text-align: center;
+        }
+
         .navbar a {
+            margin: 0 15px;
             color: #61dafb;
             text-decoration: none;
-            margin: 0 15px;
-            font-size: 18px;
-            transition: color 0.3s, transform 0.3s;
-            letter-spacing: 1px;
+            font-size: 1.1rem;
         }
 
         .navbar a:hover {
             color: #ff6b6b;
-            transform: scale(1.1);
         }
 
-        /* Sections Styling */
-        .section {
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 15px;
-            margin-bottom: 50px;
-            padding: 50px;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-            transition: transform 0.3s ease-in-out;
+        .message {
+            color: red;
+            font-size: 1rem;
+            margin-bottom: 10px;
         }
 
-        .section:hover {
-            transform: translateY(-10px);
+        ul {
+            list-style: none;
+            padding: 0;
         }
 
-        /* Skills & Tools Section - Enhancing JavaScript */
-        .skills-container {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-top: 20px;
-        }
-
-        .badge {
-            width: 150px;
-            height: 50px;
-            background-color: #fff;
-            border-radius: 25px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            animation: badgePulse 2s infinite alternate;
-        }
-
-        @keyframes badgePulse {
-            0% {
-                transform: scale(1);
-                box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
-            }
-            100% {
-                transform: scale(1.05);
-                box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
-            }
-        }
-
-        .badge:hover {
-            transform: translateY(-10px) scale(1.05);
-            box-shadow: 0 15px 50px rgba(0, 255, 255, 0.5);
-        }
-
-        .badge img {
-            width: 20px;
-            height: 20px;
-            margin-right: 10px;
-        }
-
-        .badge span {
-            font-size: 18px;
-            font-weight: 600;
-        }
-
-        /* Glow Button */
-        .glow-button {
-            text-align: center;
-            margin-top: 40px;
-        }
-
-        .glow-button a {
-            text-decoration: none;
-            color: #fff;
-            padding: 15px 40px;
-            background-color: #61dafb;
-            border-radius: 50px;
-            font-size: 18px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            box-shadow: 0 0 20px #61dafb, 0 0 40px #61dafb, 0 0 60px #61dafb;
-            animation: glow 2s infinite alternate;
-        }
-
-        @keyframes glow {
-            from {
-                box-shadow: 0 0 20px #61dafb, 0 0 40px #61dafb, 0 0 60px #61dafb;
-            }
-            to {
-                box-shadow: 0 0 30px #ff6b6b, 0 0 50px #ff6b6b, 0 0 80px #ff6b6b;
-            }
-        }
-
-        /* Contact Button */
-        .contact-button {
-            background-color: #ff6b6b;
-            padding: 15px 30px;
-            color: #fff;
-            font-size: 16px;
-            text-decoration: none;
-            border-radius: 50px;
-            transition: background-color 0.3s, transform 0.3s;
-            box-shadow: 0 0 20px #ff6b6b, 0 0 40px #ff6b6b;
-        }
-
-        .contact-button:hover {
-            background-color: #61dafb;
-            transform: scale(1.1);
-            box-shadow: 0 0 30px #61dafb;
-        }
-
-        /* Smooth Scrolling */
-        html {
-            scroll-behavior: smooth;
+        ul li {
+            margin-bottom: 10px;
         }
     </style>
 </head>
 
 <body>
 
-    <!-- Custom Cursor -->
-    <div class="cursor" id="cursor"></div>
-    <div class="cursor-trail" id="cursor-trail"></div>
-
     <!-- Navbar -->
     <div class="navbar">
         <a href="#about">About Me</a>
         <a href="#skills">Skills & Tools</a>
         <a href="#projects">Projects</a>
-        <a href="#stats">GitHub Stats</a>
-        <a href="#facts">Fun Facts</a>
-        <a href="#connect">Connect</a>
+        <a href="#contact">Contact Me</a>
     </div>
 
-    <h1>@Da-Coder-Jr / CHILL-BEATS :D</h1>
+    <h1>Da-Coder-Jr / CHILL-BEATS :D</h1>
 
-    <div class="container">
-        <!-- About Me Section -->
-        <div id="about" class="section">
-            <h2>👋 About Me</h2>
-            <p>Hello! I'm Da-Coder-Jr, also known as CHILL-BEATS :D.</p>
-            <p>I am a passionate coder with a love for exploring new technologies and collaborating on exciting projects. My journey in coding began with an insatiable curiosity, and it has driven me to continuously learn, innovate, and share knowledge with the community.</p>
+    <!-- Password Section -->
+    <div class="password-section" id="passwordSection">
+        <h2>Enter Password to Edit About Me</h2>
+        <div class="message" id="message"></div>
+        <input type="password" id="passwordInput" placeholder="Enter password" />
+        <button onclick="checkPassword()">Submit</button>
+    </div>
+
+    <!-- Editable About Me Section -->
+    <div class="edit-section" id="editSection">
+        <h2>👋 About Me</h2>
+        <div id="aboutMeContent" contenteditable="false">
+            <strong>Hello! I'm Da-Coder-Jr, also known as CHILL-BEATS :D.</strong><br><br>
+            I am a passionate coder with a love for exploring new technologies and collaborating on exciting projects. 
+            My journey in coding began with an insatiable curiosity, and it has driven me to continuously learn, 
+            innovate, and share knowledge with the community.
         </div>
+        <button onclick="toggleEditing()">Edit</button>
 
-        <!-- Skills & Tools Section -->
-        <div id="skills" class="section">
-            <h2>💻 Skills & Tools</h2>
-            <div class="skills-container">
-                <!-- Enhanced JavaScript Badge -->
-                <div class="badge">
-                    <img src="https://img.icons8.com/color/50/F7DF1E/javascript.png" alt="JavaScript" />
-                    <span>JAVASCRIPT</span>
-                </div>
-
-                <div class="badge">
-                    <img src="https://img.icons8.com/ios-filled/50/3776AB/python.png" alt="Python" />
-                    <span>PYTHON</span>
-                </div>
-
-                <div class="badge">
-                    <img src="https://img.icons8.com/color/50/E34F26/html-5.png" alt="HTML" />
-                    <span>HTML</span>
-                </div>
-
-                <div class="badge">
-                    <img src="https://img.icons8.com/color/50/1572B6/css3.png" alt="CSS" />
-                    <span>CSS</span>
-                </div>
-            </div>
-
+        <h2>💻 Skills & Tools</h2>
+        <div id="skillsContent" contenteditable="false">
             <ul>
                 <li><strong>Python</strong>: Automation, data analysis, scripting, and more.</li>
                 <li><strong>JavaScript</strong>: Front-end and back-end development.</li>
@@ -290,29 +154,16 @@
             </ul>
         </div>
 
-        <!-- Projects Section -->
-        <div id="projects" class="section">
-            <h2>🎨 Featured Projects</h2>
+        <h2>🎨 Featured Projects</h2>
+        <div id="projectsContent" contenteditable="false">
             <ul>
                 <li><a href="https://github.com/Da-Coder-Jr/ASCCI-CAMERA">ASCCI camera</a>: Converts live video into real-time ASCII art.</li>
                 <li><a href="https://da-coder-jr.github.io/about-me-website-source-code/">My Website</a>: A showcase of personal information, skills, and projects.</li>
             </ul>
         </div>
 
-        <!-- GitHub Stats Section -->
-        <div id="stats" class="section">
-            <h2>🖼️ GitHub Art & Stats</h2>
-            <div align="center">
-                <img src="https://octodex.github.com/images/daftpunktocat-guy.gif" alt="GitHub Art" width="200" height="200" style="border-radius: 25px;" />
-                <img src="https://github-readme-stats.vercel.app/api?username=Da-Coder-Jr&show_icons=true&theme=radical" alt="GitHub Stats" />
-                <img src="https://github-profile-trophy.vercel.app/?username=Da-Coder-Jr&theme=radical" alt="GitHub Trophies" />
-                <img src="https://github-readme-streak-stats.herokuapp.com/?user=Da-Coder-Jr&theme=radical" alt="GitHub Streak" />
-            </div>
-        </div>
-
-        <!-- Fun Facts Section -->
-        <div id="facts" class="section">
-            <h2>🔥 Fun Facts & Favorites</h2>
+        <h2>🔥 Fun Facts & Favorites</h2>
+        <div id="factsContent" contenteditable="false">
             <ul>
                 <li><strong>Favorite Game:</strong> Portal 2 - Mastering physics with portals!</li>
                 <li><strong>Favorite Anime:</strong> Exploring aesthetics and captivating stories.</li>
@@ -322,34 +173,54 @@
             </ul>
         </div>
 
-        <!-- Connect Section -->
-        <div id="connect" class="section">
-            <h2>📣 Connect with Me</h2>
-            <a href="mailto:calderlovelace@gmail.com" class="contact-button">Contact Me</a>
-            <p>🌐 <a href="https://e-z.bio/caged">Customized Website</a></p>
-            <p>🌐💻 <a href="https://da-coder-jr.github.io/about-me-website-source-code/">Personal Website</a></p>
+        <h2>📣 Connect with Me</h2>
+        <div id="contactContent" contenteditable="false">
+            <a href="mailto:calderlovelace@gmail.com" class="contact-button">Contact Me</a><br>
+            🌐 <a href="https://e-z.bio/caged">Customized Website</a><br>
+            🌐💻 <a href="https://da-coder-jr.github.io/about-me-website-source-code/">Personal Website</a>
         </div>
-
+        <button onclick="toggleEditing()">Edit</button>
     </div>
 
-    <!-- Custom Cursor Script -->
     <script>
-        const cursor = document.getElementById('cursor');
-        const cursorTrail = document.getElementById('cursor-trail');
-        
-        document.addEventListener('mousemove', (e) => {
-            cursor.style.left = `${e.pageX}px`;
-            cursor.style.top = `${e.pageY}px`;
-            cursorTrail.style.left = `${e.pageX}px`;
-            cursorTrail.style.top = `${e.pageY}px`;
+        const correctPassword = "coderlife123"; // Replace with your password
 
-            // Reapply animation to keep it trailing
-            cursorTrail.style.animation = 'none';
-            setTimeout(() => {
-                cursorTrail.style.animation = '';
-            }, 0);
-        });
+        // Display the password section on page load
+        document.getElementById("passwordSection").style.display = "flex";
+
+        function checkPassword() {
+            const password = document.getElementById("passwordInput").value;
+
+            if (password === correctPassword) {
+                document.getElementById("passwordSection").style.display = "none";
+                document.getElementById("editSection").style.display = "block";
+            } else {
+                document.getElementById("message").textContent = "Incorrect password. Please try again.";
+            }
+        }
+
+        function toggleEditing() {
+            const contentSections = [
+                "aboutMeContent",
+                "skillsContent",
+                "projectsContent",
+                "factsContent",
+                "contactContent"
+            ];
+
+            contentSections.forEach(sectionId => {
+                const section = document.getElementById(sectionId);
+                if (section.isContentEditable) {
+                    section.contentEditable = "false";
+                } else {
+                    section.contentEditable = "true";
+                    section.focus();
+                }
+            });
+            alert("Editing mode toggled!");
+        }
     </script>
+
 </body>
 
 </html>
