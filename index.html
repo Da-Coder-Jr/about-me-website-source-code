@@ -23,9 +23,10 @@
             margin: 0;
             padding: 0;
             overflow-x: hidden;
+            cursor: none; /* Hide the default cursor */
         }
 
-        /* Custom Cursor */
+        /* Hide original cursor */
         .cursor, .cursor-trail {
             width: 20px;
             height: 20px;
@@ -79,6 +80,7 @@
             white-space: nowrap;
             margin: 0 auto;
             animation: typing 3s steps(40, end), blink-caret .75s step-end infinite;
+            margin-top: 100px;
         }
 
         @keyframes typing {
@@ -110,6 +112,7 @@
             top: 0;
             width: 100%;
             z-index: 1000;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
         }
 
         .navbar a {
@@ -118,10 +121,13 @@
             margin: 0 20px;
             font-size: 1.2rem;
             transition: all 0.3s ease;
+            padding: 10px;
         }
 
         .navbar a:hover {
             color: #ff6b6b;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
         }
 
         /* Scroll Animations */
@@ -173,6 +179,20 @@
 
         .toggle-button:hover {
             background: #61dafb;
+        }
+
+        .wave-emoji {
+            display: inline-block;
+            animation: wave-animation 2s infinite;
+        }
+
+        @keyframes wave-animation {
+            0% { transform: rotate(0deg); }
+            20% { transform: rotate(14deg); }
+            40% { transform: rotate(-8deg); }
+            60% { transform: rotate(14deg); }
+            80% { transform: rotate(-4deg); }
+            100% { transform: rotate(0deg); }
         }
 
         /* Contact Modal */
@@ -265,8 +285,8 @@
 
     <!-- About Me Section -->
     <div id="about" class="section fade-in">
-        <h2>👋 About Me</h2>
-        <button class="toggle-button" onclick="toggleSection('aboutContent')">Read More</button>
+        <h2>👋 About Me <span class="wave-emoji" id="waveEmoji">👋</span></h2>
+        <button class="toggle-button" id="readMoreButton" onclick="toggleAbout()">Read More</button>
         <div id="aboutContent" class="section-content">
             <div align="center">
                 <h1><strong>𓆩♡𓆪   @Da-Coder-Jr / @CHILL-BEATS :D   𓆩♡𓆪 </strong></h1>
@@ -292,13 +312,6 @@
                 <li><strong>HTML/CSS</strong>: Crafting responsive and beautiful websites.</li>
                 <li><strong>React</strong>: Dynamic, responsive web applications.</li>
                 <li><strong>Express</strong>: Scalable back-end applications with Node.js.</li>
-            </ul>
-
-            <h3>Tools & Platforms</h3>
-            <ul>
-                <li><strong>Git & GitHub</strong>: Version control and collaboration.</li>
-                <li><strong>VSCode</strong>: My code editor of choice, packed with powerful extensions.</li>
-                <li><strong>Node.js</strong>: Server-side scripting and development.</li>
             </ul>
 
             <!-- Spotify Playlist Embed -->
@@ -339,9 +352,14 @@
             cursorTrail.style.top = `${e.pageY}px`;
         });
 
-        function toggleSection(sectionId) {
-            const section = document.getElementById(sectionId);
-            section.classList.toggle('visible');
+        function toggleAbout() {
+            const aboutContent = document.getElementById('aboutContent');
+            const readMoreButton = document.getElementById('readMoreButton');
+            const waveEmoji = document.getElementById('waveEmoji');
+
+            aboutContent.classList.toggle('visible');
+            readMoreButton.style.display = 'none'; // Make button disappear
+            waveEmoji.classList.add('wave-emoji'); // Add waving animation
         }
 
         function openModal() {
