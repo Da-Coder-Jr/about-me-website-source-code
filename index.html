@@ -5,12 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Da-Coder-Jr | CHILL-BEATS</title>
-    
+
     <!-- Google Fonts and Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-    
+
     <style>
         /* General Styling */
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: 'Poppins', sans-serif;
             background: url('ANIMATED-CITY.gif') no-repeat center center fixed;
@@ -78,13 +82,22 @@
         }
 
         @keyframes typing {
-            from { width: 0 }
-            to { width: 100% }
+            from {
+                width: 0
+            }
+            to {
+                width: 100%
+            }
         }
 
         @keyframes blink-caret {
-            from, to { border-color: transparent }
-            50% { border-color: #61dafb; }
+            from,
+            to {
+                border-color: transparent
+            }
+            50% {
+                border-color: #61dafb;
+            }
         }
 
         /* Navbar */
@@ -221,6 +234,13 @@
             transform: scale(1.05);
             transition: all 0.3s ease;
         }
+
+        /* Spotify Embed Styling */
+        .spotify-embed {
+            margin-top: 20px;
+            border-radius: 12px;
+            width: 100%;
+        }
     </style>
 </head>
 
@@ -281,47 +301,29 @@
                 <li><strong>Node.js</strong>: Server-side scripting and development.</li>
             </ul>
 
+            <!-- Spotify Playlist Embed -->
+            <h2>🎧 CHILL BEATS Playlist</h2>
+            <iframe class="spotify-embed" src="https://open.spotify.com/embed/playlist/4NtBCfoHCx2sc2nOXIRLpy?utm_source=generator" width="100%" height="152" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+
             <h2>🎨 Featured Projects</h2>
             <ul>
                 <li><a href="https://github.com/Da-Coder-Jr/ASCCI-CAMERA">ASCCI camera</a>: This project captures live video from your camera and converts it into real-time ASCII art.</li>
                 <li><a href="https://da-coder-jr.github.io/about-me-website-source-code/">My Website</a>: A personal portfolio to showcase my skills and projects.</li>
             </ul>
+        </div>
+    </div>
 
-            <h2>🖼️ GitHub Art & Stats</h2>
-            <div align="center">
-                <img src="https://octodex.github.com/images/daftpunktocat-guy.gif" alt="GitHub Art" width="200" height="200" style="border-radius: 25px;" />
-            </div>
-            <div align="center">
-                <img src="https://github-readme-stats.vercel.app/api?username=Da-Coder-Jr&show_icons=true&theme=radical" alt="GitHub Stats" />
-            </div>
-            <div align="center">
-                <img src="https://github-profile-trophy.vercel.app/?username=Da-Coder-Jr&theme=radical" alt="GitHub Trophies" />
-            </div>
-            <div align="center">
-                <img src="https://github-readme-streak-stats.herokuapp.com/?user=Da-Coder-Jr&theme=radical" alt="GitHub Streak" />
-            </div>
+    <!-- Contact Me Section -->
+    <div id="contact" class="section fade-in">
+        <h2>📣 Connect with Me</h2>
+        <button class="neon-button" onclick="openModal()">Contact Me</button>
+    </div>
 
-            <h2>🔥 Fun Facts & Favorites</h2>
-            <ul>
-                <li><strong>Favorite Game</strong>: Portal 2 - Mastering physics with portals!</li>
-                <li><strong>Favorite Anime</strong>: Exploring aesthetics and captivating stories.</li>
-                <li><strong>Coding Music</strong>: Chill beats to keep the creativity flowing.</li>
-                <li><strong>Favorite Snack</strong>: 🍕 Pizza - The ultimate coder's fuel.</li>
-                <li><strong>Hobbies</strong>: 🎮 Gaming, 🎨 Drawing, 📚 Sci-Fi adventures.</li>
-            </ul>
-
-            <h2>📣 Connect with Me</h2>
-            <ul>
-                <li>🌐 <a href="https://e-z.bio/caged">Customized Website</a></li>
-                <li>🌐💻 <a href="https://da-coder-jr.github.io/about-me-website-source-code/">Personal Website</a></li>
-                <li>🌐 <a href="https://github.com/Da-Coder-Jr/about-me-website-source-code">Source Code</a></li>
-            </ul>
-
-            <h2>🚀 Want a GitHub README or Website Like This?</h2>
-            <p>If you liked what you see and want a custom GitHub profile README or personal website, feel free to reach out! I’d love to help you create something amazing for your profile or online presence.</p>
-
-            <h2>🌈 Peaceful Vibes</h2>
-            <p>"Live life to its fullest, embrace the journey, and keep coding with a smile!" 😊</p>
+    <!-- Contact Modal -->
+    <div class="modal" id="contactModal">
+        <button class="modal-close" onclick="closeModal()">&times;</button>
+        <div class="modal-content">
+            <h2>Email Me at: calderlovelace@gmail.com</h2>
         </div>
     </div>
 
