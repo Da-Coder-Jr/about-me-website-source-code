@@ -1,141 +1,321 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Da-Coder-Jr | Personal Webpage</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Arial', sans-serif;
-    }
-    body {
-      background-image: url('gif/ANIMATED-CITY.gif');
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-    }
-    .container {
-      text-align: center;
-      background: rgba(0, 0, 0, 0.8);
-      padding: 20px;
-      border-radius: 15px;
-      width: 80%;
-    }
-    h1 {
-      font-size: 2.5rem;
-      animation: glitch 1.5s infinite;
-    }
-    p {
-      margin: 15px 0;
-    }
-    .skills {
-      margin: 20px 0;
-    }
-    .skills img {
-      margin: 10px;
-    }
-    .projects, .github-art, .connect {
-      margin-top: 20px;
-    }
-    .github-art img, .github-stats img {
-      margin: 10px;
-      border-radius: 10px;
-    }
-    a {
-      color: #f39c12;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Da-Coder-Jr | CHILL-BEATS</title>
+    
+    <!-- Google Fonts and Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* General Styling */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #1a1a2e;
+            color: #e2e8f0;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
 
-    @keyframes glitch {
-      0% {
-        text-shadow: 2px 2px 3px red;
-      }
-      50% {
-        text-shadow: -2px -2px 3px blue;
-      }
-      100% {
-        text-shadow: 2px 2px 3px red;
-      }
-    }
-  </style>
+        /* Custom Cursor */
+        .cursor, .cursor-trail {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            position: absolute;
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+        }
+
+        .cursor {
+            background-color: #61dafb;
+            border: 2px solid #ff6b6b;
+            z-index: 9999;
+            animation: cursorGlow 1.5s infinite alternate;
+        }
+
+        .cursor-trail {
+            background-color: rgba(97, 218, 251, 0.3);
+            animation: trailFade 0.2s ease-out;
+        }
+
+        @keyframes cursorGlow {
+            from {
+                box-shadow: 0 0 20px #61dafb, 0 0 40px #ff6b6b;
+            }
+            to {
+                box-shadow: 0 0 40px #ff6b6b, 0 0 80px #61dafb;
+            }
+        }
+
+        @keyframes trailFade {
+            0% {
+                opacity: 1;
+                transform: scale(1);
+            }
+            100% {
+                opacity: 0;
+                transform: scale(1.5);
+            }
+        }
+
+        /* Typewriter Animation */
+        .typewriter h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 4rem;
+            letter-spacing: 4px;
+            color: #61dafb;
+            text-align: center;
+            overflow: hidden;
+            border-right: .15em solid #61dafb;
+            white-space: nowrap;
+            margin: 0 auto;
+            animation: typing 3s steps(40, end), blink-caret .75s step-end infinite;
+        }
+
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: #61dafb; }
+        }
+
+        /* Navbar */
+        .navbar {
+            display: flex;
+            justify-content: center;
+            padding: 15px 0;
+            background-color: rgba(0, 0, 0, 0.7);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .navbar a {
+            color: #61dafb;
+            text-decoration: none;
+            margin: 0 20px;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .navbar a:hover {
+            color: #ff6b6b;
+        }
+
+        /* Scroll Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Collapsible Sections */
+        .section {
+            padding: 60px 30px;
+            text-align: center;
+            max-width: 1000px;
+            margin: 80px auto;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+        }
+
+        .section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .section-content {
+            display: none;
+            text-align: left;
+        }
+
+        .section-content.visible {
+            display: block;
+        }
+
+        .toggle-button {
+            background: #ff6b6b;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .toggle-button:hover {
+            background: #61dafb;
+        }
+
+        /* Contact Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+        }
+
+        .modal-content {
+            background-color: #2d3748;
+            color: #e2e8f0;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            width: 80%;
+            max-width: 600px;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: transparent;
+            color: white;
+            font-size: 2rem;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* Button Styling */
+        .neon-button {
+            font-size: 1.5rem;
+            padding: 15px 30px;
+            background-color: #ff6b6b;
+            border-radius: 50px;
+            border: none;
+            color: white;
+            cursor: pointer;
+            box-shadow: 0 0 20px #ff6b6b;
+            transition: all 0.3s ease;
+        }
+
+        .neon-button:hover {
+            box-shadow: 0 0 30px #61dafb;
+            transform: scale(1.1);
+            background-color: #61dafb;
+        }
+
+        /* Extra Effects */
+        .section:hover {
+            transform: scale(1.05);
+            transition: all 0.3s ease;
+        }
+    </style>
 </head>
+
 <body>
-  <div class="container">
-    <h1>𓆩♡𓆪   @Da-Coder-Jr / @CHILL-BEATS :D   𓆩♡𓆪</h1>
-    <p>Passionate coder | Tech enthusiast | Lifelong learner</p>
-    <img src="https://media.giphy.com/media/ylG1RO6n12kSnydyPG/giphy.gif" alt="Coding GIF" width="300"/>
 
-    <hr>
+    <!-- Custom Cursor -->
+    <div class="cursor" id="cursor"></div>
+    <div class="cursor-trail" id="cursor-trail"></div>
 
-    <h2>👋 About Me</h2>
-    <p>Hello! I'm Da-Coder-Jr, also known as CHILL-BEATS :D. I am a passionate coder with a love for exploring new technologies and collaborating on exciting projects. My journey in coding began with an insatiable curiosity, and it has driven me to continuously learn, innovate, and share knowledge with the community.</p>
-
-    <hr>
-
-    <h2>💻 Skills & Tools</h2>
-    <div class="skills">
-      <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python" />
-      <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript" />
-      <img src="https://img.shields.io/badge/HTML-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="HTML" />
-      <img src="https://img.shields.io/badge/CSS-1572B6?style=for-the-badge&logo=css3&logoColor=white" alt="CSS" />
+    <!-- Navbar -->
+    <div class="navbar">
+        <a href="#about">About Me</a>
+        <a href="#skills">Skills & Tools</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact Me</a>
     </div>
 
-    <h3>Languages & Frameworks</h3>
-    <ul>
-      <li><strong>Python</strong>: Automation, data analysis, scripting, and more.</li>
-      <li><strong>JavaScript</strong>: Front-end and back-end development.</li>
-      <li><strong>HTML/CSS</strong>: Crafting responsive and beautiful websites.</li>
-      <li><strong>React</strong>: Dynamic, responsive web applications.</li>
-      <li><strong>Express</strong>: Scalable back-end applications with Node.js.</li>
-    </ul>
-
-    <hr>
-
-    <h2>🎨 Featured Projects</h2>
-    <div class="projects">
-      <p><a href="https://github.com/Da-Coder-Jr/ASCCI-CAMERA" target="_blank">ASCCI camera</a>: This project captures live video from your camera and converts it into real-time ASCII art, turning your surroundings and yourself into a dynamic, text-based visual experience.</p>
-      <p><a href="https://da-coder-jr.github.io/about-me-website-source-code/" target="_blank">My Website</a>: The website is designed to showcase personal information, skills, projects, and interests in a dynamic and interactive format.</p>
+    <!-- Typewriter Section -->
+    <div class="typewriter">
+        <h1>Da-Coder-Jr / CHILL-BEATS :D</h1>
     </div>
 
-    <hr>
-
-    <h2>🖼️ GitHub Art & Stats</h2>
-    <div class="github-art">
-      <img src="https://octodex.github.com/images/daftpunktocat-guy.gif" alt="GitHub Art" width="200"/>
-      <img src="https://github-readme-stats.vercel.app/api?username=Da-Coder-Jr&show_icons=true&theme=radical" alt="GitHub Stats" />
-      <img src="https://github-readme-streak-stats.herokuapp.com/?user=Da-Coder-Jr&theme=radical" alt="GitHub Streak" />
+    <!-- About Me Section -->
+    <div id="about" class="section fade-in">
+        <h2>👋 About Me</h2>
+        <button class="toggle-button" onclick="toggleSection('aboutContent')">Read More</button>
+        <div id="aboutContent" class="section-content">
+            <div align="center">
+                <h1><strong>𓆩♡𓆪   @Da-Coder-Jr / @CHILL-BEATS :D   𓆩♡𓆪 </strong></h1>
+                <p>Passionate coder | Tech enthusiast | Lifelong learner</p>
+                <img src="https://media.giphy.com/media/ylG1RO6n12kSnydyPG/giphy.gif" alt="Coding GIF" />
+            </div>
+            <br />
+            <div align="center">
+                <p><strong>Hello! I'm Da-Coder-Jr, also known as CHILL-BEATS :D.</strong></p>
+                <p>I am a passionate coder with a love for exploring new technologies and collaborating on exciting projects. My journey in coding began with an insatiable curiosity, and it has driven me to continuously learn, innovate, and share knowledge with the community.</p>
+            </div>
+            <br />
+            <div align="center">
+                <h2>💻 Skills & Tools</h2>
+                <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python" />
+                <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript" />
+                <img src="https://img.shields.io/badge/HTML-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="HTML5" />
+                <img src="https://img.shields.io/badge/CSS-1572B6?style=for-the-badge&logo=css3&logoColor=white" alt="CSS3" />
+            </div>
+            <br />
+            <div align="center">
+                <h2>🌟 Notable Projects</h2>
+                <ul>
+                    <li><a href="https://github.com/Da-Coder-Jr/Project1" target="_blank">Project 1: Cool Coding Tool</a></li>
+                    <li><a href="https://github.com/Da-Coder-Jr/Project2" target="_blank">Project 2: Awesome Website</a></li>
+                    <li><a href="https://github.com/Da-Coder-Jr/Project3" target="_blank">Project 3: Fun Game</a></li>
+                </ul>
+            </div>
+            <br />
+            <div align="center">
+                <h2>✨ Personal Interests</h2>
+                <p>When I'm not coding, you can find me exploring new games, diving into the latest tech trends, or just enjoying a good book. I believe in the power of continuous learning and strive to stay ahead in the ever-evolving world of technology.</p>
+            </div>
+        </div>
     </div>
 
-    <hr>
+    <!-- Scripts for Section Animation -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const sections = document.querySelectorAll('.fade-in');
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            });
 
-    <h2>🔥 Fun Facts & Favorites</h2>
-    <ul>
-      <li><strong>Favorite Game</strong>: Portal 2 - Mastering physics with portals!</li>
-      <li><strong>Favorite Anime</strong>: Exploring aesthetics and captivating stories.</li>
-      <li><strong>Coding Music</strong>: Chill beats to keep the creativity flowing.</li>
-      <li><strong>Favorite Snack</strong>: 🍕 Pizza - The ultimate coder's fuel.</li>
-      <li><strong>Hobbies</strong>: 🎮 Gaming, 🎨 Drawing, 📚 Sci-Fi adventures.</li>
-    </ul>
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+        });
 
-    <hr>
+        function toggleSection(id) {
+            const content = document.getElementById(id);
+            content.classList.toggle('visible');
+        }
 
-    <h2>📣 Connect with Me</h2>
-    <div class="connect">
-      <p><a href="https://e-z.bio/caged" target="_blank">Customized Website</a></p>
-      <p><a href="https://da-coder-jr.github.io/about-me-website-source-code/" target="_blank">Personal Website</a></p>
-      <p><a href="https://github.com/Da-Coder-Jr/about-me-website-source-code" target="_blank">Source Code</a></p>
-    </div>
-  </div>
+        // Custom Cursor Effect
+        document.addEventListener('mousemove', e => {
+            const cursor = document.getElementById('cursor');
+            const cursorTrail = document.getElementById('cursor-trail');
+
+            cursor.style.left = `${e.pageX}px`;
+            cursor.style.top = `${e.pageY}px`;
+
+            cursorTrail.style.left = `${e.pageX}px`;
+            cursorTrail.style.top = `${e.pageY}px`;
+        });
+    </script>
 </body>
+
 </html>
