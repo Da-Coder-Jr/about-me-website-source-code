@@ -26,7 +26,73 @@
             cursor: none; /* Hide the default cursor */
         }
 
-        /* Hide original cursor */
+        /* Enhanced Navbar */
+        .navbar {
+            display: flex;
+            justify-content: center;
+            padding: 15px 0;
+            background: linear-gradient(90deg, rgba(36, 36, 62, 0.9), rgba(24, 24, 42, 0.9));
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .navbar a {
+            color: #61dafb;
+            text-decoration: none;
+            margin: 0 20px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            padding: 10px;
+            letter-spacing: 0.1em;
+        }
+
+        .navbar a:hover {
+            color: #ff6b6b;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            transform: translateY(-3px);
+        }
+
+        /* Typewriter Animation */
+        .typewriter h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 4rem;
+            letter-spacing: 4px;
+            color: #61dafb;
+            text-align: center;
+            overflow: hidden;
+            border-right: .15em solid #61dafb;
+            white-space: nowrap;
+            margin: 0 auto;
+            animation: typing 3s steps(40, end), blink-caret .75s step-end infinite;
+            margin-top: 120px;
+        }
+
+        @keyframes typing {
+            from {
+                width: 0
+            }
+            to {
+                width: 100%
+            }
+        }
+
+        @keyframes blink-caret {
+            from,
+            to {
+                border-color: transparent
+            }
+            50% {
+                border-color: #61dafb;
+            }
+        }
+
+        /* Custom Cursor */
         .cursor, .cursor-trail {
             width: 20px;
             height: 20px;
@@ -68,69 +134,48 @@
             }
         }
 
-        /* Typewriter Animation */
-        .typewriter h1 {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 4rem;
-            letter-spacing: 4px;
-            color: #61dafb;
+        /* Section Styling */
+        .section {
+            padding: 60px 30px;
             text-align: center;
-            overflow: hidden;
-            border-right: .15em solid #61dafb;
-            white-space: nowrap;
-            margin: 0 auto;
-            animation: typing 3s steps(40, end), blink-caret .75s step-end infinite;
-            margin-top: 100px;
+            max-width: 1000px;
+            margin: 80px auto;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
         }
 
-        @keyframes typing {
-            from {
-                width: 0
-            }
-            to {
-                width: 100%
-            }
-        }
-
-        @keyframes blink-caret {
-            from,
-            to {
-                border-color: transparent
-            }
-            50% {
-                border-color: #61dafb;
-            }
-        }
-
-        /* Navbar */
-        .navbar {
-            display: flex;
-            justify-content: center;
-            padding: 15px 0;
-            background-color: rgba(0, 0, 0, 0.7);
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-        }
-
-        .navbar a {
-            color: #61dafb;
-            text-decoration: none;
-            margin: 0 20px;
-            font-size: 1.2rem;
-            transition: all 0.3s ease;
-            padding: 10px;
-        }
-
-        .navbar a:hover {
+        .section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
             color: #ff6b6b;
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
         }
 
-        /* Scroll Animations */
+        /* Button Styling */
+        .neon-button, .toggle-button {
+            font-size: 1.5rem;
+            padding: 15px 30px;
+            background-color: #ff6b6b;
+            border-radius: 50px;
+            border: none;
+            color: white;
+            cursor: pointer;
+            box-shadow: 0 0 20px #ff6b6b;
+            transition: all 0.3s ease;
+        }
+
+        .neon-button:hover, .toggle-button:hover {
+            box-shadow: 0 0 30px #61dafb;
+            transform: scale(1.1);
+            background-color: #61dafb;
+        }
+
+        .toggle-button {
+            margin-top: 20px;
+        }
+
+        /* Animations */
         .fade-in {
             opacity: 0;
             transform: translateY(50px);
@@ -142,45 +187,7 @@
             transform: translateY(0);
         }
 
-        /* Collapsible Sections */
-        .section {
-            padding: 60px 30px;
-            text-align: center;
-            max-width: 1000px;
-            margin: 80px auto;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 15px;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
-        }
-
-        .section h2 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-        }
-
-        .section-content {
-            display: none;
-            text-align: left;
-        }
-
-        .section-content.visible {
-            display: block;
-        }
-
-        .toggle-button {
-            background: #ff6b6b;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 20px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .toggle-button:hover {
-            background: #61dafb;
-        }
-
+        /* Wave Emoji Animation */
         .wave-emoji {
             display: inline-block;
             animation: wave-animation 2s infinite;
@@ -193,6 +200,14 @@
             60% { transform: rotate(14deg); }
             80% { transform: rotate(-4deg); }
             100% { transform: rotate(0deg); }
+        }
+
+        /* Spotify Embed Styling */
+        .spotify-embed {
+            margin-top: 20px;
+            border-radius: 12px;
+            width: 100%;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
         }
 
         /* Contact Modal */
@@ -229,38 +244,6 @@
             border: none;
             cursor: pointer;
         }
-
-        /* Button Styling */
-        .neon-button {
-            font-size: 1.5rem;
-            padding: 15px 30px;
-            background-color: #ff6b6b;
-            border-radius: 50px;
-            border: none;
-            color: white;
-            cursor: pointer;
-            box-shadow: 0 0 20px #ff6b6b;
-            transition: all 0.3s ease;
-        }
-
-        .neon-button:hover {
-            box-shadow: 0 0 30px #61dafb;
-            transform: scale(1.1);
-            background-color: #61dafb;
-        }
-
-        /* Extra Effects */
-        .section:hover {
-            transform: scale(1.05);
-            transition: all 0.3s ease;
-        }
-
-        /* Spotify Embed Styling */
-        .spotify-embed {
-            margin-top: 20px;
-            border-radius: 12px;
-            width: 100%;
-        }
     </style>
 </head>
 
@@ -273,9 +256,7 @@
     <!-- Navbar -->
     <div class="navbar">
         <a href="#about">About Me</a>
-        <a href="#skills">Skills & Tools</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact Me</a>
+        <a href="#contact">Contact</a>
     </div>
 
     <!-- Typewriter Section -->
@@ -292,37 +273,17 @@
                 <h1><strong>𓆩♡𓆪   @Da-Coder-Jr / @CHILL-BEATS :D   𓆩♡𓆪 </strong></h1>
                 <p>Passionate coder | Tech enthusiast | Lifelong learner</p>
 
-                <!-- Rest of your about section goes here -->
+                <p>Hello! I'm Da-Coder-Jr, also known as CHILL-BEATS :D.</p>
+                <p>I am a passionate coder with a love for exploring new technologies and collaborating on exciting projects. My journey in coding began with an insatiable curiosity, and it has driven me to continuously learn, innovate, and share knowledge with the community.</p>
+
+                <!-- Spotify Playlist Embed -->
+                <h2>🎧 CHILL BEATS Playlist</h2>
+                <iframe class="spotify-embed" src="https://open.spotify.com/embed/playlist/4NtBCfoHCx2sc2nOXIRLpy?utm_source=generator" width="100%" height="152" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
             </div>
         </div>
     </div>
 
-    <!-- Skills & Tools Section -->
-    <div id="skills" class="section fade-in">
-        <h2>Skills & Tools</h2>
-        <div class="section-content">
-            <ul>
-                <li>Python</li>
-                <li>JavaScript</li>
-                <li>HTML/CSS</li>
-                <li>React</li>
-                <li>Express</li>
-            </ul>
-        </div>
-    </div>
-
-    <!-- Projects Section -->
-    <div id="projects" class="section fade-in">
-        <h2>Projects</h2>
-        <div class="section-content">
-            <ul>
-                <li>ASCCI Camera</li>
-                <li>My Website</li>
-            </ul>
-        </div>
-    </div>
-
-    <!-- Contact Me Section -->
+    <!-- Contact Section -->
     <div id="contact" class="section fade-in">
         <h2>📣 Connect with Me</h2>
         <button class="neon-button" onclick="openModal()">Contact Me</button>
