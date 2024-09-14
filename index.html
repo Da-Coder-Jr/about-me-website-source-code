@@ -2,12 +2,18 @@
 <html lang="en">
 
 <head>
+    <!-- Meta Tags for SEO and Responsiveness -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Da-Coder-Jr | CHILL-BEATS</title>
+    <meta name="description" content="Da-Coder-Jr's personal website. Passionate coder, tech enthusiast, and lifelong learner.">
+    <meta name="keywords" content="Da-Coder-Jr, CHILL-BEATS, coding, programming, developer, portfolio">
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
 
     <style>
         /* General Styling */
@@ -26,7 +32,8 @@
         }
 
         /* Custom Cursor */
-        .cursor, .cursor-trail {
+        .cursor,
+        .cursor-trail {
             width: 20px;
             height: 20px;
             border-radius: 50%;
@@ -51,6 +58,7 @@
             from {
                 box-shadow: 0 0 20px #61dafb, 0 0 40px #ff6b6b;
             }
+
             to {
                 box-shadow: 0 0 40px #ff6b6b, 0 0 80px #61dafb;
             }
@@ -61,6 +69,7 @@
                 opacity: 1;
                 transform: scale(1);
             }
+
             100% {
                 opacity: 0;
                 transform: scale(1.5);
@@ -68,7 +77,9 @@
         }
 
         /* Futuristic Design Elements */
-        h1, h2, .neon-button {
+        h1,
+        h2,
+        .neon-button {
             text-shadow: 0 0 10px #61dafb, 0 0 20px #ff6b6b, 0 0 30px #61dafb;
         }
 
@@ -100,6 +111,18 @@
             border-radius: 10px;
         }
 
+        /* Responsive Navbar */
+        @media screen and (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                padding: 10px 0;
+            }
+
+            .navbar a {
+                margin: 10px 0;
+            }
+        }
+
         /* Typewriter Animation */
         .typewriter h1 {
             font-family: 'Orbitron', sans-serif;
@@ -119,6 +142,7 @@
             from {
                 width: 0;
             }
+
             to {
                 width: 100%;
             }
@@ -129,6 +153,7 @@
             to {
                 border-color: transparent;
             }
+
             50% {
                 border-color: #61dafb;
             }
@@ -155,6 +180,17 @@
             margin-bottom: 20px;
         }
 
+        /* Centered Content */
+        .centered {
+            text-align: center;
+        }
+
+        /* About Me Image */
+        .about-img {
+            border-radius: 10px;
+            max-width: 100%;
+        }
+
         /* Neon Button */
         .neon-button {
             font-size: 1.5rem;
@@ -172,6 +208,59 @@
             box-shadow: 0 0 30px #61dafb;
             transform: scale(1.1);
             background-color: #61dafb;
+        }
+
+        /* Skills Badges */
+        .badges img {
+            margin: 10px;
+        }
+
+        /* Projects Container */
+        .projects-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .project-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+            padding: 20px;
+            max-width: 300px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .project-card:hover {
+            transform: scale(1.05);
+        }
+
+        .project-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        .project-card p {
+            font-size: 1rem;
+            margin-bottom: 20px;
+        }
+
+        /* Social Media Icons */
+        .social-media {
+            margin-top: 20px;
+        }
+
+        .social-media a {
+            color: #61dafb;
+            margin: 0 10px;
+            font-size: 2rem;
+            transition: color 0.3s;
+        }
+
+        .social-media a:hover {
+            color: #ff6b6b;
         }
 
         /* Contact Modal */
@@ -209,6 +298,16 @@
             cursor: pointer;
         }
 
+        /* Footer */
+        .footer {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 20px 0;
+            text-align: center;
+            color: #e2e8f0;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
     </style>
 </head>
 
@@ -234,17 +333,17 @@
     <!-- About Me Section -->
     <div id="about" class="section">
         <h2>About Me</h2>
-        <div align="center">
-            <h1><strong>𓆩♡𓆪   @Da-Coder-Jr / @CHILL-BEATS :D   𓆩♡𓆪 </strong></h1>
+        <div class="centered">
+            <h1><strong>𓆩♡𓆪 @Da-Coder-Jr / @CHILL-BEATS :D 𓆩♡𓆪</strong></h1>
             <p>Passionate coder | Tech enthusiast | Lifelong learner</p>
-            <img src="https://media.giphy.com/media/ylG1RO6n12kSnydyPG/giphy.gif" alt="Coding GIF" style="border-radius: 10px; max-width: 100%;" />
+            <img src="https://media.giphy.com/media/ylG1RO6n12kSnydyPG/giphy.gif" alt="Coding GIF" class="about-img" />
         </div>
     </div>
 
     <!-- Skills & Tools Section -->
     <div id="skills" class="section">
         <h2>Skills & Tools</h2>
-        <div align="center">
+        <div class="centered badges">
             <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python" />
             <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript" />
             <img src="https://img.shields.io/badge/HTML-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="HTML" />
@@ -255,11 +354,18 @@
     <!-- Projects Section -->
     <div id="projects" class="section">
         <h2>Projects</h2>
-        <div align="center">
-            <ul>
-                <li><a href="https://github.com/Da-Coder-Jr/ASCCI-CAMERA" target="_blank">ASCCI Camera</a></li>
-                <li><a href="https://da-coder-jr.github.io/about-me-website-source-code/" target="_blank">My Website</a></li>
-            </ul>
+        <div class="projects-container">
+            <div class="project-card">
+                <h3>ASCCI Camera</h3>
+                <p>A fun project that converts your webcam feed into ASCII art in real-time.</p>
+                <a href="https://github.com/Da-Coder-Jr/ASCCI-CAMERA" target="_blank" class="neon-button">View Project</a>
+            </div>
+            <div class="project-card">
+                <h3>My Website</h3>
+                <p>The source code of my personal website showcasing my skills and projects.</p>
+                <a href="https://da-coder-jr.github.io/about-me-website-source-code/" target="_blank" class="neon-button">View Project</a>
+            </div>
+            <!-- Add more project cards as needed -->
         </div>
     </div>
 
@@ -267,15 +373,26 @@
     <div id="contact" class="section">
         <h2>📣 Connect with Me</h2>
         <button class="neon-button" onclick="openModal()">Contact Me</button>
+        <div class="social-media">
+            <a href="https://github.com/Da-Coder-Jr" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://twitter.com/YourTwitterHandle" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="https://linkedin.com/in/YourLinkedInProfile" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <!-- Add more social media links as needed -->
+        </div>
     </div>
 
     <!-- Contact Modal -->
-    <div class="modal" id="contactModal">
+    <div class="modal" id="contactModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
         <div class="modal-content">
-            <h2>Email Me at: calderlovelace@gmail.com</h2>
-            <button class="modal-close" onclick="closeModal()">&times;</button>
+            <h2 id="modalTitle">Email Me at: <a href="mailto:calderlovelace@gmail.com">calderlovelace@gmail.com</a></h2>
+            <button class="modal-close" onclick="closeModal()" aria-label="Close Modal">&times;</button>
         </div>
     </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2023 Da-Coder-Jr. All rights reserved.</p>
+    </footer>
 
     <script>
         // Custom cursor logic
@@ -288,6 +405,12 @@
             cursorTrail.style.left = `${e.pageX}px`;
             cursorTrail.style.top = `${e.pageY}px`;
         });
+
+        // Hide custom cursor on touch devices
+        if ('ontouchstart' in window || navigator.maxTouchPoints) {
+            cursor.style.display = 'none';
+            cursorTrail.style.display = 'none';
+        }
 
         // Modal logic
         function openModal() {
