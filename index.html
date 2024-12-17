@@ -10,28 +10,24 @@
     <meta name="keywords" content="Da-Coder-Jr, CHILL-BEATS, coding, programming, developer, portfolio">
 
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Poppins:wght@400;600&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 
-    <!-- Font Awesome -->
+    <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
     <style>
-        /* General Reset */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        /* General Styling */
         html {
             scroll-behavior: smooth;
         }
 
         body {
             font-family: 'Poppins', sans-serif;
-            background: url('https://i.imgur.com/UwNQmHK.png') repeat;
-            color: #333;
+            background: url('ANIMATED-CITY.gif') no-repeat center center fixed;
+            background-size: cover;
+            color: #e2e8f0;
+            margin: 0;
+            padding: 0;
             overflow-x: hidden;
         }
 
@@ -39,14 +35,13 @@
         .navbar {
             display: flex;
             justify-content: center;
-            padding: 15px;
+            padding: 15px 0;
+            background-color: rgba(0, 0, 0, 0.85);
             position: fixed;
-            width: 100%;
             top: 0;
-            background: rgba(0, 0, 0, 0.85);
+            width: 100%;
+            z-index: 1000;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-            z-index: 10;
-            font-family: 'Orbitron', sans-serif;
         }
 
         .navbar a {
@@ -54,111 +49,144 @@
             text-decoration: none;
             margin: 0 20px;
             font-size: 1.2rem;
-            transition: color 0.3s, transform 0.3s;
+            transition: all 0.3s ease;
+            padding: 10px;
         }
 
         .navbar a:hover {
             color: #ff6b6b;
-            transform: scale(1.1);
-        }
-
-        /* Grid Section Style */
-        .grid-section {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            padding: 60px 20px;
-            max-width: 1100px;
-            margin: 120px auto;
-            background: rgba(255, 255, 255, 0.8);
-            border-radius: 15px;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-            text-align: center;
-        }
-
-        .grid-section h2 {
-            grid-column: 1 / -1;
-            font-family: 'Orbitron', sans-serif;
-            color: #333;
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-        }
-
-        .card {
-            background: rgba(255, 255, 255, 0.9);
-            border: 2px solid #444;
-            border-radius: 15px;
-            padding: 20px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-        }
-
-        .card h3 {
-            font-size: 1.8rem;
-            color: #333;
-            background: #ffe4b5;
-            padding: 10px;
+            background-color: rgba(255, 255, 255, 0.1);
             border-radius: 10px;
-            margin-bottom: 10px;
-            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
         }
 
-        .card p {
-            font-size: 1rem;
-            color: #555;
-            margin: 10px 0;
-        }
-
-        .card img {
-            max-width: 80px;
-            margin-bottom: 15px;
+        @media screen and (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+            }
+            .navbar a {
+                margin: 10px 0;
+            }
         }
 
         /* Hero Section */
-        .hero {
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 10px;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-            margin: 120px auto 40px;
-            padding: 60px 20px;
-            text-align: center;
-            max-width: 1100px;
-        }
-
-        .hero h1 {
+        .typewriter h1 {
             font-family: 'Orbitron', sans-serif;
             font-size: 4rem;
-            margin-bottom: 20px;
-            color: #333;
+            color: #61dafb;
+            text-align: center;
+            overflow: hidden;
+            border-right: .15em solid #61dafb;
+            white-space: nowrap;
+            margin: 100px auto 0;
+            animation: typing 3s steps(40, end), blink-caret .75s step-end infinite;
         }
 
-        .hero p {
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+
+        @keyframes blink-caret {
+            from, to { border-color: transparent; }
+            50% { border-color: #61dafb; }
+        }
+
+        /* Sections */
+        .section {
+            padding: 60px 30px;
+            text-align: center;
+            max-width: 1000px;
+            margin: 80px auto;
+            background: rgba(0, 0, 0, 0.75);
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+        }
+
+        .section:hover {
+            transform: scale(1.02);
+            transition: 0.3s ease-in-out;
+        }
+
+        .section h2 {
+            font-size: 2.5rem;
+            color: #61dafb;
+            text-shadow: 0 0 10px #61dafb, 0 0 20px #ff6b6b;
+            margin-bottom: 20px;
+        }
+
+        .centered {
+            text-align: center;
+        }
+
+        .about-img {
+            border-radius: 10px;
+            max-width: 100%;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+        }
+
+        /* Skills Badges */
+        .badges img {
+            margin: 10px;
+        }
+
+        /* Projects Section */
+        .projects-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .project-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+            padding: 20px;
+            max-width: 300px;
+            text-align: center;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 20px #ff6b6b;
+        }
+
+        /* Contact Button */
+        .neon-button {
             font-size: 1.5rem;
-            color: #555;
+            padding: 15px 30px;
+            background-color: #ff6b6b;
+            border-radius: 50px;
+            border: none;
+            color: white;
+            cursor: pointer;
+            box-shadow: 0 0 20px #ff6b6b;
+            transition: all 0.3s ease;
+        }
+
+        .neon-button:hover {
+            box-shadow: 0 0 30px #61dafb;
+            transform: scale(1.1);
+            background-color: #61dafb;
         }
 
         /* Footer */
-        footer {
+        .footer {
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 20px 0;
             text-align: center;
-            padding: 20px;
-            background-color: #111;
-            color: #888;
-            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.5);
+            color: #e2e8f0;
+            font-size: 1rem;
         }
 
-        footer a {
+        .footer a {
             color: #61dafb;
             text-decoration: none;
             transition: color 0.3s ease;
         }
 
-        footer a:hover {
+        .footer a:hover {
             color: #ff6b6b;
         }
     </style>
@@ -167,52 +195,58 @@
 <body>
     <!-- Navbar -->
     <div class="navbar">
-        <a href="#hero">Home</a>
         <a href="#about">About Me</a>
-        <a href="#skills">Skills</a>
+        <a href="#skills">Skills & Tools</a>
         <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
+        <a href="#contact">Contact Me</a>
     </div>
 
-    <!-- Hero Section -->
-    <div id="hero" class="hero">
-        <div>
-            <h1>🎨 𝓟𝓮𝓻𝓼𝓸𝓷𝓪𝓵𝓲𝔃𝓮𝓭 𝓓𝓮𝓼𝓲𝓰𝓷</h1>
-            <p>𝕋𝕒𝕚𝕝𝕠𝕣𝕖𝕕 𝕥𝕠 𝕣𝕖𝕗𝕝𝕖𝕔𝕥 𝕚𝕟𝕕𝕚𝕧𝕚𝕕𝕦𝕒𝕝 𝕤𝕥𝕪𝕝𝕖𝕤 ✨</p>
-        </div>
+    <!-- Typewriter Section -->
+    <div class="typewriter">
+        <h1>Da-Coder-Jr / CHILL-BEATS :D</h1>
     </div>
 
     <!-- About Me Section -->
-    <section id="about" class="grid-section">
-        <h2>✨ About Me ✨</h2>
-        <div class="card">
-            <img src="https://media.giphy.com/media/ylG1RO6n12kSnydyPG/giphy.gif" alt="Coding GIF">
-            <h3>Da-Coder-Jr</h3>
+    <div id="about" class="section">
+        <h2>About Me</h2>
+        <div class="centered">
+            <h1><strong>⎙❤⎚ @Da-Coder-Jr / @CHILL-BEATS :D ⎙❤⎚</strong></h1>
             <p>Passionate coder | Tech enthusiast | Lifelong learner</p>
+            <img src="https://media.giphy.com/media/ylG1RO6n12kSnydyPG/giphy.gif" alt="Coding GIF" class="about-img" />
         </div>
-    </section>
+    </div>
 
-    <!-- Grid Section -->
-    <section id="skills" class="grid-section">
-        <h2>✨ Skills & Tools ✨</h2>
-        <div class="card">
-            <h3>💻 Python</h3>
-            <p>Core programming language for versatile development.</p>
+    <!-- Skills & Tools Section -->
+    <div id="skills" class="section">
+        <h2>Skills & Tools</h2>
+        <div class="centered badges">
+            <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python" />
+            <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript" />
+            <img src="https://img.shields.io/badge/HTML-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="HTML" />
+            <img src="https://img.shields.io/badge/CSS-1572B6?style=for-the-badge&logo=css3&logoColor=white" alt="CSS" />
         </div>
-        <div class="card">
-            <h3>🚀 JavaScript</h3>
-            <p>Dynamic web development and interactive features.</p>
+    </div>
+
+    <!-- Projects Section -->
+    <div id="projects" class="section">
+        <h2>Projects</h2>
+        <div class="projects-container">
+            <div class="project-card">
+                <h3>ASCCI Camera</h3>
+                <p>A fun project that converts your webcam feed into ASCII art in real-time.</p>
+                <a href="https://github.com/Da-Coder-Jr/ASCCI-CAMERA" target="_blank" class="neon-button">View Project</a>
+            </div>
+            <div class="project-card">
+                <h3>My Website</h3>
+                <p>The source code of my personal website showcasing my skills and projects.</p>
+                <a href="https://da-coder-jr.github.io/about-me-website-source-code/" target="_blank" class="neon-button">View Project</a>
+            </div>
         </div>
-        <div class="card">
-            <h3>🎨 HTML & CSS</h3>
-            <p>Creating responsive and beautiful designs.</p>
-        </div>
-    </section>
+    </div>
 
     <!-- Footer -->
-    <footer>
-        <p>&copy; 2024 Da-Coder-Jr. All rights reserved. | <a href="#hero">Back to Top</a></p>
+    <footer class="footer">
+        <p>&copy; 2024 Da-Coder-Jr. All rights reserved. | <a href="#about">About</a></p>
     </footer>
 </body>
-
 </html>
