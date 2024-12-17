@@ -30,8 +30,8 @@
 
         body {
             font-family: 'Poppins', sans-serif;
-            background: linear-gradient(to right, #111, #333);
-            color: #e2e8f0;
+            background: url('https://i.imgur.com/UwNQmHK.png') repeat;
+            color: #333;
             overflow-x: hidden;
         }
 
@@ -43,9 +43,10 @@
             position: fixed;
             width: 100%;
             top: 0;
-            background-color: rgba(0, 0, 0, 0.8);
+            background: rgba(0, 0, 0, 0.85);
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
             z-index: 10;
+            font-family: 'Orbitron', sans-serif;
         }
 
         .navbar a {
@@ -61,42 +62,57 @@
             transform: scale(1.1);
         }
 
-        /* Main Sections */
-        .section {
+        /* Grid Section Style */
+        .grid-section {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 20px;
+            padding: 60px 20px;
             max-width: 1100px;
-            margin: 100px auto;
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.1);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+            margin: 120px auto;
+            background: rgba(255, 255, 255, 0.8);
             border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            text-align: center;
         }
 
-        .section-header {
+        .grid-section h2 {
             grid-column: 1 / -1;
-            text-align: center;
+            font-family: 'Orbitron', sans-serif;
+            color: #333;
             font-size: 2.5rem;
-            color: #61dafb;
             margin-bottom: 20px;
-            text-shadow: 0 0 10px #61dafb;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
         }
 
-        /* Card Styles */
         .card {
-            background: rgba(0, 0, 0, 0.8);
+            background: rgba(255, 255, 255, 0.9);
             border: 2px solid #444;
-            border-radius: 10px;
-            box-shadow: 5px 5px 0px #333;
-            text-align: center;
+            border-radius: 15px;
             padding: 20px;
-            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 8px 16px #ff6b6b;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        .card h3 {
+            font-size: 1.8rem;
+            color: #333;
+            background: #ffe4b5;
+            padding: 10px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+        }
+
+        .card p {
+            font-size: 1rem;
+            color: #555;
+            margin: 10px 0;
         }
 
         .card img {
@@ -104,15 +120,27 @@
             margin-bottom: 15px;
         }
 
-        .card h3 {
-            margin-bottom: 10px;
-            font-size: 1.5rem;
-            color: #ff6b6b;
+        /* Hero Section */
+        .hero {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            margin: 120px auto 40px;
+            padding: 60px 20px;
+            text-align: center;
+            max-width: 1100px;
         }
 
-        .card p {
-            font-size: 1rem;
-            color: #e2e8f0;
+        .hero h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 4rem;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            color: #555;
         }
 
         /* Footer */
@@ -121,6 +149,17 @@
             padding: 20px;
             background-color: #111;
             color: #888;
+            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        footer a {
+            color: #61dafb;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: #ff6b6b;
         }
     </style>
 </head>
@@ -128,15 +167,24 @@
 <body>
     <!-- Navbar -->
     <div class="navbar">
+        <a href="#hero">Home</a>
         <a href="#about">About Me</a>
         <a href="#skills">Skills</a>
         <a href="#projects">Projects</a>
         <a href="#contact">Contact</a>
     </div>
 
+    <!-- Hero Section -->
+    <div id="hero" class="hero">
+        <div>
+            <h1>🎨 𝓟𝓮𝓻𝓼𝓸𝓷𝓪𝓵𝓲𝔃𝓮𝓭 𝓓𝓮𝓼𝓲𝓰𝓷</h1>
+            <p>𝕋𝕒𝕚𝕝𝕠𝕣𝕖𝕕 𝕥𝕠 𝕣𝕖𝕗𝕝𝕖𝕔𝕥 𝕚𝕟𝕕𝕚𝕧𝕚𝕕𝕦𝕒𝕝 𝕤𝕥𝕪𝕝𝕖𝕤 ✨</p>
+        </div>
+    </div>
+
     <!-- About Me Section -->
-    <section id="about" class="section">
-        <h2 class="section-header">About Me</h2>
+    <section id="about" class="grid-section">
+        <h2>✨ About Me ✨</h2>
         <div class="card">
             <img src="https://media.giphy.com/media/ylG1RO6n12kSnydyPG/giphy.gif" alt="Coding GIF">
             <h3>Da-Coder-Jr</h3>
@@ -144,61 +192,26 @@
         </div>
     </section>
 
-    <!-- Skills Section -->
-    <section id="skills" class="section">
-        <h2 class="section-header">Skills & Tools</h2>
+    <!-- Grid Section -->
+    <section id="skills" class="grid-section">
+        <h2>✨ Skills & Tools ✨</h2>
         <div class="card">
-            <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python">
-            <h3>Python</h3>
+            <h3>💻 Python</h3>
+            <p>Core programming language for versatile development.</p>
         </div>
         <div class="card">
-            <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black"
-                alt="JavaScript">
-            <h3>JavaScript</h3>
+            <h3>🚀 JavaScript</h3>
+            <p>Dynamic web development and interactive features.</p>
         </div>
         <div class="card">
-            <img src="https://img.shields.io/badge/HTML-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="HTML">
-            <h3>HTML5</h3>
-        </div>
-        <div class="card">
-            <img src="https://img.shields.io/badge/CSS-1572B6?style=for-the-badge&logo=css3&logoColor=white" alt="CSS">
-            <h3>CSS3</h3>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects" class="section">
-        <h2 class="section-header">Projects</h2>
-        <div class="card">
-            <h3>ASCII Camera</h3>
-            <p>A real-time ASCII art webcam feed.</p>
-        </div>
-        <div class="card">
-            <h3>My Website</h3>
-            <p>Source code for this personal portfolio.</p>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="section">
-        <h2 class="section-header">Connect With Me</h2>
-        <div class="card">
-            <h3>Email</h3>
-            <p><a href="mailto:calderlovelace@gmail.com">calderlovelace@gmail.com</a></p>
-        </div>
-        <div class="card">
-            <h3>GitHub</h3>
-            <p><a href="https://github.com/Da-Coder-Jr" target="_blank">Da-Coder-Jr</a></p>
-        </div>
-        <div class="card">
-            <h3>Twitter</h3>
-            <p><a href="https://twitter.com/YourTwitterHandle" target="_blank">@YourTwitterHandle</a></p>
+            <h3>🎨 HTML & CSS</h3>
+            <p>Creating responsive and beautiful designs.</p>
         </div>
     </section>
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2024 Da-Coder-Jr. All rights reserved.</p>
+        <p>&copy; 2024 Da-Coder-Jr. All rights reserved. | <a href="#hero">Back to Top</a></p>
     </footer>
 </body>
 
