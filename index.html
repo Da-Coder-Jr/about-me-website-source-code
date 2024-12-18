@@ -1,13 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <!-- 
-    MASSIVE COMMENTS START
-    We will add many lines of comments to increase file size.
-    The original content remains unchanged.
-    No new text or extra features, just comments.
-    -->
 
+<head>
     <!-- Meta Tags for SEO and Responsiveness -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,14 +16,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
     <style>
-        /* 
-        MASSIVE CSS COMMENT BLOCKS
-        We'll just repeat comments to increase lines.
-        The actual CSS from the original code remains the same.
-        No new styling features, just comments.
-        */
-
-        /* General Styling */
         html {
             scroll-behavior: smooth;
         }
@@ -42,12 +28,20 @@
             margin: 0;
             padding: 0;
             overflow-x: hidden;
+            transition: background 0.5s ease, color 0.5s ease;
+        }
+
+        /* Light theme toggle */
+        body.light-theme {
+            background: linear-gradient(135deg, #fdeff9 0%, #dfe9f3 100%);
+            color: #2c2c2c;
         }
 
         /* Navbar */
         .navbar {
             display: flex;
             justify-content: center;
+            align-items: center;
             padding: 15px 0;
             background-color: rgba(0, 0, 0, 0.85);
             position: fixed;
@@ -55,6 +49,11 @@
             width: 100%;
             z-index: 1000;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            transition: background 0.5s ease;
+        }
+
+        body.light-theme .navbar {
+            background: rgba(255,255,255,0.85);
         }
 
         .navbar a {
@@ -64,12 +63,27 @@
             font-size: 1.2rem;
             transition: all 0.3s ease;
             padding: 10px;
+            position: relative;
         }
 
         .navbar a:hover {
             color: #ff6b6b;
             background-color: rgba(255, 255, 255, 0.1);
             border-radius: 10px;
+        }
+
+        /* Theme toggle icon in navbar */
+        .theme-toggle-icon {
+            cursor: pointer;
+            font-size: 1.4rem;
+            margin-left: 20px;
+            color: #61dafb;
+            transition: transform 0.3s ease;
+        }
+
+        .theme-toggle-icon:hover {
+            transform: rotate(360deg);
+            color: #ff6b6b;
         }
 
         @media screen and (max-width: 768px) {
@@ -82,16 +96,23 @@
         }
 
         /* Hero Section */
+        .typewriter {
+            text-align: center;
+            margin-top: 120px;
+            position: relative;
+            overflow: hidden;
+        }
+
         .typewriter h1 {
             font-family: 'Orbitron', sans-serif;
             font-size: 4rem;
             color: #61dafb;
-            text-align: center;
             overflow: hidden;
             border-right: .15em solid #61dafb;
             white-space: nowrap;
             margin: 100px auto 0;
             animation: typing 3s steps(40, end), blink-caret .75s step-end infinite;
+            text-shadow: 0 0 10px #61dafb, 0 0 20px #ff6b6b;
         }
 
         @keyframes typing {
@@ -104,7 +125,26 @@
             50% { border-color: #61dafb; }
         }
 
-        /* Sections */
+        /* Mouse move parallax effect elements */
+        .parallax-lights {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 2000px;
+            height: 2000px;
+            pointer-events: none;
+            background: radial-gradient(circle at center, rgba(255,255,255,0.2), transparent 50%);
+            transform: translate(-50%, -50%);
+            opacity: 0.2;
+            animation: glowPulse 5s infinite alternate;
+        }
+
+        @keyframes glowPulse {
+            0% { opacity: 0.1; }
+            100% { opacity: 0.3; }
+        }
+
+        /* Section */
         .section {
             padding: 60px 30px;
             text-align: center;
@@ -113,6 +153,19 @@
             background: rgba(0, 0, 0, 0.75);
             border-radius: 15px;
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 1s ease;
+        }
+
+        body.light-theme .section {
+            background: rgba(255,255,255,0.8);
+            color: #2c2c2c;
+        }
+
+        .section.show {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .section:hover {
@@ -135,11 +188,23 @@
             border-radius: 10px;
             max-width: 100%;
             box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .about-img:hover {
+            transform: scale(1.05);
         }
 
         /* Skills Badges */
         .badges img {
             margin: 10px;
+            transition: transform 0.3s ease, filter 0.3s ease;
+            filter: drop-shadow(0 0 5px #61dafb);
+        }
+
+        .badges img:hover {
+            transform: scale(1.1);
+            filter: drop-shadow(0 0 15px #ff6b6b);
         }
 
         /* Projects Section */
@@ -157,7 +222,11 @@
             padding: 20px;
             max-width: 300px;
             text-align: center;
-            transition: transform 0.3s ease-in-out;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease;
+        }
+
+        body.light-theme .project-card {
+            background: rgba(0,0,0,0.1);
         }
 
         .project-card:hover {
@@ -176,6 +245,9 @@
             cursor: pointer;
             box-shadow: 0 0 20px #ff6b6b;
             transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 15px;
         }
 
         .neon-button:hover {
@@ -193,6 +265,11 @@
             font-size: 1rem;
         }
 
+        body.light-theme .footer {
+            background-color: rgba(255,255,255,0.8);
+            color: #2c2c2c;
+        }
+
         .footer a {
             color: #61dafb;
             text-decoration: none;
@@ -203,82 +280,30 @@
             color: #ff6b6b;
         }
 
-        /* END OF ORIGINAL CSS - Now just add a lot of comments to make file big */
+        /* Scroll to Top Button */
+        #scrollTopBtn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #ff6b6b;
+            border: none;
+            border-radius: 50%;
+            padding: 15px;
+            cursor: pointer;
+            display: none;
+            z-index: 9999;
+            box-shadow: 0 0 15px #ff6b6b;
+            color: #fff;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
 
-        /*
-        Massive filler comments...
-
-        Repeat many lines of comments to increase file size without adding content:
-        */
-
-        /* LINE FILLER COMMENT START */
-        /* ................................................................ */
-        /* ................................................................ */
-        /* Repeat as many times as needed */
-        /* ................................................................ */
-        /* ................................................................ */
-        /* ................................................................ */
-        /* Keep going to increase line count */
-        /* ................................................................ */
-        /* ................................................................ */
-        /* ................................................................ */
-        /* ................................................................ */
-        /* ................................................................ */
-        /* ................................................................ */
-        /* ................................................................ */
-        /* ................................................................ */
-        /* ................................................................ */
-        /* ................................................................ */
-        /* ................................................................ */
-        /* ................................................................ */
-        /* Add as many as required... */
-        /* The user wants big code without extra text/features displayed on page */
-        /* ................................................................ */
-        /* ................................................................ */
-        /* ................................................................ */
-        /* Just comments, no visible changes */
-        /* ................................................................ */
-        /* ................................................................ */
-        /* ................................................................ */
-        /* ................................................................ */
-        /* ................................................................ */
-        /* ................................................................ */
-        /* ................................................................ */
-        /* ................................................................ */
-        /* Keep adding comments... */
-        /* ................................................................ */
-        /* ................................................................ */
-        /* ................................................................ */
-        /* This is purely to make the code "big" */
-        /* ................................................................ */
-        /* ................................................................ */
-        /* Endlessly repeating comment lines */
-        /* ................................................................ */
-        /* ................................................................ */
-        /* ................................................................ */
-        /* We'll trust this is sufficient to show the approach */
-        /* ................................................................ */
-        /* Add many more lines as needed */
-        /* ................................................................ */
-        /* ................................................................ */
-        /* Done adding repetitive comments here */
-        /* ................................................................ */
-
+        #scrollTopBtn:hover {
+            box-shadow: 0 0 20px #61dafb;
+            transform: scale(1.1);
+        }
     </style>
-    <!-- 
-    More HTML comments for length 
-    -->
-    <!-- .................................................................... -->
-    <!-- Just comments, no new elements or text visible on page -->
-    <!-- .................................................................... -->
-    <!-- Repeat as needed -->
-    <!-- .................................................................... -->
-    <!-- .................................................................... -->
-    <!-- .................................................................... -->
-    <!-- .................................................................... -->
-    <!-- Done with extra comments in head -->
-    <!-- .................................................................... -->
 </head>
+
 <body>
     <!-- Navbar -->
     <div class="navbar">
@@ -286,10 +311,12 @@
         <a href="#skills">Skills & Tools</a>
         <a href="#projects">Projects</a>
         <a href="#contact">Contact Me</a>
+        <i class="fas fa-adjust theme-toggle-icon" onclick="toggleTheme()" title="Toggle Theme"></i>
     </div>
 
-    <!-- Typewriter Section -->
+    <!-- Typewriter Section with interactive parallax lights -->
     <div class="typewriter">
+        <div class="parallax-lights" id="parallaxLights"></div>
         <h1>Da-Coder-Jr / CHILL-BEATS :D</h1>
     </div>
 
@@ -331,26 +358,64 @@
         </div>
     </div>
 
+    <!-- Contact Section -->
+    <div id="contact" class="section">
+        <h2>Contact Me</h2>
+        <div class="centered">
+            <!-- Original code had no form or extra text in contact, just leaving it as is -->
+            <p>Feel free to reach out!</p>
+        </div>
+    </div>
+
     <!-- Footer -->
     <footer class="footer">
         <p>&copy; 2024 Da-Coder-Jr. All rights reserved. | <a href="#about">About</a></p>
     </footer>
 
-    <!-- More comments after body content for length -->
-    <!-- .................................................................... -->
-    <!-- Just repeating comments -->
-    <!-- .................................................................... -->
-    <!-- No new visible content -->
-    <!-- .................................................................... -->
-    <!-- This is to make the code "big" -->
-    <!-- .................................................................... -->
-    <!-- Add as many lines as desired -->
-    <!-- .................................................................... -->
-    <!-- .................................................................... -->
-    <!-- .................................................................... -->
-    <!-- .................................................................... -->
-    <!-- .................................................................... -->
-    <!-- Done adding repetitive comments -->
-    <!-- .................................................................... -->
+    <!-- Scroll to Top Button -->
+    <button id="scrollTopBtn" title="Go to top"><i class="fas fa-arrow-up"></i></button>
+
+    <script>
+        // Reveal sections on scroll
+        window.addEventListener('scroll', function() {
+            let sections = document.querySelectorAll('.section');
+            sections.forEach(sec => {
+                let rect = sec.getBoundingClientRect();
+                if (rect.top < window.innerHeight - 100) {
+                    sec.classList.add('show');
+                }
+            });
+            showScrollTopBtn();
+        });
+
+        // Show scroll-to-top button
+        const scrollTopBtn = document.getElementById("scrollTopBtn");
+        function showScrollTopBtn() {
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                scrollTopBtn.style.display = "block";
+            } else {
+                scrollTopBtn.style.display = "none";
+            }
+        }
+
+        scrollTopBtn.onclick = function() {
+            document.body.scrollTop = 0; 
+            document.documentElement.scrollTop = 0; 
+        }
+
+        // Theme toggle
+        function toggleTheme() {
+            document.body.classList.toggle('light-theme');
+        }
+
+        // Mouse move parallax effect
+        const parallaxLights = document.getElementById('parallaxLights');
+        document.addEventListener('mousemove', (e) => {
+            // Move background based on mouse
+            let x = (e.clientX / window.innerWidth) * 50;
+            let y = (e.clientY / window.innerHeight) * 50;
+            parallaxLights.style.transform = `translate(-50%, -50%) translate(${x}px, ${y}px)`;
+        });
+    </script>
 </body>
 </html>
