@@ -1,421 +1,443 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <!-- Meta Tags for SEO and Responsiveness -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Da-Coder-Jr | CHILL-BEATS</title>
-    <meta name="description" content="Da-Coder-Jr's personal website. Passionate coder, tech enthusiast, and lifelong learner.">
-    <meta name="keywords" content="Da-Coder-Jr, CHILL-BEATS, coding, programming, developer, portfolio">
-
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-
-    <!-- Font Awesome for Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
-    <style>
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Poppins', sans-serif;
-            background: url('ANIMATED-CITY.gif') no-repeat center center fixed;
-            background-size: cover;
-            color: #e2e8f0;
-            margin: 0;
-            padding: 0;
-            overflow-x: hidden;
-            transition: background 0.5s ease, color 0.5s ease;
-        }
-
-        /* Light theme toggle */
-        body.light-theme {
-            background: linear-gradient(135deg, #fdeff9 0%, #dfe9f3 100%);
-            color: #2c2c2c;
-        }
-
-        /* Navbar */
-        .navbar {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 15px 0;
-            background-color: rgba(0, 0, 0, 0.85);
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-            transition: background 0.5s ease;
-        }
-
-        body.light-theme .navbar {
-            background: rgba(255,255,255,0.85);
-        }
-
-        .navbar a {
-            color: #61dafb;
-            text-decoration: none;
-            margin: 0 20px;
-            font-size: 1.2rem;
-            transition: all 0.3s ease;
-            padding: 10px;
-            position: relative;
-        }
-
-        .navbar a:hover {
-            color: #ff6b6b;
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-        }
-
-        /* Theme toggle icon in navbar */
-        .theme-toggle-icon {
-            cursor: pointer;
-            font-size: 1.4rem;
-            margin-left: 20px;
-            color: #61dafb;
-            transition: transform 0.3s ease;
-        }
-
-        .theme-toggle-icon:hover {
-            transform: rotate(360deg);
-            color: #ff6b6b;
-        }
-
-        @media screen and (max-width: 768px) {
-            .navbar {
-                flex-direction: column;
-            }
-            .navbar a {
-                margin: 10px 0;
-            }
-        }
-
-        /* Hero Section */
-        .typewriter {
-            text-align: center;
-            margin-top: 120px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .typewriter h1 {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 4rem;
-            color: #61dafb;
-            overflow: hidden;
-            border-right: .15em solid #61dafb;
-            white-space: nowrap;
-            margin: 100px auto 0;
-            animation: typing 3s steps(40, end), blink-caret .75s step-end infinite;
-            text-shadow: 0 0 10px #61dafb, 0 0 20px #ff6b6b;
-        }
-
-        @keyframes typing {
-            from { width: 0; }
-            to { width: 100%; }
-        }
-
-        @keyframes blink-caret {
-            from, to { border-color: transparent; }
-            50% { border-color: #61dafb; }
-        }
-
-        /* Mouse move parallax effect elements */
-        .parallax-lights {
-            position: absolute;
-            top: 0;
-            left: 50%;
-            width: 2000px;
-            height: 2000px;
-            pointer-events: none;
-            background: radial-gradient(circle at center, rgba(255,255,255,0.2), transparent 50%);
-            transform: translate(-50%, -50%);
-            opacity: 0.2;
-            animation: glowPulse 5s infinite alternate;
-        }
-
-        @keyframes glowPulse {
-            0% { opacity: 0.1; }
-            100% { opacity: 0.3; }
-        }
-
-        /* Section */
-        .section {
-            padding: 60px 30px;
-            text-align: center;
-            max-width: 1000px;
-            margin: 80px auto;
-            background: rgba(0, 0, 0, 0.75);
-            border-radius: 15px;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
-            opacity: 0;
-            transform: translateY(50px);
-            transition: all 1s ease;
-        }
-
-        body.light-theme .section {
-            background: rgba(255,255,255,0.8);
-            color: #2c2c2c;
-        }
-
-        .section.show {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .section:hover {
-            transform: scale(1.02);
-            transition: 0.3s ease-in-out;
-        }
-
-        .section h2 {
-            font-size: 2.5rem;
-            color: #61dafb;
-            text-shadow: 0 0 10px #61dafb, 0 0 20px #ff6b6b;
-            margin-bottom: 20px;
-        }
-
-        .centered {
-            text-align: center;
-        }
-
-        .about-img {
-            border-radius: 10px;
-            max-width: 100%;
-            box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
-            transition: transform 0.3s ease;
-        }
-
-        .about-img:hover {
-            transform: scale(1.05);
-        }
-
-        /* Skills Badges */
-        .badges img {
-            margin: 10px;
-            transition: transform 0.3s ease, filter 0.3s ease;
-            filter: drop-shadow(0 0 5px #61dafb);
-        }
-
-        .badges img:hover {
-            transform: scale(1.1);
-            filter: drop-shadow(0 0 15px #ff6b6b);
-        }
-
-        /* Projects Section */
-        .projects-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-        }
-
-        .project-card {
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 15px;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
-            padding: 20px;
-            max-width: 300px;
-            text-align: center;
-            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease;
-        }
-
-        body.light-theme .project-card {
-            background: rgba(0,0,0,0.1);
-        }
-
-        .project-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 8px 20px #ff6b6b;
-        }
-
-        /* Contact Button */
-        .neon-button {
-            font-size: 1.5rem;
-            padding: 15px 30px;
-            background-color: #ff6b6b;
-            border-radius: 50px;
-            border: none;
-            color: white;
-            cursor: pointer;
-            box-shadow: 0 0 20px #ff6b6b;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
-            margin-top: 15px;
-        }
-
-        .neon-button:hover {
-            box-shadow: 0 0 30px #61dafb;
-            transform: scale(1.1);
-            background-color: #61dafb;
-        }
-
-        /* Footer */
-        .footer {
-            background-color: rgba(0, 0, 0, 0.8);
-            padding: 20px 0;
-            text-align: center;
-            color: #e2e8f0;
-            font-size: 1rem;
-        }
-
-        body.light-theme .footer {
-            background-color: rgba(255,255,255,0.8);
-            color: #2c2c2c;
-        }
-
-        .footer a {
-            color: #61dafb;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .footer a:hover {
-            color: #ff6b6b;
-        }
-
-        /* Scroll to Top Button */
-        #scrollTopBtn {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background: #ff6b6b;
-            border: none;
-            border-radius: 50%;
-            padding: 15px;
-            cursor: pointer;
-            display: none;
-            z-index: 9999;
-            box-shadow: 0 0 15px #ff6b6b;
-            color: #fff;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        #scrollTopBtn:hover {
-            box-shadow: 0 0 20px #61dafb;
-            transform: scale(1.1);
-        }
-    </style>
+  <!-- Meta Tags for SEO and Responsiveness -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Da-Coder-Jr | CHILL-BEATS</title>
+  <meta name="description" content="Da-Coder-Jr's personal website. Passionate coder, tech enthusiast, and lifelong learner.">
+  <meta name="keywords" content="Da-Coder-Jr, CHILL-BEATS, coding, programming, developer, portfolio">
+  
+  <!-- Preconnect for improved font loading -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  
+  <style>
+    /* CSS Variables for easy theme management */
+    :root {
+      --primary-color: #61dafb;
+      --secondary-color: #ff6b6b;
+      --bg-dark: url('ANIMATED-CITY.gif');
+      --bg-light: linear-gradient(135deg, #fdeff9 0%, #dfe9f3 100%);
+      --text-dark: #e2e8f0;
+      --text-light: #2c2c2c;
+      --bg-navbar-dark: rgba(0, 0, 0, 0.85);
+      --bg-navbar-light: rgba(255, 255, 255, 0.85);
+    }
+    
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--bg-dark) no-repeat center center fixed;
+      background-size: cover;
+      color: var(--text-dark);
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+      transition: background 0.5s ease, color 0.5s ease;
+    }
+    
+    /* Light theme styles */
+    body.light-theme {
+      background: var(--bg-light);
+      color: var(--text-light);
+    }
+    
+    /* Header & Navbar */
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+      transition: background 0.5s ease;
+    }
+    
+    .navbar {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 15px 0;
+      background-color: var(--bg-navbar-dark);
+    }
+    
+    body.light-theme .navbar {
+      background: var(--bg-navbar-light);
+    }
+    
+    .navbar a {
+      color: var(--primary-color);
+      text-decoration: none;
+      margin: 0 20px;
+      font-size: 1.2rem;
+      transition: all 0.3s ease;
+      padding: 10px;
+      position: relative;
+    }
+    
+    .navbar a:hover {
+      color: var(--secondary-color);
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+    }
+    
+    .theme-toggle-icon {
+      cursor: pointer;
+      font-size: 1.4rem;
+      margin-left: 20px;
+      color: var(--primary-color);
+      transition: transform 0.3s ease;
+    }
+    
+    .theme-toggle-icon:hover {
+      transform: rotate(360deg);
+      color: var(--secondary-color);
+    }
+    
+    @media screen and (max-width: 768px) {
+      .navbar {
+        flex-direction: column;
+      }
+      .navbar a {
+        margin: 10px 0;
+      }
+    }
+    
+    /* Hero Section */
+    .hero {
+      margin-top: 120px;
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+    }
+    
+    .hero h1 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 4rem;
+      color: var(--primary-color);
+      overflow: hidden;
+      border-right: .15em solid var(--primary-color);
+      white-space: nowrap;
+      margin: 100px auto 0;
+      animation: typing 3s steps(40, end), blink-caret .75s step-end infinite;
+      text-shadow: 0 0 10px var(--primary-color), 0 0 20px var(--secondary-color);
+    }
+    
+    @keyframes typing {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+    
+    @keyframes blink-caret {
+      from, to { border-color: transparent; }
+      50% { border-color: var(--primary-color); }
+    }
+    
+    .parallax-lights {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: 2000px;
+      height: 2000px;
+      pointer-events: none;
+      background: radial-gradient(circle at center, rgba(255,255,255,0.2), transparent 50%);
+      transform: translate(-50%, -50%);
+      opacity: 0.2;
+      animation: glowPulse 5s infinite alternate;
+    }
+    
+    @keyframes glowPulse {
+      0% { opacity: 0.1; }
+      100% { opacity: 0.3; }
+    }
+    
+    /* Main Content Sections */
+    main {
+      margin-top: 80px; /* Space for fixed navbar */
+    }
+    
+    .section {
+      padding: 60px 30px;
+      text-align: center;
+      max-width: 1000px;
+      margin: 80px auto;
+      background: rgba(0, 0, 0, 0.75);
+      border-radius: 15px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 1s ease;
+    }
+    
+    body.light-theme .section {
+      background: rgba(255,255,255,0.8);
+      color: var(--text-light);
+    }
+    
+    .section.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    .section:hover {
+      transform: scale(1.02);
+      transition: 0.3s ease-in-out;
+    }
+    
+    .section h2 {
+      font-size: 2.5rem;
+      color: var(--primary-color);
+      text-shadow: 0 0 10px var(--primary-color), 0 0 20px var(--secondary-color);
+      margin-bottom: 20px;
+    }
+    
+    .centered {
+      text-align: center;
+    }
+    
+    .about-img {
+      border-radius: 10px;
+      max-width: 100%;
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+      transition: transform 0.3s ease;
+    }
+    
+    .about-img:hover {
+      transform: scale(1.05);
+    }
+    
+    /* Skills Badges */
+    .badges img {
+      margin: 10px;
+      transition: transform 0.3s ease, filter 0.3s ease;
+      filter: drop-shadow(0 0 5px var(--primary-color));
+    }
+    
+    .badges img:hover {
+      transform: scale(1.1);
+      filter: drop-shadow(0 0 15px var(--secondary-color));
+    }
+    
+    /* Projects Section */
+    .projects-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+    
+    .project-card {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 15px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+      padding: 20px;
+      max-width: 300px;
+      text-align: center;
+      transition: transform 0.3s ease-in-out, box-shadow 0.3s ease;
+    }
+    
+    body.light-theme .project-card {
+      background: rgba(0,0,0,0.1);
+    }
+    
+    .project-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 8px 20px var(--secondary-color);
+    }
+    
+    /* Neon Button */
+    .neon-button {
+      font-size: 1.5rem;
+      padding: 15px 30px;
+      background-color: var(--secondary-color);
+      border-radius: 50px;
+      border: none;
+      color: white;
+      cursor: pointer;
+      box-shadow: 0 0 20px var(--secondary-color);
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+      margin-top: 15px;
+    }
+    
+    .neon-button:hover {
+      box-shadow: 0 0 30px var(--primary-color);
+      transform: scale(1.1);
+      background-color: var(--primary-color);
+    }
+    
+    /* Footer */
+    footer {
+      background-color: rgba(0, 0, 0, 0.8);
+      padding: 20px 0;
+      text-align: center;
+      color: var(--text-dark);
+      font-size: 1rem;
+      transition: background 0.5s ease;
+    }
+    
+    body.light-theme footer {
+      background-color: rgba(255,255,255,0.8);
+      color: var(--text-light);
+    }
+    
+    footer a {
+      color: var(--primary-color);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    
+    footer a:hover {
+      color: var(--secondary-color);
+    }
+    
+    /* Scroll-to-Top Button */
+    #scrollTopBtn {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: var(--secondary-color);
+      border: none;
+      border-radius: 50%;
+      padding: 15px;
+      cursor: pointer;
+      display: none;
+      z-index: 9999;
+      box-shadow: 0 0 15px var(--secondary-color);
+      color: #fff;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    #scrollTopBtn:hover {
+      box-shadow: 0 0 20px var(--primary-color);
+      transform: scale(1.1);
+    }
+  </style>
 </head>
-
 <body>
-    <!-- Navbar -->
-    <div class="navbar">
-        <a href="#about">About Me</a>
-        <a href="#skills">Skills & Tools</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact Me</a>
-        <i class="fas fa-adjust theme-toggle-icon" onclick="toggleTheme()" title="Toggle Theme"></i>
-    </div>
-
-    <!-- Typewriter Section with interactive parallax lights -->
-    <div class="typewriter">
-        <div class="parallax-lights" id="parallaxLights"></div>
-        <h1>Da-Coder-Jr / CHILL-BEATS :D</h1>
-    </div>
-
+  <!-- Header with Navbar -->
+  <header>
+    <nav class="navbar">
+      <a href="#about">About Me</a>
+      <a href="#skills">Skills & Tools</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact Me</a>
+      <i class="fas fa-adjust theme-toggle-icon" onclick="toggleTheme()" title="Toggle Theme"></i>
+    </nav>
+  </header>
+  
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="parallax-lights" id="parallaxLights"></div>
+    <h1>Da-Coder-Jr / CHILL-BEATS :D</h1>
+  </section>
+  
+  <!-- Main Content -->
+  <main>
     <!-- About Me Section -->
-    <div id="about" class="section">
-        <h2>About Me</h2>
-        <div class="centered">
-            <h1><strong>❤️ @Da-Coder-Jr / @CHILL-BEATS :D ❤️</strong></h1>
-            <p>Passionate coder | Tech enthusiast | Lifelong learner</p>
-            <img src="https://media.giphy.com/media/ylG1RO6n12kSnydyPG/giphy.gif" alt="Coding GIF" class="about-img" />
-        </div>
-    </div>
-
+    <section id="about" class="section">
+      <h2>About Me</h2>
+      <div class="centered">
+        <h1><strong>❤️ @Da-Coder-Jr / @CHILL-BEATS :D ❤️</strong></h1>
+        <p>Passionate coder | Tech enthusiast | Lifelong learner</p>
+        <img src="https://media.giphy.com/media/ylG1RO6n12kSnydyPG/giphy.gif" alt="Coding GIF" class="about-img" />
+      </div>
+    </section>
+    
     <!-- Skills & Tools Section -->
-    <div id="skills" class="section">
-        <h2>Skills & Tools</h2>
-        <div class="centered badges">
-            <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python" />
-            <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript" />
-            <img src="https://img.shields.io/badge/HTML-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="HTML" />
-            <img src="https://img.shields.io/badge/CSS-1572B6?style=for-the-badge&logo=css3&logoColor=white" alt="CSS" />
-        </div>
-    </div>
-
+    <section id="skills" class="section">
+      <h2>Skills & Tools</h2>
+      <div class="centered badges">
+        <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python" />
+        <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript" />
+        <img src="https://img.shields.io/badge/HTML-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="HTML" />
+        <img src="https://img.shields.io/badge/CSS-1572B6?style=for-the-badge&logo=css3&logoColor=white" alt="CSS" />
+      </div>
+    </section>
+    
     <!-- Projects Section -->
-    <div id="projects" class="section">
-        <h2>Projects</h2>
-        <div class="projects-container">
-            <div class="project-card">
-                <h3>ASCCI Camera</h3>
-                <p>A fun project that converts your webcam feed into ASCII art in real-time.</p>
-                <a href="https://github.com/Da-Coder-Jr/ASCCI-CAMERA" target="_blank" class="neon-button">View Project</a>
-            </div>
-            <div class="project-card">
-                <h3>My Website</h3>
-                <p>The source code of my personal website showcasing my skills and projects.</p>
-                <a href="https://da-coder-jr.github.io/about-me-website-source-code/" target="_blank" class="neon-button">View Project</a>
-            </div>
+    <section id="projects" class="section">
+      <h2>Projects</h2>
+      <div class="projects-container">
+        <div class="project-card">
+          <h3>ASCCI Camera</h3>
+          <p>A fun project that converts your webcam feed into ASCII art in real-time.</p>
+          <a href="https://github.com/Da-Coder-Jr/ASCCI-CAMERA" target="_blank" class="neon-button">View Project</a>
         </div>
-    </div>
-
-    <!-- Contact Section -->
-    <div id="contact" class="section">
-        <h2>Contact Me</h2>
-        <div class="centered">
-            <!-- Original code had no form or extra text in contact, just leaving it as is -->
-            <p>Feel free to reach out!</p>
+        <div class="project-card">
+          <h3>My Website</h3>
+          <p>The source code of my personal website showcasing my skills and projects.</p>
+          <a href="https://da-coder-jr.github.io/about-me-website-source-code/" target="_blank" class="neon-button">View Project</a>
         </div>
-    </div>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <p>&copy; 2024 Da-Coder-Jr. All rights reserved. | <a href="#about">About</a></p>
-    </footer>
-
-    <!-- Scroll to Top Button -->
-    <button id="scrollTopBtn" title="Go to top"><i class="fas fa-arrow-up"></i></button>
-
-    <script>
-        // Reveal sections on scroll
-        window.addEventListener('scroll', function() {
-            let sections = document.querySelectorAll('.section');
-            sections.forEach(sec => {
-                let rect = sec.getBoundingClientRect();
-                if (rect.top < window.innerHeight - 100) {
-                    sec.classList.add('show');
-                }
-            });
-            showScrollTopBtn();
-        });
-
-        // Show scroll-to-top button
-        const scrollTopBtn = document.getElementById("scrollTopBtn");
-        function showScrollTopBtn() {
-            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
-                scrollTopBtn.style.display = "block";
-            } else {
-                scrollTopBtn.style.display = "none";
-            }
+      </div>
+    </section>
+    
+    <!-- Contact Me Section -->
+    <section id="contact" class="section">
+      <h2>Contact Me</h2>
+      <div class="centered">
+        <p>Feel free to reach out!</p>
+      </div>
+    </section>
+  </main>
+  
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2024 Da-Coder-Jr. All rights reserved. | <a href="#about">About</a></p>
+  </footer>
+  
+  <!-- Scroll-to-Top Button -->
+  <button id="scrollTopBtn" title="Go to top"><i class="fas fa-arrow-up"></i></button>
+  
+  <script defer>
+    // Reveal sections on scroll
+    window.addEventListener('scroll', function() {
+      let sections = document.querySelectorAll('.section');
+      sections.forEach(sec => {
+        let rect = sec.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 100) {
+          sec.classList.add('show');
         }
-
-        scrollTopBtn.onclick = function() {
-            document.body.scrollTop = 0; 
-            document.documentElement.scrollTop = 0; 
-        }
-
-        // Theme toggle
-        function toggleTheme() {
-            document.body.classList.toggle('light-theme');
-        }
-
-        // Mouse move parallax effect
-        const parallaxLights = document.getElementById('parallaxLights');
-        document.addEventListener('mousemove', (e) => {
-            // Move background based on mouse
-            let x = (e.clientX / window.innerWidth) * 50;
-            let y = (e.clientY / window.innerHeight) * 50;
-            parallaxLights.style.transform = `translate(-50%, -50%) translate(${x}px, ${y}px)`;
-        });
-    </script>
+      });
+      showScrollTopBtn();
+    });
+    
+    // Show scroll-to-top button
+    const scrollTopBtn = document.getElementById("scrollTopBtn");
+    function showScrollTopBtn() {
+      if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+        scrollTopBtn.style.display = "block";
+      } else {
+        scrollTopBtn.style.display = "none";
+      }
+    }
+    
+    scrollTopBtn.onclick = function() {
+      document.body.scrollTop = 0; 
+      document.documentElement.scrollTop = 0; 
+    }
+    
+    // Theme toggle functionality
+    function toggleTheme() {
+      document.body.classList.toggle('light-theme');
+    }
+    
+    // Mouse move parallax effect for the lights
+    const parallaxLights = document.getElementById('parallaxLights');
+    document.addEventListener('mousemove', (e) => {
+      let x = (e.clientX / window.innerWidth) * 50;
+      let y = (e.clientY / window.innerHeight) * 50;
+      parallaxLights.style.transform = `translate(-50%, -50%) translate(${x}px, ${y}px)`;
+    });
+  </script>
 </body>
 </html>
